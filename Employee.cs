@@ -9,6 +9,6 @@ namespace CS3560_02_3
         int employeeNumber;
         string jobTitle;
 
-        public void searchTimesheet(int accID) { }
+        public void searchTimesheet() { }
     }
 }
