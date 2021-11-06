@@ -1,0 +1,8 @@
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Login.resources
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPage.resources
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
