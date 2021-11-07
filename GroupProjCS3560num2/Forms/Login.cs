@@ -16,7 +16,7 @@ namespace GroupProjCS3560num2.Forms
         public Login()
         {
             InitializeComponent();
-            TimeLog log = DatabaseHelper.VerifyTimeLog(2);
+            TimeLog log = DatabaseHelper.VerifyTimeLog(1);
             textBox1.Text = log.getLogID().ToString();
         }
 

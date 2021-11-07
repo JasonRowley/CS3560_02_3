@@ -62,11 +62,7 @@ namespace GroupProjCS3560num2.Database
                     MySqlConnector.MySqlDataReader myReader = cmd.ExecuteReader();
                     try
                     {
-                        // Loop through each queried row
-                        while (myReader.Read())
-                        {
-                            toReturn = setter(myReader);
-                        }
+                           toReturn = setter(myReader);
                     }
                     finally
                     {
@@ -98,6 +94,7 @@ namespace GroupProjCS3560num2.Database
             string str = string.Format("select * from TimeLog where logID in (select MAX(logID) from TimeLog group by employeeID) and employeeID = {0};", employeeID);
             return ConnectMySql<TimeLog>(str, (myReader) =>
             {
+                myReader.Read();
                 return myReader.IsDBNull(3) ? null : new TimeLog(
                                 myReader.GetInt32("logID"), 
                                 myReader.GetInt32("employeeID"), 
