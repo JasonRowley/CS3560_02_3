@@ -32,19 +32,50 @@ namespace GroupProjCS3560num2.Database
          */
         static string server = "localhost";
         static string userId = "root";
-        static string pw = "password1";
+        static string pw1 = "password1";
         static string schema = "employee_schema";
 
-        static void ConnectMySql(string insert_Sql_cmd)      // <--- make sure to provide correct cmd string when calling this function
+        static void ConnectMySql(string insert_Sql_cmd)
         {
-            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw + "; database = " + schema;  //<---- make sure password and schema is correct
-            using var sqlCon = new MySqlConnector.MySqlConnection(con);
-            sqlCon.Open();
-            using var cmd = new MySqlConnector.MySqlCommand();
-            cmd.Connection = sqlCon;
-            cmd.CommandText = insert_Sql_cmd;
-            cmd.ExecuteNonQuery();
-            sqlCon.Close();
+            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw1 + "; database = " + schema;
+            using (var sqlCon = new MySqlConnector.MySqlConnection(con))
+            {
+                using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
+                {
+                    sqlCon.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                }
+            }
+        }
+
+        static T ConnectMySql<T>(string insert_Sql_cmd, Func<MySqlConnector.MySqlDataReader, T> setter)
+        {
+            T toReturn = default(T);
+            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw1 + "; database = " + schema;
+            using (var sqlCon = new MySqlConnector.MySqlConnection(con))
+            {
+                using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
+                {
+                    sqlCon.Open();
+                   
+                    MySqlConnector.MySqlDataReader myReader = cmd.ExecuteReader();
+                    try
+                    {
+                        // Loop through each queried row
+                        while (myReader.Read())
+                        {
+                            toReturn = setter(myReader);
+                        }
+                    }
+                    finally
+                    {
+                        myReader.Close();
+                        sqlCon.Close();
+                    }
+                }
+            }
+            return toReturn;
         }
 
 
@@ -64,13 +95,15 @@ namespace GroupProjCS3560num2.Database
         }
         public static TimeLog VerifyTimeLog(int employeeID)
         {
-            TimeLog tempTimeLog = new TimeLog();
-            Employee tempEmployee = new Employee();
-
-            tempEmployee = SelectEmployee(employeeID);
-            tempTimeLog = SelectTimeLog()
-            return null;
-                       
+            string str = string.Format("select * from TimeLog where logID in (select MAX(logID) from TimeLog group by employeeID) and employeeID = {0};", employeeID);
+            return ConnectMySql<TimeLog>(str, (myReader) =>
+            {
+                return myReader.IsDBNull(3) ? null : new TimeLog(
+                                myReader.GetInt32("logID"), 
+                                myReader.GetInt32("employeeID"), 
+                                myReader.GetDateTime("checkIn"), 
+                                myReader.GetDateTime("checkOut"));
+            });
         }
 
 
