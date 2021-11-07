@@ -1,86 +1,79 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace GroupProjCS3560num2.Classes
 {
     class Employee
     {
-        int employeeID;
-        int jobID;
-        string password;
-        string empName;
-        string physicalAddress;
-        string emailAddress;
-        int phoneNumber;
-        DateTime dateOfBirth;
-        string bankAccNumber;
-        string sSN;
-        double adjustment;
 
-        public Employee() { }  
+        private int employeeID;
+        private int jobID;
+        private string pw;
+        private string empName;
+        private string physicalAddress;
+        private string emailAddress;
+        private int phoneNumber;
+        private string dateOfBirth;
+        private string bankAccNumber;
+        private string sSN;
+        private double adjustment;
 
-        public Employee(
-        int employeeID,
-        int jobID,
-        int phoneNumber,
-        double adjustment,
-        DateTime dateOfBirth,
-        String empName,
-        String physicalAddress,
-        String email,
-        String bankAccNum,
-        String sSN,
-        String password )
+
+
+        public Employee(int insertEmployeeID)
         {
-            this.employeeID = employeeID;  // <--- automatically generated
-            this.jobID = jobID; 
-            this.phoneNumber = phoneNumber;
-            this.adjustment = adjustment;
-            this.dateOfBirth = dateOfBirth;
-            this.empName = empName;
-            this.physicalAddress = physicalAddress;
-            this.emailAddress = email;
-            this.bankAccNumber = bankAccNum;
-            this.sSN = sSN;
-            this.password = password;
-
-
-            // insert Employee( pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value("stringPw", "sringName", "stringAddress", "stringAddress", "int-phoneNumber", "String-sSN", "double-adjustment");
-                                                                                                                                                                                                                                                                                                    /// if error, check DOB (might need to use string instead )
-
-            string cmd = string.Format("insert Employee(jobID,  pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", jobID, password, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment);
-
-
-
-            DatabaseHerlp testy = new DatabaseHerlp();
-
-            test.connectMySQL(cmd);
-
-
-
-            
+            getEmployeeInformation(insertEmployeeID);
         }
 
-        public Employee(int employeeID)
+
+
+
+
+        private void getEmployeeInformation(int insertEmployeeID)
         {
-            this.employeeID = employeeID;
+     
+            string conn = "server=localhost; userid=root; password=  " + pw1 + "; database = employee_schema";    //<---- ask to make a class to replace this line for security
+            using (var con = new MySqlConnection(conn))
+            {
+                string str = string.Format("select * from Employee where employeeID = " + insertEmployeeID);
+                using (var cmd = new MySqlCommand(str, con))
+                {
+                    con.Open();
+
+                    MySqlDataReader myReader = cmd.ExecuteReader();
+                    try
+                    {
+                        // Always call Read before accessing data.
+                        while (myReader.Read())
+                        {
+                            this.jobID = myReader.GetInt32("jobID");
+                            this.pw = myReader.GetString("pw");
+                            this.empName = myReader.GetString("empName");
+                            this.physicalAddress = myReader.GetString("physicalAddress");
+                            this.emailAddress = myReader.GetString("emailAddress");
+                            this.phoneNumber = myReader.GetInt32("phoneNumber");
+                            //this.dateOfBirth = myReader.GetString("dateOfBirth");    <--- adjust later            
+                            this.bankAccNumber = myReader.GetString("bankAccNumber");
+                            this.sSN = myReader.GetString("sSN");
+                            this.adjustment = myReader.GetDouble("adjustment");
+                        }
+                    }
+                    finally
+                    {
+                        // always call Close when done reading.
+                        myReader.Close();
+
+                        // Close the connection when done with it.
+                        con.Close();
+                    }
+                }
+            }
         }
 
-        // int jobID;
-        // string password;
-        // string empName;
-        // string physicalAddress;
-        // string emailAddress;
-        // int phoneNumber;
-        // DateTime dateOfBirth;
-        // string backAccNumber;
-        // string sSN;
-        // double adjustmnet)  
-
-
-
-
+        //public getters
         public int getEmployeeID()
         {
             return employeeID;
@@ -93,9 +86,7 @@ namespace GroupProjCS3560num2.Classes
 
         public string getPassword()
         {
-
-        
-            return password;
+            return pw;
         }
 
         public string getEmpName()
@@ -117,7 +108,7 @@ namespace GroupProjCS3560num2.Classes
             return phoneNumber;
         }
 
-        public string getDateOfBirth() // public DateTime getDateOfBirth()
+        public string getDateOfBirth()
         {
             return dateOfBirth;
         }
@@ -136,48 +127,83 @@ namespace GroupProjCS3560num2.Classes
             return adjustment;
         }
 
-        public double getTotalHours(DateTime from, DateTime to)
+
+
+
+        private void setFunctionHelper<T>(int employeeID, string tableAttribute, T insertChange)
         {
-            //
-            
+            //ConnectSql sqlConnection = new ConnectSql();
+            //string con = sqlConnection.open();
+
+            string con = "server=localhost; userid=root; password=  " + pw1 + "; database = employee_schema";
+            using var sqlCon = new MySqlConnection(con);
+            sqlCon.Open();
+            using var cmd = new MySqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = string.Format("update employee set " + tableAttribute + " = '{0}'  where employeeID = {1}", insertChange, employeeID);
+            cmd.ExecuteNonQuery();
+
+        }
+
+
+        //public setters
+        public void setEmployeeID(int employeeID, int newID)
+        {
+            setFunctionHelper(employeeID, "employeeID", newID);
+        }
+
+        public void setJobID(int employeeID, int newJobID)
+        {
+            setFunctionHelper(employeeID, "jobID", newJobID);
+        }
+
+        public void setPw(int employeeID, string newPW)
+        {
+            setFunctionHelper(employeeID, "pw", newPW);
+        }
+
+        public void setEmpName(int employeeID, string newName)
+        {
+            setFunctionHelper(employeeID, "empName", newName);
+        }
+
+        public void setPhysicalAddress(int employeeID, string newAddress)
+        {
+            setFunctionHelper(employeeID, "physicalAddress", newAddress);
+        }
+
+        public void setEmailAddress(int employeeID, string newEmail)
+        {
+            setFunctionHelper(employeeID, "emailAddress", newEmail);
+        }
+
+        public void setPhoneNumber(int employeeID, long newPhoneNumber)         // <======= phone may need to be set to long
+        {
+            setFunctionHelper(employeeID, "phoneNumber", newPhoneNumber);
+        }
+
+        public void setDateOfBirth(int employeeID, string newDateOFBirth)       // <==== adjust later 
+        {
+            setFunctionHelper(employeeID, "dateOfBirth", newDateOFBirth);
+        }
+
+        public void setBankAccNumber(int employeeID, string newBankNumber)
+        {
+            setFunctionHelper(employeeID, "bankAccNumber", newBankNumber);
+        }
+
+        public void setsSN(int employeeID, string newEmployeeID)
+        {
+            setFunctionHelper(employeeID, "sSN", newEmployeeID);
+        }
+
+        public void setAdjustment(int employeeID, double newAdjustment)
+        {
+            setFunctionHelper(employeeID, "adjustment", newAdjustment);
         }
 
 
     }
-
-
-
-
-
-
-
-
-
-        // MySql connection function
-        private void connectSql(string insertCmdLine)
-        {
-
-             string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
-            
-            double amt;
-            using (var con = new MySqlConnection(conn))
-            {
-
-                    string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
-
-                using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
-                {
-
-                    con.Open();
-                    //amt = (cast)cmd.ExecuteScalar();
-                    amt = (double)cmd.ExecuteScalar();
-                    //textBox1.Text = amt.ToString();
-                    con.Close();
-                }
-                
-            }
-        }
-
 
 
 
