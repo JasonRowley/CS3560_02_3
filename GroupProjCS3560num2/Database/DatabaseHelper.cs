@@ -30,17 +30,17 @@ namespace GroupProjCS3560num2.Database
             QueryOne
             
          */
-        private string server = "localhost";
-        private string userId = "root";
-        private string pw = "password1";
-        private string schema = "employee_schema";
+        static string server = "localhost";
+        static string userId = "root";
+        static string pw = "password1";
+        static string schema = "employee_schema";
 
         static void ConnectMySql(string insert_Sql_cmd)      // <--- make sure to provide correct cmd string when calling this function
         {
             string con = "server=" + server + "; userid=" + userId + "; password=  " + pw + "; database = " + schema;  //<---- make sure password and schema is correct
-            using var sqlCon = new MySqlConnection(con);
+            using var sqlCon = new MySqlConnector.MySqlConnection(con);
             sqlCon.Open();
-            using var cmd = new MySqlCommand();
+            using var cmd = new MySqlConnector.MySqlCommand();
             cmd.Connection = sqlCon;
             cmd.CommandText = insert_Sql_cmd;
             cmd.ExecuteNonQuery();
@@ -106,7 +106,7 @@ namespace GroupProjCS3560num2.Database
         static int InsertEmployee(Employee employee)
         {
 
-           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", jobID, password, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment);
+           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPassword(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmailAddress(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNumber(), employee.getSSN(), employee.getAdjustment());
            ConnectMySql(cmd1);
 
             return 0;
@@ -140,7 +140,7 @@ namespace GroupProjCS3560num2.Database
         }
         static int InsertJob(Job job)
         {
-            string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1:C2});", job.getJobTitle(), job.getPayrate());
+            string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1:C2});", job.getJobTitle(), job.getBasePayrate());
             ConnectMySql(cmd);
 
             return 0;
@@ -149,7 +149,7 @@ namespace GroupProjCS3560num2.Database
 
         static TimeLog[] SelectAllTimeLogs()
         {
-            string cmd = string.Format("select * from TimeLog where logId = {0};", logID);
+            string cmd = string.Format("select * from TimeLog;");
             ConnectMySql(cmd);
 
             return null;
@@ -209,7 +209,7 @@ namespace GroupProjCS3560num2.Database
         }
         static int InsertIssue(Issue issue)
         {
-            string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID, issue.getAdminID, issue.getIssueStr, issue.isSolved());
+            string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
             ConnectMySql(cmd);
 
             return 0;
