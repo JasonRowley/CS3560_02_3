@@ -42,13 +42,30 @@ namespace GroupProjCS3560num2.Classes
             return checkOut;
         }
 
-        public double getSessionTime()
+        public void setLogID(int logID)
         {
-            DateTime diff = checkOut.Subtract(checkIn);
-            return diff.Hour + (diff.Minute)  /  60.0;
-
-
+            this.logID = logID;
         }
+
+        public void setEmployeeID(int employeeID)
+        {
+            this.employeeID = employeeID;
+        }
+
+        public void setCheckIn(DateTime checkIn)
+        {
+            this.checkIn = checkIn;
+        }
+        public void setCheckOut(DateTime checkOut)
+        {
+            this.checkOut = checkOut;
+        }
+
+        //public double getSessionTime()
+        //{
+        //    DateTime diff = checkOut.Subtract(checkIn);
+        //    return diff.Hour + (diff.Minute) / 60.0;
+        //}
 
     }
 }

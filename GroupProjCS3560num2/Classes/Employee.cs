@@ -53,9 +53,9 @@ namespace GroupProjCS3560num2.Classes
 
 
 
-            DatabaseHerlp testy = new DatabaseHerlp();
+            //DatabaseHelper testy = new DatabaseHelper();
 
-            test.connectMySQL(cmd);
+            //test.connectMySQL(cmd);
 
 
 
@@ -117,7 +117,7 @@ namespace GroupProjCS3560num2.Classes
             return phoneNumber;
         }
 
-        public string getDateOfBirth() // public DateTime getDateOfBirth()
+        public DateTime getDateOfBirth() // public DateTime getDateOfBirth()
         {
             return dateOfBirth;
         }
@@ -136,11 +136,11 @@ namespace GroupProjCS3560num2.Classes
             return adjustment;
         }
 
-        public double getTotalHours(DateTime from, DateTime to)
-        {
-            //
+        //public double getTotalHours(DateTime from, DateTime to)
+        //{
+        //    //
             
-        }
+        //}
 
 
     }
@@ -154,29 +154,29 @@ namespace GroupProjCS3560num2.Classes
 
 
         // MySql connection function
-        private void connectSql(string insertCmdLine)
-        {
+        //private void connectSql(string insertCmdLine)
+        //{
 
-             string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
+        //     string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
             
-            double amt;
-            using (var con = new MySqlConnection(conn))
-            {
+        //    double amt;
+        //    using (var con = new MySqlConnection(conn))
+        //    {
 
-                    string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
+        //            string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
 
-                using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
-                {
+        //        using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
+        //        {
 
-                    con.Open();
-                    //amt = (cast)cmd.ExecuteScalar();
-                    amt = (double)cmd.ExecuteScalar();
-                    //textBox1.Text = amt.ToString();
-                    con.Close();
-                }
+        //            con.Open();
+        //            //amt = (cast)cmd.ExecuteScalar();
+        //            amt = (double)cmd.ExecuteScalar();
+        //            //textBox1.Text = amt.ToString();
+        //            con.Close();
+        //        }
                 
-            }
-        }
+        //    }
+        //}
 
 
 

@@ -32,21 +32,47 @@ namespace GroupProjCS3560num2.Database
          */
         static string server = "localhost";
         static string userId = "root";
-        static string pw = "password1";
+        static string pw1 = "password1";
         static string schema = "employee_schema";
 
-        static void ConnectMySql(string insert_Sql_cmd)      // <--- make sure to provide correct cmd string when calling this function
+        static void ConnectMySql(string insert_Sql_cmd)
         {
-            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw + "; database = " + schema;  //<---- make sure password and schema is correct
-            using var sqlCon = new MySqlConnector.MySqlConnection(con);
-            sqlCon.Open();
-            using var cmd = new MySqlConnector.MySqlCommand();
-            cmd.Connection = sqlCon;
-            cmd.CommandText = insert_Sql_cmd;
-            cmd.ExecuteNonQuery();
-            sqlCon.Close();
+            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw1 + "; database = " + schema;
+            using (var sqlCon = new MySqlConnector.MySqlConnection(con))
+            {
+                using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
+                {
+                    sqlCon.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                }
+            }
         }
 
+        static T ConnectMySql<T>(string insert_Sql_cmd, Func<MySqlConnector.MySqlDataReader, T> setter)
+        {
+            T toReturn = default(T);
+            string con = "server=" + server + "; userid=" + userId + "; password=  " + pw1 + "; database = " + schema;
+            using (var sqlCon = new MySqlConnector.MySqlConnection(con))
+            {
+                using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
+                {
+                    sqlCon.Open();
+                   
+                    MySqlConnector.MySqlDataReader myReader = cmd.ExecuteReader();
+                    try
+                    {
+                           toReturn = setter(myReader);
+                    }
+                    finally
+                    {
+                        myReader.Close();
+                        sqlCon.Close();
+                    }
+                }
+            }
+            return toReturn;
+        }
 
         public static Employee VerifyPassword(int employeeID, string password)
         {
@@ -62,23 +88,26 @@ namespace GroupProjCS3560num2.Database
             }
             return tempEmployee;
         }
+
         public static TimeLog VerifyTimeLog(int employeeID)
         {
-            TimeLog tempTimeLog = new TimeLog();
-            Employee tempEmployee = new Employee();
-
-            tempEmployee = SelectEmployee(employeeID);
-            tempTimeLog = SelectTimeLog()
-            return null;
-                       
+            string str = string.Format("select * from TimeLog where logID in (select MAX(logID) from TimeLog group by employeeID) and employeeID = {0};", employeeID);
+            return ConnectMySql<TimeLog>(str, (myReader) =>
+            {
+                myReader.Read();
+                return myReader.IsDBNull(3) ? new TimeLog(
+                                myReader.GetInt32("logID"),
+                                myReader.GetInt32("employeeID"),
+                                myReader.GetDateTime("checkIn"),
+                                default(DateTime)) : null;
+            });
         }
-
-
 
         static Employee[] SelectAllEmployees()
         {
             return null;
         }
+
         static Employee SelectEmployee(int employeeID)
         {
             string cmd = string.Format("select * from Employee where employeeID = {0};", employeeID);
@@ -86,6 +115,7 @@ namespace GroupProjCS3560num2.Database
             
             return null;
         }
+
         static int DeleteEmployee(int employeeID)
         {
             string cmd = string.Format("delete from Employee where employeeID = {0};", employeeID);
@@ -93,6 +123,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int UpdateEmployee(Employee employee)
         {
             string cmd = string.Format("update Employee set employeeID = {0}, jobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
@@ -103,6 +134,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int InsertEmployee(Employee employee)
         {
 
@@ -112,11 +144,11 @@ namespace GroupProjCS3560num2.Database
             return 0;
         }
 
-
         static Job[] SelectAllJobs()
         {
             return null;
         }
+
         static Job SelectJob(int jobID)
         {
             string cmd = string.Format("select * from Job where jobID = {0};", jobID);
@@ -124,6 +156,7 @@ namespace GroupProjCS3560num2.Database
 
             return null;
         }
+
         static int DeleteJob(int jobID)
         {
             string cmd = string.Format("delete from Job where jobID = {0};", jobID);
@@ -131,6 +164,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int UpdateJob(Job job)
         {
             string cmd = string.Format("update Job set jobId = {0}, jobTitle = '{1}', basePayrate = {2};", job.getJobId(), job.getJobTitle(), job.getBasePayrate());
@@ -138,6 +172,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int InsertJob(Job job)
         {
             string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1:C2});", job.getJobTitle(), job.getBasePayrate());
@@ -146,7 +181,6 @@ namespace GroupProjCS3560num2.Database
             return 0;
         }
 
-
         static TimeLog[] SelectAllTimeLogs()
         {
             string cmd = string.Format("select * from TimeLog;");
@@ -154,6 +188,7 @@ namespace GroupProjCS3560num2.Database
 
             return null;
         }
+
         static TimeLog SelectTimeLog(int logID)
         {
             string cmd = string.Format("select * from TimeLog where logId = {0};", logID);
@@ -161,6 +196,7 @@ namespace GroupProjCS3560num2.Database
 
             return null;
         }
+
         static int DeleteTimeLog(int logID)
         {
             string cmd = string.Format("delete from TimeLog where logID = {0};", logID);
@@ -168,16 +204,17 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int UpdateTimeLog(TimeLog log)
         {
 
             return 0;
         }
+
         static int InsertTimeLog(TimeLog log)
         {
             return 0;
         }
-
 
         static Issue[] SelectAllIssues()
         {
@@ -186,6 +223,7 @@ namespace GroupProjCS3560num2.Database
 
             return null;
         }
+
         static Issue SelectIssue(int issueID)
         {
             string cmd = string.Format("select * from Issue where issueId = {0};", issueID);
@@ -193,6 +231,7 @@ namespace GroupProjCS3560num2.Database
 
             return null;
         }
+
         static int DeleteIssue(int issueID)
         {
             string cmd = string.Format("delete from Issue where issueId = {0};", issueID);
@@ -200,6 +239,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int UpdateIssue(Issue issue)
         {
             string cmd = string.Format("update Issue set employeeID = {0}, adminID = {1}, issueStr = {2}, solved = {3} where issueID = {4};", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved(), issue.getIssueID());
@@ -207,6 +247,7 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
+
         static int InsertIssue(Issue issue)
         {
             string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
@@ -214,6 +255,5 @@ namespace GroupProjCS3560num2.Database
 
             return 0;
         }
-
     }
 }
