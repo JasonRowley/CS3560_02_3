@@ -35,18 +35,20 @@ namespace GroupProjCS3560num2.Database
         static string pw1 = "password1";
         static string schema = "employee_schema";
 
-        static void ConnectMySql(string insert_Sql_cmd)
+        static int ConnectMySql(string insert_Sql_cmd)
         {
             string con = "server=" + server + "; userid=" + userId + "; password=  " + pw1 + "; database = " + schema;
+            int status = 0;
             using (var sqlCon = new MySqlConnector.MySqlConnection(con))
             {
                 using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
                 {
                     sqlCon.Open();
-                    cmd.ExecuteNonQuery();
+                    status = cmd.ExecuteNonQuery();
                     sqlCon.Close();
                 }
             }
+            return status;
         }
 
         static T ConnectMySql<T>(string insert_Sql_cmd, Func<MySqlConnector.MySqlDataReader, T> setter)
