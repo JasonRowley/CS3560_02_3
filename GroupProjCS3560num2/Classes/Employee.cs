@@ -8,7 +8,7 @@ namespace GroupProjCS3560num2.Classes
     {
         int employeeID;
         int jobID;
-        string password;
+        string pw;
         string empName;
         string physicalAddress;
         string emailAddress;
@@ -23,63 +23,33 @@ namespace GroupProjCS3560num2.Classes
         public Employee(
         int employeeID,
         int jobID,
-        int phoneNumber,
-        double adjustment,
-        DateTime dateOfBirth,
+        String pw,
         String empName,
         String physicalAddress,
         String email,
+        int phoneNumber,
+        DateTime dateOfBirth,
         String bankAccNum,
         String sSN,
-        String password )
+        double adjustment)
         {
-            this.employeeID = employeeID;  // <--- automatically generated
-            this.jobID = jobID; 
-            this.phoneNumber = phoneNumber;
-            this.adjustment = adjustment;
-            this.dateOfBirth = dateOfBirth;
+            this.employeeID = employeeID;
+            this.jobID = jobID;
+            this.pw = pw;
             this.empName = empName;
             this.physicalAddress = physicalAddress;
             this.emailAddress = email;
+            this.phoneNumber = phoneNumber;
+            this.dateOfBirth = dateOfBirth;
             this.bankAccNumber = bankAccNum;
             this.sSN = sSN;
-            this.password = password;
-
-
-            // insert Employee( pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value("stringPw", "sringName", "stringAddress", "stringAddress", "int-phoneNumber", "String-sSN", "double-adjustment");
-                                                                                                                                                                                                                                                                                                    /// if error, check DOB (might need to use string instead )
-
-            string cmd = string.Format("insert Employee(jobID,  pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", jobID, password, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment);
-
-
-
-            //DatabaseHelper testy = new DatabaseHelper();
-
-            //test.connectMySQL(cmd);
-
-
-
-            
+            this.adjustment = adjustment;
         }
 
         public Employee(int employeeID)
         {
             this.employeeID = employeeID;
         }
-
-        // int jobID;
-        // string password;
-        // string empName;
-        // string physicalAddress;
-        // string emailAddress;
-        // int phoneNumber;
-        // DateTime dateOfBirth;
-        // string backAccNumber;
-        // string sSN;
-        // double adjustmnet)  
-
-
-
 
         public int getEmployeeID()
         {
@@ -93,9 +63,7 @@ namespace GroupProjCS3560num2.Classes
 
         public string getPassword()
         {
-
-        
-            return password;
+            return pw;
         }
 
         public string getEmpName()
@@ -117,7 +85,7 @@ namespace GroupProjCS3560num2.Classes
             return phoneNumber;
         }
 
-        public DateTime getDateOfBirth() // public DateTime getDateOfBirth()
+        public DateTime getDateOfBirth()
         {
             return dateOfBirth;
         }
@@ -131,18 +99,16 @@ namespace GroupProjCS3560num2.Classes
         {
             return sSN;
         }
+
         public double getAdjustment()
         {
             return adjustment;
         }
 
-        //public double getTotalHours(DateTime from, DateTime to)
-        //{
-        //    //
-            
-        //}
-
-
+        public void setAdjustment(double adj)
+        {
+            this.adjustment = adj;
+        }
     }
 
 

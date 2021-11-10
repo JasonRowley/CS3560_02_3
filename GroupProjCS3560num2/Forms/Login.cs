@@ -16,8 +16,13 @@ namespace GroupProjCS3560num2.Forms
         public Login()
         {
             InitializeComponent();
-            TimeLog log = DatabaseHelper.VerifyTimeLog(1);
-            textBox1.Text = log.getLogID().ToString();
+            List<Employee> employees = DatabaseHelper.SelectAllEmployees();
+            string empsStr = "";
+            foreach (var emp in employees)
+            {
+                empsStr += emp.getEmployeeID().ToString() + " " + emp.getJobID().ToString() + "  ";
+            }
+            textBox1.Text = empsStr;
         }
 
         private void button2_Click(object sender, EventArgs e)
