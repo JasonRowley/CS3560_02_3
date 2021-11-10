@@ -8,6 +8,47 @@ namespace GroupProjCS3560num2.Classes
 {
     class Employee
     {
+<<<<<<< HEAD
+        int employeeID;
+        int jobID;
+        string pw;
+        string empName;
+        string physicalAddress;
+        string emailAddress;
+        int phoneNumber;
+        DateTime dateOfBirth;
+        string bankAccNumber;
+        string sSN;
+        double adjustment;
+
+        public Employee() { }  
+
+        public Employee(
+        int employeeID,
+        int jobID,
+        String pw,
+        String empName,
+        String physicalAddress,
+        String email,
+        int phoneNumber,
+        DateTime dateOfBirth,
+        String bankAccNum,
+        String sSN,
+        double adjustment)
+        {
+            this.employeeID = employeeID;
+            this.jobID = jobID;
+            this.pw = pw;
+            this.empName = empName;
+            this.physicalAddress = physicalAddress;
+            this.emailAddress = email;
+            this.phoneNumber = phoneNumber;
+            this.dateOfBirth = dateOfBirth;
+            this.bankAccNumber = bankAccNum;
+            this.sSN = sSN;
+            this.adjustment = adjustment;
+        }
+=======
 
         private int employeeID;
         private int jobID;
@@ -31,9 +72,15 @@ namespace GroupProjCS3560num2.Classes
 
 
 
+>>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
 
         private void getEmployeeInformation(int insertEmployeeID)
         {
+<<<<<<< HEAD
+            this.employeeID = employeeID;
+        }
+
+=======
      
             string conn = "server=localhost; userid=root; password=  " + pw1 + "; database = employee_schema";    //<---- ask to make a class to replace this line for security
             using (var con = new MySqlConnection(conn))
@@ -74,6 +121,7 @@ namespace GroupProjCS3560num2.Classes
         }
 
         //public getters
+>>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
         public int getEmployeeID()
         {
             return employeeID;
@@ -108,7 +156,11 @@ namespace GroupProjCS3560num2.Classes
             return phoneNumber;
         }
 
+<<<<<<< HEAD
+        public DateTime getDateOfBirth()
+=======
         public string getDateOfBirth()
+>>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
         {
             return dateOfBirth;
         }
@@ -122,13 +174,22 @@ namespace GroupProjCS3560num2.Classes
         {
             return sSN;
         }
+
         public double getAdjustment()
         {
             return adjustment;
         }
 
+<<<<<<< HEAD
+        public void setAdjustment(double adj)
+        {
+            this.adjustment = adj;
+        }
+    }
+=======
 
 
+>>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
 
         private void setFunctionHelper<T>(int employeeID, string tableAttribute, T insertChange)
         {
@@ -177,6 +238,32 @@ namespace GroupProjCS3560num2.Classes
             setFunctionHelper(employeeID, "emailAddress", newEmail);
         }
 
+<<<<<<< HEAD
+        // MySql connection function
+        //private void connectSql(string insertCmdLine)
+        //{
+
+        //     string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
+            
+        //    double amt;
+        //    using (var con = new MySqlConnection(conn))
+        //    {
+
+        //            string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
+
+        //        using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
+        //        {
+
+        //            con.Open();
+        //            //amt = (cast)cmd.ExecuteScalar();
+        //            amt = (double)cmd.ExecuteScalar();
+        //            //textBox1.Text = amt.ToString();
+        //            con.Close();
+        //        }
+                
+        //    }
+        //}
+=======
         public void setPhoneNumber(int employeeID, long newPhoneNumber)         // <======= phone may need to be set to long
         {
             setFunctionHelper(employeeID, "phoneNumber", newPhoneNumber);
@@ -201,6 +288,7 @@ namespace GroupProjCS3560num2.Classes
         {
             setFunctionHelper(employeeID, "adjustment", newAdjustment);
         }
+>>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
 
 
     }
