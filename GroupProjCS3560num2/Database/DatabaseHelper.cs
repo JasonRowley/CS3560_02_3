@@ -136,7 +136,7 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<Employee>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return new Employee(
+                return myReader.HasRows ? new Employee(
                     myReader.GetInt32(0),
                     myReader.GetInt32(1),
                     myReader.GetString(2),
@@ -147,7 +147,7 @@ namespace GroupProjCS3560num2.Database
                     myReader.GetDateTime(7),
                     myReader.GetString(8),
                     myReader.GetString(9),
-                    myReader.GetDouble(10));
+                    myReader.GetDouble(10)) : null;
             });
         }
 
@@ -196,10 +196,10 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<Job>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return new Job(
+                return myReader.HasRows ? new Job(
                     myReader.GetInt32(0),
                     myReader.GetString(1),
-                    myReader.GetDouble(2));
+                    myReader.GetDouble(2)) : null;
             });
         }
 
@@ -233,7 +233,7 @@ namespace GroupProjCS3560num2.Database
                         myReader.GetInt32(0),
                         myReader.GetInt32(1),
                         myReader.GetDateTime(2),
-                        myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime)));
+                        myReader.IsDBNull(3) ? default(DateTime) : myReader.GetDateTime(3)));
                 }
                 return timeLogs;
             });
@@ -245,11 +245,11 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return new TimeLog(
+                return myReader.HasRows ? new TimeLog(
                     myReader.GetInt32(0),
                     myReader.GetInt32(1),
                     myReader.GetDateTime(2),
-                    myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime));
+                    myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime)) : null;
             });
         }
 
@@ -297,37 +297,31 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<Issue>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return new Issue(
+                return myReader.HasRows ? new Issue(
                     myReader.GetInt32(0),
                     myReader.GetInt32(1),
                     myReader.GetInt32(2),
                     myReader.GetString(3),
-                    myReader.GetBoolean(4));
+                    myReader.GetBoolean(4)) : null;
             });
         }
 
         public static int DeleteIssue(int issueID)
         {
             string cmd = string.Format("delete from Issue where issueId = {0};", issueID);
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql(cmd);
         }
 
         public static int UpdateIssue(Issue issue)
         {
-            string cmd = string.Format("update Issue set employeeID = {0}, adminID = {1}, issueStr = {2}, solved = {3} where issueID = {4};", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved(), issue.getIssueID());
-            ConnectMySql(cmd);
-
-            return 0;
+            string cmd = string.Format("update Issue set employeeID = {1}, adminID = {2}, issueStr = '{3}', solved = {4} where issueID = {0};", issue.getIssueID(), issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
+            return ConnectMySql(cmd);
         }
 
         public static int InsertIssue(Issue issue)
         {
             string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql (cmd);
         }
     }
 }

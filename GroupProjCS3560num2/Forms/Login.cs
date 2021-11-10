@@ -16,12 +16,8 @@ namespace GroupProjCS3560num2.Forms
         public Login()
         {
             InitializeComponent();
-            List<Employee> employees = DatabaseHelper.SelectAllEmployees();
-            string empsStr = "";
-            foreach (var emp in employees)
-            {
-                empsStr += emp.getEmployeeID().ToString() + " " + emp.getJobID().ToString() + "  ";
-            }
+            Employee employee = DatabaseHelper.SelectEmployee(1);
+            string empsStr = (employee == null) ? "null" : "not null";
             textBox1.Text = empsStr;
         }
 
