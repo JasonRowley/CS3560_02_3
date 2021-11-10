@@ -95,11 +95,11 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<TimeLog>(str, (myReader) =>
             {
                 myReader.Read();
-                return myReader.IsDBNull(3) ? null : new TimeLog(
-                                myReader.GetInt32("logID"), 
-                                myReader.GetInt32("employeeID"), 
-                                myReader.GetDateTime("checkIn"), 
-                                myReader.GetDateTime("checkOut"));
+                return myReader.IsDBNull(3) ? new TimeLog(
+                                myReader.GetInt32("logID"),
+                                myReader.GetInt32("employeeID"),
+                                myReader.GetDateTime("checkIn"),
+                                default(DateTime)) : null;
             });
         }
 
