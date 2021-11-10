@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GroupProjCS3560num2.Classes.Handlers;
+using GroupProjCS3560num2.Forms.PinPad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,14 +61,23 @@ namespace GroupProjCS3560num2.Forms
 
         private void button12_Click(object sender, EventArgs e)
         {
-            //Enter info into DB using maskedTextBox1 to INT
-            //reference text field
-            //query via pin QUERY ex 1234
-            //exists = clockout complete entry via UPDATE
-            //!exits = insert
-            // perform a database INSERT
             int userPin = Int32.Parse(maskedTextBox1.Text);
-
+            switch (ClockInClockOutHandler.EnterPin(userPin))
+            {
+                case  0:
+                    ClockedOut f0 = new ClockedOut();
+                    f0.Show();
+                    break;
+                case  1:
+                    ClockedIn f1 = new ClockedIn();
+                    f1.Show();
+                    break;
+                default:
+                    PinPadFailed f2 = new PinPadFailed();
+                    f2.Show();
+                    break;
+            }
+            
         }
 
         private void button11_Click(object sender, EventArgs e)

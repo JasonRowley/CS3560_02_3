@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GroupProjCS3560num2.Forms.PinPad
+namespace GroupProjCS3560num2.Forms.Login
 {
-    public partial class ClockedIn : Form
+    public partial class IncorrectCredentials : Form
     {
-        public ClockedIn()
+        public IncorrectCredentials()
         {
             InitializeComponent();
         }

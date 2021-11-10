@@ -75,7 +75,7 @@ namespace GroupProjCS3560num2.Database
             }
             return toReturn;
         }
-
+        
         public static Employee VerifyPassword(int employeeID, string password)
         {
             
