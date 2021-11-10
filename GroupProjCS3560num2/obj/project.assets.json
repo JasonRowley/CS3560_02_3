@@ -52,25 +52,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jason Rowley\\.nuget\\packages\\": {},
+    "C:\\Users\\ctome\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jason Rowley\\Documents\\School Work\\CS3560_Group_Proj\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+      "projectUniqueName": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
       "projectName": "GroupProjCS3560num2",
-      "projectPath": "C:\\Users\\Jason Rowley\\Documents\\School Work\\CS3560_Group_Proj\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
-      "packagesPath": "C:\\Users\\Jason Rowley\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jason Rowley\\Documents\\School Work\\CS3560_Group_Proj\\CS3560_02_3\\GroupProjCS3560num2\\obj\\",
+      "projectPath": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+      "packagesPath": "C:\\Users\\ctome\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jason Rowley\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ctome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
