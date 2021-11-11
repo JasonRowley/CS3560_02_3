@@ -1,9 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\KBBQ\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\KBBQ\\.nuget\\packages",
-      "C:\\.Sen\\Apps\\VisualStudio\\Shared\\NuGetPackages"
-    ]
-  }
-}
