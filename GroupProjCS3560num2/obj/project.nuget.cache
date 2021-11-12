@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8aFKgy612civQHeky55QXztIZBlL4ZgP/69b7PjAmsAyLYhFZtQz/gQB3i7LcmwCuypsLgVW4E+EG74L1a4RYA==",
+  "success": true,
+  "projectFilePath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KBBQ\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
+    "C:\\Users\\KBBQ\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
