@@ -16,9 +16,8 @@ namespace GroupProjCS3560num2.Forms
         public Login()
         {
             InitializeComponent();
-            Employee employee = DatabaseHelper.SelectEmployee(1);
-            string empsStr = (employee == null) ? "null" : "not null";
-            textBox1.Text = empsStr;
+            TimeLog log = DatabaseHelper.VerifyTimeLog(1);
+            textBox1.Text = log.getLogID().ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
