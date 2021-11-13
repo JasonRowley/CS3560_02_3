@@ -21,7 +21,7 @@ namespace GroupProjCS3560num2.Classes
         public Employee() { }  
 
         public Employee(
-        //int employeeID, // CHANGE: we do not need to input the employee id since after inserting an individual value to Employee table it will automatically create a new id
+        int employeeID,
         int jobID,
         string phoneNumber, // changed from int to string
         double adjustment,

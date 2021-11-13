@@ -25,6 +25,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button
         {
+            int employeeID = 0;
             int jobID = Int32.Parse(comboBox1.Text);
             String phoneNumber = maskedTextBox2.Text;
             double adjustment = double.Parse(textBox5.Text);
@@ -36,7 +37,7 @@ namespace GroupProjCS3560num2.Forms
             String sSN = maskedTextBox1.Text;
             String password = textBox9.Text;
 
-            EmployeeHandler.AddEmployee(jobID, phoneNumber, adjustment, dateOfBirth, empName, physicalAddress, email, bankAccNum, sSN, password);
+            EmployeeHandler.AddEmployee(employeeID, jobID, phoneNumber, adjustment, dateOfBirth, empName, physicalAddress, email, bankAccNum, sSN, password);
 
         }
 
