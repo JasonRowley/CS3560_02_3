@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace GroupProjCS3560num2.Classes
 {
-    class Employee
+    public class Employee
     {
+
         int employeeID;
         int jobID;
-        string pw;
-        string empName;
-        string physicalAddress;
-        string emailAddress;
-        int phoneNumber;
+        String pw;
+        String empName;
+        String physicalAddress;
+        String email;
+        String phoneNumber;
         DateTime dateOfBirth;
-        string bankAccNumber;
-        string sSN;
+        String bankAccNum;
+        String sSN;
         double adjustment;
 
-        public Employee() { }  
+
+
+
+        public Employee(){}  
+
 
         public Employee(
         int employeeID,
@@ -27,7 +33,7 @@ namespace GroupProjCS3560num2.Classes
         String empName,
         String physicalAddress,
         String email,
-        int phoneNumber,
+        String phoneNumber,
         DateTime dateOfBirth,
         String bankAccNum,
         String sSN,
@@ -38,22 +44,26 @@ namespace GroupProjCS3560num2.Classes
             this.pw = pw;
             this.empName = empName;
             this.physicalAddress = physicalAddress;
-            this.emailAddress = email;
+            this.email = email;
             this.phoneNumber = phoneNumber;
             this.dateOfBirth = dateOfBirth;
-            this.bankAccNumber = bankAccNum;
+            this.bankAccNum = bankAccNum;
             this.sSN = sSN;
             this.adjustment = adjustment;
         }
 
-        public Employee(int employeeID)
-        {
-            this.employeeID = employeeID;
-        }
+
+   
+
 
         public int getEmployeeID()
         {
             return employeeID;
+        }
+
+        public void setEmployeeID(int employeeID)
+        {
+            this.employeeID = employeeID;
         }
 
         public int getJobID()
@@ -61,43 +71,79 @@ namespace GroupProjCS3560num2.Classes
             return jobID;
         }
 
-        public string getPassword()
+        public void setJobID(int jobID)
+        {
+            this.jobID = jobID;
+        }
+
+        public String getPw()
         {
             return pw;
         }
 
-        public string getEmpName()
+        public void setPw(String pw)
+        {
+            this.pw = pw;
+        }
+
+        public String getEmpName()
         {
             return empName;
         }
 
-        public string getPhysicalAddress()
+        public void setEmpName(String empName)
+        {
+            this.empName = empName;
+        }
+
+        public String getPhysicalAddress()
         {
             return physicalAddress;
         }
 
-        public string getEmailAddress()
+        public void setPhysicalAddress(String physicalAddress)
         {
-            return emailAddress;
+            this.physicalAddress = physicalAddress;
         }
-        public int getPhoneNumber()
+
+        public String getEmail()
+        {
+            return email;
+        }
+
+        public void setEmail(String email)
+        {
+            this.email = email;
+        }
+
+        public String getPhoneNumber()
         {
             return phoneNumber;
         }
 
-        public DateTime getDateOfBirth()
+        public void setPhoneNumber(String phoneNumber)
         {
-            return dateOfBirth;
+            this.phoneNumber = phoneNumber;
         }
 
-        public string getBankAccNumber()
+        public String getBankAccNum()
         {
-            return bankAccNumber;
+            return bankAccNum;
         }
 
-        public string getSSN()
+        public void setBankAccNum(String bankAccNum)
+        {
+            this.bankAccNum = bankAccNum;
+        }
+
+        public String getSSN()
         {
             return sSN;
+        }
+
+        public void setSSN(String sSN)
+        {
+            this.sSN = sSN;
         }
 
         public double getAdjustment()
@@ -105,45 +151,26 @@ namespace GroupProjCS3560num2.Classes
             return adjustment;
         }
 
-        public void setAdjustment(double adj)
+        public void setAdjustment(double adjustment)
         {
-            this.adjustment = adj;
+            this.adjustment = adjustment;
         }
+
+
+        public DateTime getDateOfBirth()
+        {
+
+            return dateOfBirth;
+        }
+
+        public void setDateOfBirth(DateTime dateOfBirth)
+        {
+            this.dateOfBirth = dateOfBirth;
+        
+        }
+
+
     }
-
-
-
-
-
-
-
-
-
-        // MySql connection function
-        //private void connectSql(string insertCmdLine)
-        //{
-
-        //     string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
-            
-        //    double amt;
-        //    using (var con = new MySqlConnection(conn))
-        //    {
-
-        //            string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
-
-        //        using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
-        //        {
-
-        //            con.Open();
-        //            //amt = (cast)cmd.ExecuteScalar();
-        //            amt = (double)cmd.ExecuteScalar();
-        //            //textBox1.Text = amt.ToString();
-        //            con.Close();
-        //        }
-                
-        //    }
-        //}
-
 
 
 
