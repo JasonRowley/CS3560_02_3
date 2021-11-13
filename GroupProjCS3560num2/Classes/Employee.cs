@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,20 +7,24 @@ namespace GroupProjCS3560num2.Classes
 {
     class Employee
     {
-<<<<<<< HEAD
+
         int employeeID;
         int jobID;
-        string pw;
-        string empName;
-        string physicalAddress;
-        string emailAddress;
+        String pw;
+        String empName;
+        String physicalAddress;
+        String email;
         int phoneNumber;
         DateTime dateOfBirth;
-        string bankAccNumber;
-        string sSN;
+        String bankAccNum;
+        String sSN;
         double adjustment;
 
-        public Employee() { }  
+
+
+
+        public Employee(){}  
+
 
         public Employee(
         int employeeID,
@@ -41,90 +44,26 @@ namespace GroupProjCS3560num2.Classes
             this.pw = pw;
             this.empName = empName;
             this.physicalAddress = physicalAddress;
-            this.emailAddress = email;
+            this.email = email;
             this.phoneNumber = phoneNumber;
             this.dateOfBirth = dateOfBirth;
-            this.bankAccNumber = bankAccNum;
+            this.bankAccNum = bankAccNum;
             this.sSN = sSN;
             this.adjustment = adjustment;
         }
-=======
-
-        private int employeeID;
-        private int jobID;
-        private string pw;
-        private string empName;
-        private string physicalAddress;
-        private string emailAddress;
-        private int phoneNumber;
-        private string dateOfBirth;
-        private string bankAccNumber;
-        private string sSN;
-        private double adjustment;
 
 
-
-        public Employee(int insertEmployeeID)
-        {
-            getEmployeeInformation(insertEmployeeID);
-        }
+   
 
 
-
-
->>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
-
-        private void getEmployeeInformation(int insertEmployeeID)
-        {
-<<<<<<< HEAD
-            this.employeeID = employeeID;
-        }
-
-=======
-     
-            string conn = "server=localhost; userid=root; password=  " + pw1 + "; database = employee_schema";    //<---- ask to make a class to replace this line for security
-            using (var con = new MySqlConnection(conn))
-            {
-                string str = string.Format("select * from Employee where employeeID = " + insertEmployeeID);
-                using (var cmd = new MySqlCommand(str, con))
-                {
-                    con.Open();
-
-                    MySqlDataReader myReader = cmd.ExecuteReader();
-                    try
-                    {
-                        // Always call Read before accessing data.
-                        while (myReader.Read())
-                        {
-                            this.jobID = myReader.GetInt32("jobID");
-                            this.pw = myReader.GetString("pw");
-                            this.empName = myReader.GetString("empName");
-                            this.physicalAddress = myReader.GetString("physicalAddress");
-                            this.emailAddress = myReader.GetString("emailAddress");
-                            this.phoneNumber = myReader.GetInt32("phoneNumber");
-                            //this.dateOfBirth = myReader.GetString("dateOfBirth");    <--- adjust later            
-                            this.bankAccNumber = myReader.GetString("bankAccNumber");
-                            this.sSN = myReader.GetString("sSN");
-                            this.adjustment = myReader.GetDouble("adjustment");
-                        }
-                    }
-                    finally
-                    {
-                        // always call Close when done reading.
-                        myReader.Close();
-
-                        // Close the connection when done with it.
-                        con.Close();
-                    }
-                }
-            }
-        }
-
-        //public getters
->>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
         public int getEmployeeID()
         {
             return employeeID;
+        }
+
+        public void setEmployeeID(int employeeID)
+        {
+            this.employeeID = employeeID;
         }
 
         public int getJobID()
@@ -132,47 +71,79 @@ namespace GroupProjCS3560num2.Classes
             return jobID;
         }
 
-        public string getPassword()
+        public void setJobID(int jobID)
+        {
+            this.jobID = jobID;
+        }
+
+        public String getPw()
         {
             return pw;
         }
 
-        public string getEmpName()
+        public void setPw(String pw)
+        {
+            this.pw = pw;
+        }
+
+        public String getEmpName()
         {
             return empName;
         }
 
-        public string getPhysicalAddress()
+        public void setEmpName(String empName)
+        {
+            this.empName = empName;
+        }
+
+        public String getPhysicalAddress()
         {
             return physicalAddress;
         }
 
-        public string getEmailAddress()
+        public void setPhysicalAddress(String physicalAddress)
         {
-            return emailAddress;
+            this.physicalAddress = physicalAddress;
         }
+
+        public String getEmail()
+        {
+            return email;
+        }
+
+        public void setEmail(String email)
+        {
+            this.email = email;
+        }
+
         public int getPhoneNumber()
         {
             return phoneNumber;
         }
 
-<<<<<<< HEAD
-        public DateTime getDateOfBirth()
-=======
-        public string getDateOfBirth()
->>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
+        public void setPhoneNumber(int phoneNumber)
         {
-            return dateOfBirth;
+            this.phoneNumber = phoneNumber;
         }
 
-        public string getBankAccNumber()
+        public String getBankAccNum()
         {
-            return bankAccNumber;
+            return bankAccNum;
         }
 
-        public string getSSN()
+        public void setBankAccNum(String bankAccNum)
+        {
+            this.bankAccNum = bankAccNum;
+        }
+
+        public String getsSN()
         {
             return sSN;
+        }
+
+        public void setsSN(String sSN)
+        {
+            this.sSN = sSN;
         }
 
         public double getAdjustment()
@@ -180,115 +151,23 @@ namespace GroupProjCS3560num2.Classes
             return adjustment;
         }
 
-<<<<<<< HEAD
-        public void setAdjustment(double adj)
+        public void setAdjustment(double adjustment)
         {
-            this.adjustment = adj;
-        }
-    }
-=======
-
-
->>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
-
-        private void setFunctionHelper<T>(int employeeID, string tableAttribute, T insertChange)
-        {
-            //ConnectSql sqlConnection = new ConnectSql();
-            //string con = sqlConnection.open();
-
-            string con = "server=localhost; userid=root; password=  " + pw1 + "; database = employee_schema";
-            using var sqlCon = new MySqlConnection(con);
-            sqlCon.Open();
-            using var cmd = new MySqlCommand();
-            cmd.Connection = sqlCon;
-            cmd.CommandText = string.Format("update employee set " + tableAttribute + " = '{0}'  where employeeID = {1}", insertChange, employeeID);
-            cmd.ExecuteNonQuery();
-
+            this.adjustment = adjustment;
         }
 
 
-        //public setters
-        public void setEmployeeID(int employeeID, int newID)
+        public DateTime getDateOfBirth()
         {
-            setFunctionHelper(employeeID, "employeeID", newID);
+
+            return dateOfBirth;
         }
 
-        public void setJobID(int employeeID, int newJobID)
+        public void setDateOfBirth(DateTime dateOfBirth)
         {
-            setFunctionHelper(employeeID, "jobID", newJobID);
+            this.dateOfBirth = dateOfBirth;
+        
         }
-
-        public void setPw(int employeeID, string newPW)
-        {
-            setFunctionHelper(employeeID, "pw", newPW);
-        }
-
-        public void setEmpName(int employeeID, string newName)
-        {
-            setFunctionHelper(employeeID, "empName", newName);
-        }
-
-        public void setPhysicalAddress(int employeeID, string newAddress)
-        {
-            setFunctionHelper(employeeID, "physicalAddress", newAddress);
-        }
-
-        public void setEmailAddress(int employeeID, string newEmail)
-        {
-            setFunctionHelper(employeeID, "emailAddress", newEmail);
-        }
-
-<<<<<<< HEAD
-        // MySql connection function
-        //private void connectSql(string insertCmdLine)
-        //{
-
-        //     string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
-            
-        //    double amt;
-        //    using (var con = new MySqlConnection(conn))
-        //    {
-
-        //            string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
-
-        //        using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
-        //        {
-
-        //            con.Open();
-        //            //amt = (cast)cmd.ExecuteScalar();
-        //            amt = (double)cmd.ExecuteScalar();
-        //            //textBox1.Text = amt.ToString();
-        //            con.Close();
-        //        }
-                
-        //    }
-        //}
-=======
-        public void setPhoneNumber(int employeeID, long newPhoneNumber)         // <======= phone may need to be set to long
-        {
-            setFunctionHelper(employeeID, "phoneNumber", newPhoneNumber);
-        }
-
-        public void setDateOfBirth(int employeeID, string newDateOFBirth)       // <==== adjust later 
-        {
-            setFunctionHelper(employeeID, "dateOfBirth", newDateOFBirth);
-        }
-
-        public void setBankAccNumber(int employeeID, string newBankNumber)
-        {
-            setFunctionHelper(employeeID, "bankAccNumber", newBankNumber);
-        }
-
-        public void setsSN(int employeeID, string newEmployeeID)
-        {
-            setFunctionHelper(employeeID, "sSN", newEmployeeID);
-        }
-
-        public void setAdjustment(int employeeID, double newAdjustment)
-        {
-            setFunctionHelper(employeeID, "adjustment", newAdjustment);
-        }
->>>>>>> c350faba0d781b5ec352aafb4f30ec71b1b0fdf2
 
 
     }
