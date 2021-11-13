@@ -120,7 +120,7 @@ namespace GroupProjCS3560num2.Database
                         myReader.GetString(3),
                         myReader.GetString(4),
                         myReader.GetString(5),
-                        myReader.GetInt32(6),
+                        myReader.GetString(6),
                         myReader.GetDateTime(7),
                         myReader.GetString(8),
                         myReader.GetString(9),
@@ -143,7 +143,7 @@ namespace GroupProjCS3560num2.Database
                     myReader.GetString(3),
                     myReader.GetString(4),
                     myReader.GetString(5),
-                    myReader.GetInt32(6),
+                    myReader.GetString(6),
                     myReader.GetDateTime(7),
                     myReader.GetString(8),
                     myReader.GetString(9),
@@ -169,7 +169,7 @@ namespace GroupProjCS3560num2.Database
         public static int InsertEmployee(Employee employee)
         {
 
-           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPassword(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmailAddress(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNumber(), employee.getSSN(), employee.getAdjustment());
+           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
            return ConnectMySql(cmd1);
         }
 
