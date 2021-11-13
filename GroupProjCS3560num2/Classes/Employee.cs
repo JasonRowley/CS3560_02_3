@@ -136,12 +136,12 @@ namespace GroupProjCS3560num2.Classes
             this.bankAccNum = bankAccNum;
         }
 
-        public String getsSN()
+        public String getSSN()
         {
             return sSN;
         }
 
-        public void setsSN(String sSN)
+        public void setSSN(String sSN)
         {
             this.sSN = sSN;
         }

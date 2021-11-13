@@ -83,7 +83,7 @@ namespace GroupProjCS3560num2.Database
 
             tempEmployee = SelectEmployee(employeeID);
 
-            if (password != tempEmployee.getPassword())
+            if (password != tempEmployee.getPw())
             {
                 return null;
                 
@@ -161,8 +161,8 @@ namespace GroupProjCS3560num2.Database
         {
             string cmd = string.Format("update Employee set JobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
                 "emailAddress = '{5}', phoneNumber = {6}, dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
-                employee.getJobID(), employee.getPassword(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmailAddress(), employee.getPhoneNumber(),
-                employee.getDateOfBirth(), employee.getBankAccNumber(), employee.getSSN(), employee.getAdjustment());
+                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(),
+                employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
             return ConnectMySql(cmd);
         }
 
