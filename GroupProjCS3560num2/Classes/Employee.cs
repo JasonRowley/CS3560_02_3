@@ -8,7 +8,7 @@ namespace GroupProjCS3560num2.Classes
     {
         int employeeID;
         int jobID;
-        string password;
+        string pw;
         string empName;
         string physicalAddress;
         string emailAddress;
@@ -23,63 +23,33 @@ namespace GroupProjCS3560num2.Classes
         public Employee(
         int employeeID,
         int jobID,
-        int phoneNumber,
-        double adjustment,
-        DateTime dateOfBirth,
+        String pw,
         String empName,
         String physicalAddress,
         String email,
+        int phoneNumber,
+        DateTime dateOfBirth,
         String bankAccNum,
         String sSN,
-        String password )
+        double adjustment)
         {
-            this.employeeID = employeeID;  // <--- automatically generated
-            this.jobID = jobID; 
-            this.phoneNumber = phoneNumber;
-            this.adjustment = adjustment;
-            this.dateOfBirth = dateOfBirth;
+            this.employeeID = employeeID;
+            this.jobID = jobID;
+            this.pw = pw;
             this.empName = empName;
             this.physicalAddress = physicalAddress;
             this.emailAddress = email;
+            this.phoneNumber = phoneNumber;
+            this.dateOfBirth = dateOfBirth;
             this.bankAccNumber = bankAccNum;
             this.sSN = sSN;
-            this.password = password;
-
-
-            // insert Employee( pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value("stringPw", "sringName", "stringAddress", "stringAddress", "int-phoneNumber", "String-sSN", "double-adjustment");
-                                                                                                                                                                                                                                                                                                    /// if error, check DOB (might need to use string instead )
-
-            string cmd = string.Format("insert Employee(jobID,  pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", jobID, password, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment);
-
-
-
-            DatabaseHerlp testy = new DatabaseHerlp();
-
-            test.connectMySQL(cmd);
-
-
-
-            
+            this.adjustment = adjustment;
         }
 
         public Employee(int employeeID)
         {
             this.employeeID = employeeID;
         }
-
-        // int jobID;
-        // string password;
-        // string empName;
-        // string physicalAddress;
-        // string emailAddress;
-        // int phoneNumber;
-        // DateTime dateOfBirth;
-        // string backAccNumber;
-        // string sSN;
-        // double adjustmnet)  
-
-
-
 
         public int getEmployeeID()
         {
@@ -93,9 +63,7 @@ namespace GroupProjCS3560num2.Classes
 
         public string getPassword()
         {
-
-        
-            return password;
+            return pw;
         }
 
         public string getEmpName()
@@ -117,7 +85,7 @@ namespace GroupProjCS3560num2.Classes
             return phoneNumber;
         }
 
-        public string getDateOfBirth() // public DateTime getDateOfBirth()
+        public DateTime getDateOfBirth()
         {
             return dateOfBirth;
         }
@@ -131,18 +99,16 @@ namespace GroupProjCS3560num2.Classes
         {
             return sSN;
         }
+
         public double getAdjustment()
         {
             return adjustment;
         }
 
-        public double getTotalHours(DateTime from, DateTime to)
+        public void setAdjustment(double adj)
         {
-            //
-            
+            this.adjustment = adj;
         }
-
-
     }
 
 
@@ -154,29 +120,29 @@ namespace GroupProjCS3560num2.Classes
 
 
         // MySql connection function
-        private void connectSql(string insertCmdLine)
-        {
+        //private void connectSql(string insertCmdLine)
+        //{
 
-             string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
+        //     string conn = "server=localhost; userid=root; password=  " + pw + "; database = employee_schema";
             
-            double amt;
-            using (var con = new MySqlConnection(conn))
-            {
+        //    double amt;
+        //    using (var con = new MySqlConnection(conn))
+        //    {
 
-                    string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
+        //            string cmdLine  = string.Format("select adjustment from Employee where employeeID = ")
 
-                using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
-                {
+        //        using (var cmd = new MySqlCommand(, con))//change 2 for te parameter asked in the funcion call
+        //        {
 
-                    con.Open();
-                    //amt = (cast)cmd.ExecuteScalar();
-                    amt = (double)cmd.ExecuteScalar();
-                    //textBox1.Text = amt.ToString();
-                    con.Close();
-                }
+        //            con.Open();
+        //            //amt = (cast)cmd.ExecuteScalar();
+        //            amt = (double)cmd.ExecuteScalar();
+        //            //textBox1.Text = amt.ToString();
+        //            con.Close();
+        //        }
                 
-            }
-        }
+        //    }
+        //}
 
 
 
