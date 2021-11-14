@@ -17,13 +17,14 @@ namespace GroupProjCS3560num2.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PinPage f = new PinPage();
+            Login f = new Login();
             f.Show();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login f = new Login();
+            PinPage f = new PinPage();
             f.Show();
         }
     }
