@@ -75,7 +75,7 @@ namespace GroupProjCS3560num2.Database
             }
             return toReturn;
         }
-        
+
         public static Employee VerifyPassword(int employeeID, string password)
         {
             
@@ -83,7 +83,7 @@ namespace GroupProjCS3560num2.Database
 
             tempEmployee = SelectEmployee(employeeID);
 
-            if (password != tempEmployee.getPassword())
+            if (password != tempEmployee.getPw())
             {
                 return null;
                 
@@ -93,169 +93,235 @@ namespace GroupProjCS3560num2.Database
 
         public static TimeLog VerifyTimeLog(int employeeID)
         {
-            string str = string.Format("select * from TimeLog where logID in (select MAX(logID) from TimeLog group by employeeID) and employeeID = {0};", employeeID);
-            return ConnectMySql<TimeLog>(str, (myReader) =>
+            string cmd = string.Format("select * from TimeLog where logID in (select MAX(logID) from TimeLog group by employeeID) and employeeID = {0};", employeeID);
+            return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
                 return myReader.IsDBNull(3) ? new TimeLog(
-                                myReader.GetInt32("logID"),
-                                myReader.GetInt32("employeeID"),
-                                myReader.GetDateTime("checkIn"),
+                                myReader.GetInt32(0),
+                                myReader.GetInt32(1),
+                                myReader.GetDateTime(2),
                                 default(DateTime)) : null;
             });
         }
 
-        static Employee[] SelectAllEmployees()
+        public static List<Employee> SelectAllEmployees()
         {
-            return null;
+            string cmd = string.Format("select * from Employee;");
+            return ConnectMySql<List<Employee>>(cmd, (myReader) =>
+            {
+                List<Employee> employees = new List<Employee>();
+                while (myReader.Read())
+                {
+                    employees.Add(new Employee(
+                        myReader.GetInt32(0),
+                        myReader.GetInt32(1),
+                        myReader.GetString(2),
+                        myReader.GetString(3),
+                        myReader.GetString(4),
+                        myReader.GetString(5),
+                        myReader.GetString(6),
+                        myReader.GetDateTime(7),
+                        myReader.GetString(8),
+                        myReader.GetString(9),
+                        myReader.GetDouble(10)));
+                }
+                return employees;
+            });
         }
 
-        static Employee SelectEmployee(int employeeID)
+        public static Employee SelectEmployee(int employeeID)
         {
             string cmd = string.Format("select * from Employee where employeeID = {0};", employeeID);
-            ConnectMySql(cmd);
-            
-            return null;
+            return ConnectMySql<Employee>(cmd, (myReader) =>
+            {
+                myReader.Read();
+                return myReader.HasRows ? new Employee(
+                    myReader.GetInt32(0),
+                    myReader.GetInt32(1),
+                    myReader.GetString(2),
+                    myReader.GetString(3),
+                    myReader.GetString(4),
+                    myReader.GetString(5),
+                    myReader.GetString(6),
+                    myReader.GetDateTime(7),
+                    myReader.GetString(8),
+                    myReader.GetString(9),
+                    myReader.GetDouble(10)) : null;
+            });
         }
 
-        static int DeleteEmployee(int employeeID)
+        public static int DeleteEmployee(int employeeID)
         {
             string cmd = string.Format("delete from Employee where employeeID = {0};", employeeID);
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql(cmd);
         }
 
-        static int UpdateEmployee(Employee employee)
+        public static int UpdateEmployee(Employee employee)
         {
-            string cmd = string.Format("update Employee set employeeID = {0}, jobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
-                "emailAddress = '{5}', phoneNumber = {6}, dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10};", employee.getEmployeeID(),
-                employee.getJobID(), employee.getPassword(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmailAddress(), employee.getPhoneNumber(),
-                employee.getDateOfBirth(), employee.getBankAccNumber(), employee.getSSN(), employee.getAdjustment());
-            ConnectMySql(cmd);
-
-            return 0;
+            string cmd = string.Format("update Employee set JobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
+                "emailAddress = '{5}', phoneNumber = {6}, dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
+                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(),
+                employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+            return ConnectMySql(cmd);
         }
 
-        static int InsertEmployee(Employee employee)
+        public static int InsertEmployee(Employee employee)
         {
 
-           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPassword(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmailAddress(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNumber(), employee.getSSN(), employee.getAdjustment());
-           ConnectMySql(cmd1);
-
-            return 0;
+           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+           return ConnectMySql(cmd1);
         }
 
-        static Job[] SelectAllJobs()
+        public static List<Job> SelectAllJobs()
         {
-            return null;
+            string cmd = string.Format("select * from Job;");
+            return ConnectMySql<List<Job>>(cmd, (myReader) =>
+            {
+                List<Job> jobs = new List<Job>();
+                while (myReader.Read())
+                {
+                    jobs.Add(new Job(
+                        myReader.GetInt32(0),
+                        myReader.GetString(1),
+                        myReader.GetDouble(2)));
+                }
+                return jobs;
+            });
         }
 
-        static Job SelectJob(int jobID)
+        public static Job SelectJob(int jobID)
         {
             string cmd = string.Format("select * from Job where jobID = {0};", jobID);
-            ConnectMySql(cmd);
-
-            return null;
+            return ConnectMySql<Job>(cmd, (myReader) =>
+            {
+                myReader.Read();
+                return myReader.HasRows ? new Job(
+                    myReader.GetInt32(0),
+                    myReader.GetString(1),
+                    myReader.GetDouble(2)) : null;
+            });
         }
 
-        static int DeleteJob(int jobID)
+        public static int DeleteJob(int jobID)
         {
             string cmd = string.Format("delete from Job where jobID = {0};", jobID);
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql(cmd);
         }
 
-        static int UpdateJob(Job job)
+        public static int UpdateJob(Job job)
         {
-            string cmd = string.Format("update Job set jobId = {0}, jobTitle = '{1}', basePayrate = {2};", job.getJobId(), job.getJobTitle(), job.getBasePayrate());
-            ConnectMySql(cmd);
-
-            return 0;
+            string cmd = string.Format("update Job set jobTitle = '{1}', basePayrate = {2} where jobID = {0};", job.getJobID(), job.getJobTitle(), job.getBasePayrate());
+            return ConnectMySql(cmd);
         }
 
-        static int InsertJob(Job job)
+        public static int InsertJob(Job job)
         {
-            string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1:C2});", job.getJobTitle(), job.getBasePayrate());
-            ConnectMySql(cmd);
-
-            return 0;
+            string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1});", job.getJobTitle(), job.getBasePayrate());
+            return ConnectMySql (cmd);
         }
 
-        static TimeLog[] SelectAllTimeLogs()
+        public static List<TimeLog> SelectAllTimeLogs()
         {
             string cmd = string.Format("select * from TimeLog;");
-            ConnectMySql(cmd);
-
-            return null;
+            return ConnectMySql<List<TimeLog>>(cmd, (myReader) =>
+            {
+                List<TimeLog> timeLogs = new List<TimeLog>();
+                while (myReader.Read())
+                {
+                    timeLogs.Add(new TimeLog(
+                        myReader.GetInt32(0),
+                        myReader.GetInt32(1),
+                        myReader.GetDateTime(2),
+                        myReader.IsDBNull(3) ? default(DateTime) : myReader.GetDateTime(3)));
+                }
+                return timeLogs;
+            });
         }
 
-        static TimeLog SelectTimeLog(int logID)
+        public static TimeLog SelectTimeLog(int logID)
         {
             string cmd = string.Format("select * from TimeLog where logId = {0};", logID);
-            ConnectMySql(cmd);
-
-            return null;
+            return ConnectMySql<TimeLog>(cmd, (myReader) =>
+            {
+                myReader.Read();
+                return myReader.HasRows ? new TimeLog(
+                    myReader.GetInt32(0),
+                    myReader.GetInt32(1),
+                    myReader.GetDateTime(2),
+                    myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime)) : null;
+            });
         }
 
-        static int DeleteTimeLog(int logID)
+        public static int DeleteTimeLog(int logID)
         {
             string cmd = string.Format("delete from TimeLog where logID = {0};", logID);
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql(cmd);
         }
 
-        static int UpdateTimeLog(TimeLog log)
+        public static int UpdateTimeLog(TimeLog log)
         {
-
-            return 0;
+            string cmd = string.Format("update TimeLog set employeeID = {1}, checkIn = '{2}', checkOut = '{3}' where logID = {0};", log.getLogID(), log.getEmployeeID(), log.getCheckIn(), log.getCheckOut());
+            return ConnectMySql(cmd);
         }
 
-        static int InsertTimeLog(TimeLog log)
+        public static int InsertTimeLog(TimeLog log)
         {
-            return 0;
+            string cmd = string.Format("insert into TimeLog(employeeID, checkIn, checkOut) value ({0}, '{1}', '{2}');", log.getEmployeeID(), log.getCheckIn(), log.getCheckOut());
+            return ConnectMySql(cmd);
         }
 
-        static Issue[] SelectAllIssues()
+        public static List<Issue> SelectAllIssues()
         {
             string cmd = string.Format("select * from Issue;");
-            ConnectMySql(cmd);
-
-            return null;
+            return ConnectMySql<List<Issue>>(cmd, (myReader) =>
+            {
+                List<Issue> issues = new List<Issue>();
+                while (myReader.Read())
+                {
+                    issues.Add(new Issue(
+                        myReader.GetInt32(0),
+                        myReader.GetInt32(1),
+                        myReader.GetInt32(2),
+                        myReader.GetString(3),
+                        myReader.GetBoolean(4)));
+                }
+                return issues;
+                
+            });
         }
 
-        static Issue SelectIssue(int issueID)
+        public static Issue SelectIssue(int issueID)
         {
             string cmd = string.Format("select * from Issue where issueId = {0};", issueID);
-            ConnectMySql(cmd);
-
-            return null;
+            return ConnectMySql<Issue>(cmd, (myReader) =>
+            {
+                myReader.Read();
+                return myReader.HasRows ? new Issue(
+                    myReader.GetInt32(0),
+                    myReader.GetInt32(1),
+                    myReader.GetInt32(2),
+                    myReader.GetString(3),
+                    myReader.GetBoolean(4)) : null;
+            });
         }
 
-        static int DeleteIssue(int issueID)
+        public static int DeleteIssue(int issueID)
         {
             string cmd = string.Format("delete from Issue where issueId = {0};", issueID);
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql(cmd);
         }
 
-        static int UpdateIssue(Issue issue)
+        public static int UpdateIssue(Issue issue)
         {
-            string cmd = string.Format("update Issue set employeeID = {0}, adminID = {1}, issueStr = {2}, solved = {3} where issueID = {4};", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved(), issue.getIssueID());
-            ConnectMySql(cmd);
-
-            return 0;
+            string cmd = string.Format("update Issue set employeeID = {1}, adminID = {2}, issueStr = '{3}', solved = {4} where issueID = {0};", issue.getIssueID(), issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
+            return ConnectMySql(cmd);
         }
 
-        static int InsertIssue(Issue issue)
+        public static int InsertIssue(Issue issue)
         {
             string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
-            ConnectMySql(cmd);
-
-            return 0;
+            return ConnectMySql (cmd);
         }
     }
 }

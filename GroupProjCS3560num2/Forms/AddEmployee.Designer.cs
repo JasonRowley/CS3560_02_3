@@ -62,6 +62,7 @@ namespace GroupProjCS3560num2.Forms
             this.button2.TabIndex = 54;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -80,6 +81,7 @@ namespace GroupProjCS3560num2.Forms
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(274, 23);
             this.maskedTextBox2.TabIndex = 52;
+            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
             // 
             // maskedTextBox1
             // 
@@ -88,6 +90,7 @@ namespace GroupProjCS3560num2.Forms
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(274, 23);
             this.maskedTextBox1.TabIndex = 51;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // dateTimePicker1
             // 
@@ -95,6 +98,7 @@ namespace GroupProjCS3560num2.Forms
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(274, 23);
             this.dateTimePicker1.TabIndex = 50;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // comboBox1
             // 
@@ -103,6 +107,7 @@ namespace GroupProjCS3560num2.Forms
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(274, 23);
             this.comboBox1.TabIndex = 49;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -155,6 +160,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(274, 23);
             this.textBox9.TabIndex = 41;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // textBox8
             // 
@@ -162,6 +168,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(220, 23);
             this.textBox8.TabIndex = 40;
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label5
             // 
@@ -222,6 +229,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(274, 23);
             this.textBox3.TabIndex = 33;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -229,6 +237,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(274, 23);
             this.textBox2.TabIndex = 32;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -236,6 +245,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(274, 23);
             this.textBox1.TabIndex = 31;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label10
             // 
