@@ -19,7 +19,7 @@ namespace GroupProjCS3560num2
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminMain());
+            Application.Run(new Login());
         }
     }
 }

@@ -52,25 +52,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KBBQ\\.nuget\\packages\\": {},
-    "C:\\.Sen\\Apps\\VisualStudio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ctome\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+      "projectUniqueName": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
       "projectName": "GroupProjCS3560num2",
-      "projectPath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
-      "packagesPath": "C:\\Users\\KBBQ\\.nuget\\packages\\",
-      "outputPath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\obj\\",
+      "projectPath": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+      "packagesPath": "C:\\Users\\ctome\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ctome\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\.Sen\\Apps\\VisualStudio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\KBBQ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ctome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -118,7 +121,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

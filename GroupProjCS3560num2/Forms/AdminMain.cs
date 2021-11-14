@@ -30,19 +30,14 @@ namespace GroupProjCS3560num2.Forms
             //timelogs
         }
 
-        private void button5_Click(object sender, EventArgs e) // add employee
+        private void button5_Click(object sender, EventArgs e)
         {
-            // open the add employee form
-            AddEmployee f = new AddEmployee();
-            f.Show();
+            //add employee
         }
 
-        private void button6_Click(object sender, EventArgs e) // logout
+        private void button6_Click(object sender, EventArgs e)
         {
-            // close and open the main login page
-            this.Hide();
-            StartPage f = new StartPage();
-            f.Show();
+            //logout
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

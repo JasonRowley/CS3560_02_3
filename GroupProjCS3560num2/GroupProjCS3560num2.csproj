@@ -8,12 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="Classes\Issues.cs" />
-    <Compile Remove="Forms\Logins\IncorrectCredentials.cs" />
-    <Compile Remove="Forms\Logins\IncorrectCredentials.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Forms\Logins\IncorrectCredentials.resx" />
   </ItemGroup>
 
   <ItemGroup>

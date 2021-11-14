@@ -10,7 +10,7 @@
     <Compile Update="Forms\EmployeeInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Logins\Login.cs">
+    <Compile Update="Forms\Logins\IncorrectCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PinPad\ClockedIn.cs">
@@ -23,6 +23,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PinPad\PinPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Logins\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\StartPage.cs">
