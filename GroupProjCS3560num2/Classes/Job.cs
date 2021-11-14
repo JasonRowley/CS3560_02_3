@@ -17,7 +17,7 @@ namespace GroupProjCS3560num2.Forms
             this.basePayrate = basePayrate;
         }
 
-        public int getJobId()
+        public int getJobID()
         {
             return jobID;
         }
