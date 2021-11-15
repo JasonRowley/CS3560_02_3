@@ -37,6 +37,15 @@ namespace GroupProjCS3560num2.Forms
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(14, 41);
@@ -68,6 +77,14 @@ namespace GroupProjCS3560num2.Forms
             this.button2.Text = "Login";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.TabIndex = 5;
             // 
             // maskedTextBox1
             // 
