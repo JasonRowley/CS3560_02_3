@@ -83,7 +83,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job
         {
-
+            comboBox1.Items.Add(DatabaseHelper.SelectAllEmployees());
         }
 
         private void button2_Click(object sender, EventArgs e) // cancel button

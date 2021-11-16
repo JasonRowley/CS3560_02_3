@@ -3,7 +3,6 @@ using GroupProjCS3560num2.Database;
 using System;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Classes.Handlers;
-using GroupProjCS3560num2.Forms.Login;
 
 namespace GroupProjCS3560num2.Forms
 {
@@ -15,21 +14,15 @@ namespace GroupProjCS3560num2.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // cancel
         {
             this.Close();
         }
 
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e) // login
         {
             int empID = Int32.Parse(maskedTextBox1.Text);
-            String pass =textBox2.Text;
+            String pass = textBox1.Text;
             Employee tempEmployee = LoginHandler.Login(empID, pass);
             if (null == tempEmployee)
             {
@@ -38,14 +31,19 @@ namespace GroupProjCS3560num2.Forms
             }
             else
             {
-                Forms.Login.IncorrectCredentials f1 = new Forms.Login.IncorrectCredentials();
+                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
                 f1.Show();
-            } 
-            
+            }
+
         }
 
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) // login
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) // password
         {
 
         }

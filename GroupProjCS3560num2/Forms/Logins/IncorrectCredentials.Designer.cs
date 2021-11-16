@@ -1,5 +1,5 @@
 ﻿
-namespace GroupProjCS3560num2.Forms.Login
+namespace GroupProjCS3560num2.Forms.Logins
 {
     partial class IncorrectCredentials
     {
