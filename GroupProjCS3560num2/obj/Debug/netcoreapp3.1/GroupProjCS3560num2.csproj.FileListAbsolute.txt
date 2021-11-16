@@ -1,20 +1,31 @@
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddEmployee.resources
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.EmployeeInfo.resources
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.exe
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.deps.json
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.json
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.dev.json
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\MySqlConnector.dll
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CopyComplete
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
-E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Login.resources
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPage.resources
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
+C:\Users\ctome\source\repos\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AdminMain.resources
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Login.resources
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPage.resources
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.StartPage.resources
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.exe
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.deps.json
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.json
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.dev.json
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CopyComplete
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddEmployee.resources
+C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.EmployeeInfo.resources
