@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GroupProjCS3560num2.Forms.Login
+namespace GroupProjCS3560num2.Forms.Logins
 {
     public partial class IncorrectCredentials : Form
     {

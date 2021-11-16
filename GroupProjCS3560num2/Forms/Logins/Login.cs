@@ -3,7 +3,6 @@ using GroupProjCS3560num2.Database;
 using System;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Classes.Handlers;
-using GroupProjCS3560num2.Forms.Login;
 
 namespace GroupProjCS3560num2.Forms
 {
@@ -38,7 +37,7 @@ namespace GroupProjCS3560num2.Forms
             }
             else
             {
-                Forms.Login.IncorrectCredentials f1 = new Forms.Login.IncorrectCredentials();
+                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
                 f1.Show();
             } 
             
