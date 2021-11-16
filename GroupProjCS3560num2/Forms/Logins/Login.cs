@@ -3,7 +3,6 @@ using GroupProjCS3560num2.Database;
 using System;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Classes.Handlers;
-using GroupProjCS3560num2.Forms.Login;
 
 namespace GroupProjCS3560num2.Forms
 {
@@ -46,6 +45,16 @@ namespace GroupProjCS3560num2.Forms
 
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load_1(object sender, EventArgs e)
         {
 
         }

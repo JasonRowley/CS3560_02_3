@@ -37,7 +37,7 @@ namespace GroupProjCS3560num2.Forms
             String sSN = maskedTextBox1.Text;
             String password = textBox9.Text;
 
-            EmployeeHandler.AddEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
+            EmployeeHandler.AddEmployee(employeeID, jobID, phoneNumber, adjustment, dateOfBirth, empName, physicalAddress, email, bankAccNum, sSN, password);
 
         }
 
@@ -89,6 +89,14 @@ namespace GroupProjCS3560num2.Forms
         private void button2_Click(object sender, EventArgs e) // cancel button
         {
             this.Close();
+        }
+
+        static void Main()
+        {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new AddEmployee());
         }
     }
 }
