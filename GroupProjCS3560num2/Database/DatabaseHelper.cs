@@ -83,7 +83,7 @@ namespace GroupProjCS3560num2.Database
 
             tempEmployee = SelectEmployee(employeeID);
 
-            if (password != tempEmployee.getPw())
+            if (tempEmployee == null || password != tempEmployee.getPw())
             {
                 return null;
                 

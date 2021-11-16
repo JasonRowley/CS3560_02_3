@@ -19,32 +19,30 @@ namespace GroupProjCS3560num2.Forms
             this.Close();
         }
 
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
-            int empID = Int32.Parse(maskedTextBox1.Text);
-            String pass =textBox2.Text;
+            int empID = Int32.Parse(textBox1.Text);    //TODO: account for if no text is entered
+            String pass = textBox2.Text;
             Employee tempEmployee = LoginHandler.Login(empID, pass);
             if (null == tempEmployee)
             {
-                AdminMain f0 = new AdminMain();
-                f0.Show();
+                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
+                f1.Show();
             }
             else
             {
-                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
-                f1.Show();
+                AdminMain f0 = new AdminMain();
+                f0.Show();
             } 
             
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
