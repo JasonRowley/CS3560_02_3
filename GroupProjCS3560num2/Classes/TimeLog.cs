@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GroupProjCS3560num2.Classes
 {
-    class TimeLog
+    public class TimeLog
     {
         int logID;
         int employeeID;

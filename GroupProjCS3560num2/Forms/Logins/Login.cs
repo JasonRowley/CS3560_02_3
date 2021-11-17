@@ -11,7 +11,6 @@ namespace GroupProjCS3560num2.Forms
         public Login()
         {
             InitializeComponent();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
