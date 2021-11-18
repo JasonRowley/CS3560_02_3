@@ -63,8 +63,16 @@ namespace GroupProjCS3560num2.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                amh.populateColumns(amh.getSearchQuery(textBox1.Text));
-                e.Handled = true;
+                try
+                {
+                    amh.populateColumns(amh.getSearchQuery(textBox1.Text));
+                }
+                catch (NoTextException) { /* do nothing */ }
+                catch (NoEmployeesException) { /* do nothing */ }
+                finally
+                {
+                    e.Handled = true;
+                }
             }
         }
 

@@ -216,20 +216,45 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
         public string getSearchQuery(string value)
         {
-            string halfQuery = " where ";
+            // Leave method if no search text is passed
+            if (value.Length == 0)
+            {
+                throw new NoTextException();
+            }
+
+            string query = " where ";
             switch (currTbl)
             {
-                // TODO: get correct query for each case
                 case Tables.EMPLOYEE:
+                    query += "empName = \"" + value + "\";";
+                    break;
                 case Tables.ISSUE:
                 case Tables.TIMELOG:
-                    halfQuery += "empName";
+                    var emps = DatabaseHelper.SelectAllEmployees(" where empName = \"" + value + "\";");
+                    
+                    // Leave method if no employees with the searched name are found
+                    if (emps.Count == 0)
+                    {
+                        // Same result as if search made and nothing returned
+                        lv.Items.Clear();
+                        throw new NoEmployeesException();
+                    }
+
+                    // Query using all employee IDs associated with the searched name
+                    query += "employeeID = ";
+                    for (int i = 0; i < emps.Count; i++)
+                    {
+                        query += emps[i].getEmployeeID().ToString() + ((i == emps.Count - 1) ? ";" : " or employee ID = ");
+                    }
                     break;
                 case Tables.JOB:
-                    halfQuery += "jobTitle";
+                    query += "jobTitle = \"" + value + "\";";
                     break;
             }
-            return halfQuery + " = \"" + value + "\"";
+            return query;
         }
     }
+
+    public class NoEmployeesException : Exception { }
+    public class NoTextException : Exception { }
 }
