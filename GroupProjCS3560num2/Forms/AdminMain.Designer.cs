@@ -36,7 +36,7 @@ namespace GroupProjCS3560num2.Forms
             this.listView1 = new System.Windows.Forms.ListView();
             this.employeeID = new System.Windows.Forms.ColumnHeader();
             this.employeeName = new System.Windows.Forms.ColumnHeader();
-            this.Job = new System.Windows.Forms.ColumnHeader();
+            this.job = new System.Windows.Forms.ColumnHeader();
             this.physicalAddress = new System.Windows.Forms.ColumnHeader();
             this.emailAddress = new System.Windows.Forms.ColumnHeader();
             this.phoneNumber = new System.Windows.Forms.ColumnHeader();
@@ -64,6 +64,7 @@ namespace GroupProjCS3560num2.Forms
             this.button2.TabIndex = 1;
             this.button2.Text = "Jobs";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -87,16 +88,14 @@ namespace GroupProjCS3560num2.Forms
             // 
             // listView1
             // 
-            this.listView1.AllowColumnReorder = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.employeeID,
             this.employeeName,
-            this.Job,
+            this.job,
             this.physicalAddress,
             this.emailAddress,
             this.phoneNumber,
             this.solved});
-            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(93, 84);
@@ -110,37 +109,37 @@ namespace GroupProjCS3560num2.Forms
             // employeeID
             // 
             this.employeeID.Text = "ID";
-            this.employeeID.Width = 25;
+            this.employeeID.Width = 30;
             // 
             // employeeName
             // 
             this.employeeName.Text = "Name";
-            this.employeeName.Width = 44;
+            this.employeeName.Width = 70;
             // 
-            // Job
+            // job
             // 
-            this.Job.Text = "Job";
-            this.Job.Width = 30;
+            this.job.Text = "Job";
+            this.job.Width = 50;
             // 
             // physicalAddress
             // 
             this.physicalAddress.Text = "Address";
-            this.physicalAddress.Width = 54;
+            this.physicalAddress.Width = 90;
             // 
             // emailAddress
             // 
             this.emailAddress.Text = "Email";
-            this.emailAddress.Width = 41;
+            this.emailAddress.Width = 70;
             // 
             // phoneNumber
             // 
             this.phoneNumber.Text = "Phone Number";
-            this.phoneNumber.Width = 93;
+            this.phoneNumber.Width = 150;
             // 
             // solved
             // 
             this.solved.Text = "Issue";
-            this.solved.Width = 38;
+            this.solved.Width = 70;
             // 
             // button5
             // 
@@ -185,7 +184,7 @@ namespace GroupProjCS3560num2.Forms
             this.Controls.Add(this.button1);
             this.Name = "AdminMain";
             this.Text = "AdminMain";
-            this.Load += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.Load += new System.EventHandler(this.AdminMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +202,7 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ColumnHeader employeeID;
         private System.Windows.Forms.ColumnHeader employeeName;
-        private System.Windows.Forms.ColumnHeader Job;
+        private System.Windows.Forms.ColumnHeader job;
         private System.Windows.Forms.ColumnHeader physicalAddress;
         private System.Windows.Forms.ColumnHeader emailAddress;
         private System.Windows.Forms.ColumnHeader phoneNumber;

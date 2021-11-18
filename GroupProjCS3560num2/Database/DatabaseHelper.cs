@@ -159,18 +159,19 @@ namespace GroupProjCS3560num2.Database
 
         public static int UpdateEmployee(Employee employee)
         {
+            string dob = employee.getDateOfBirth().ToString("yyyy-MM-dd HH:mm:ss.fff");
             string cmd = string.Format("update Employee set JobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
-                "emailAddress = '{5}', phoneNumber = {6}, dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
-                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(),
-                employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+                "emailAddress = '{5}', phoneNumber = '{6}', dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
+                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), dob,
+                employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
             return ConnectMySql(cmd);
         }
 
         public static int InsertEmployee(Employee employee)
         {
-
-           string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), employee.getDateOfBirth(), employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
-           return ConnectMySql(cmd1);
+            string dob = employee.getDateOfBirth().ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), dob, employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+            return ConnectMySql(cmd1);
         }
 
         public static List<Job> SelectAllJobs()

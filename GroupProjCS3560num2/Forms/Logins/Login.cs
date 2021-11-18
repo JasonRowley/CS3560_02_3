@@ -26,13 +26,13 @@ namespace GroupProjCS3560num2.Forms
             Employee tempEmployee = LoginHandler.Login(empID, pass);
             if (null == tempEmployee)
             {
-                AdminMain f0 = new AdminMain();
-                f0.Show();
+                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
+                f1.Show();
             }
             else
             {
-                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
-                f1.Show();
+                AdminMain f0 = new AdminMain();
+                f0.Show();
             }
 
         }
