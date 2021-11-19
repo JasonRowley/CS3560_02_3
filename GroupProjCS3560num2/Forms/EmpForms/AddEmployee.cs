@@ -30,26 +30,68 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button
         {
-            int employeeID = 0;
-            int jobID = JobHandler.getJobID(comboBox1.Text);
+            //int employeeID = 0;
+            /*int jobID = JobHandler.getJobID(comboBox1.Text);
             String phoneNumber = maskedTextBox2.Text;
-            double adjustment = 0;
-            try
-            {
-                adjustment = double.Parse(textBox5.Text);
-                if (adjustment < 0)
-                    adjustment *= -1;
-            } catch { }
             DateTime dateOfBirth = dateTimePicker1.Value;
             String empName = textBox1.Text;
             String physicalAddress = textBox2.Text;
             String email = textBox3.Text;
             String bankAccNum = textBox8.Text;
             String sSN = maskedTextBox1.Text;
-            String password = textBox9.Text;
+            String password = textBox9.Text;*/
+            double adjustment;
 
-            EmployeeHandler.addEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
-            this.Close();
+            TextBox[] textBoxes = { textBox1, textBox3, textBox2, textBox8, textBox9};
+            MaskedTextBox[] maskedTextBoxes = { maskedTextBox2, maskedTextBox1 };
+            Label[] labels = { label1, label3, label2, label8, label9, label11, label5, label4, label7 };
+
+            // verifies name, email, addres, bank account number, password
+            for (int i = 0; i < 5; i++)
+            {
+                if (textBoxes[i].Text == "")
+                    labels[i].ForeColor = System.Drawing.Color.Red;
+                else
+                    labels[i].ForeColor = System.Drawing.Color.Black;
+            }
+
+
+
+            // verifies phone, ssn
+            for (int i = 0; i < 2; i++)
+            {
+                if (!maskedTextBoxes[i].MaskCompleted)
+                    labels[7 + i].ForeColor = System.Drawing.Color.Red;
+                else
+                    labels[7 + i].ForeColor = System.Drawing.Color.Black;
+            }
+
+            // verifies job
+            if (comboBox1.SelectedIndex == -1)
+                label11.ForeColor = System.Drawing.Color.Red;
+            else
+                label11.ForeColor = System.Drawing.Color.Black;
+            
+            // verifies adjustment
+            bool adj = double.TryParse(textBox5.Text, out adjustment);
+            if (!adj || adjustment < 0)
+                label5.ForeColor = System.Drawing.Color.Red;
+            else
+                label5.ForeColor = System.Drawing.Color.Black;
+
+            // verifies that none is empty
+            int countNotEmpty = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                if (labels[i].ForeColor == System.Drawing.Color.Black)
+                    countNotEmpty += 1;
+                if (countNotEmpty == 9)
+                {
+                    EmployeeHandler.addEmployee(0, JobHandler.getJobID(comboBox1.Text), textBox9.Text, textBox1.Text, textBox2.Text, 
+                        textBox3.Text, maskedTextBox2.Text, dateTimePicker1.Value, textBox8.Text, maskedTextBox1.Text, adjustment);
+                    this.Close();
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) // name
@@ -100,6 +142,8 @@ namespace GroupProjCS3560num2.Forms
         private void button2_Click(object sender, EventArgs e) // cancel button
         {
             this.Close();
+            //label1.ForeColor = System.Drawing.Color.Red;
         }
+
     }
 }

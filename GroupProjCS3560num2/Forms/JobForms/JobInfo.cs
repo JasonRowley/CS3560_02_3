@@ -35,18 +35,37 @@ namespace GroupProjCS3560num2.Forms
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            int jobID = Int32.Parse(jobIDBox.Text);
-            string jobTitle = comboBox1.Text;
-            double basePayrate = 0;
-            try
-            {
-                basePayrate = double.Parse(textBox1.Text);
-                if (basePayrate < 0)
-                    basePayrate *= -1;
-            } catch { }
+            Label[] labels = { jobTitleLabel, basePayrateLabel };
+            double basePayrate;
 
-            JobHandler.updateJob(jobID, jobTitle, basePayrate);
-            this.Close();
+            // verifies job
+            if (string.IsNullOrEmpty(comboBox1.Text)) // comboBox1.SelectedIndex == -1 && 
+                jobTitleLabel.ForeColor = System.Drawing.Color.Red;
+            else
+                jobTitleLabel.ForeColor = System.Drawing.Color.Black;
+
+            // verifies base pay rate
+            bool bpr = double.TryParse(textBox1.Text, out basePayrate);
+            if (!bpr || basePayrate < 1)
+                basePayrateLabel.ForeColor = System.Drawing.Color.Red;
+            else
+                basePayrateLabel.ForeColor = System.Drawing.Color.Black;
+
+            // verifies that none is empty
+            int countNotEmpty = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                if (labels[i].ForeColor == System.Drawing.Color.Black)
+                    countNotEmpty += 1;
+                if (countNotEmpty == 2)
+                {
+                    JobHandler.updateJob(Int32.Parse(jobIDBox.Text), comboBox1.Text, basePayrate);
+                    this.Close();
+                }
+            }
+
+            // FIX THE DELETE JOB WHEN IS ASSIGNED TO AN EMPLOYEE ---> USE TRY CATCH AND GIVE THE RED LABEL TAG NOTIFYING THAT THE JOB CANT BE DELETED
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job comboBox

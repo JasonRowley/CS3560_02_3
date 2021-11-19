@@ -34,6 +34,8 @@ namespace GroupProjCS3560num2.Forms
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button2
@@ -58,10 +60,11 @@ namespace GroupProjCS3560num2.Forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 67);
+            this.textBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.textBox1.Location = new System.Drawing.Point(70, 67);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Job Title";
-            this.textBox1.Size = new System.Drawing.Size(243, 23);
+            this.textBox1.Size = new System.Drawing.Size(199, 23);
             this.textBox1.TabIndex = 80;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -77,18 +80,38 @@ namespace GroupProjCS3560num2.Forms
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(26, 96);
+            this.textBox2.Location = new System.Drawing.Point(97, 96);
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "0.0";
-            this.textBox2.Size = new System.Drawing.Size(243, 23);
+            this.textBox2.Size = new System.Drawing.Size(172, 23);
             this.textBox2.TabIndex = 87;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.TabIndex = 88;
+            this.label1.Text = "Job Title";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 15);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "Base Pay Rate";
             // 
             // AddJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 198);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -108,5 +131,7 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

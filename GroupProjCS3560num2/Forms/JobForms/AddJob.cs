@@ -34,18 +34,35 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm
         {
-            int jobID = 0;
-            String jobTitle = textBox1.Text;
-            double basePayrate = 0;
-            try
-            {
-                basePayrate = double.Parse(textBox2.Text);
-                if (basePayrate < 0)
-                    basePayrate *= -1;
-            } catch { }
+            Label[] labels = { label1, label3 };
+            double basePayrate;
 
-            JobHandler.addJob(jobID, jobTitle, basePayrate);
-            this.Close();
+            // verifies job title
+            if (textBox1.Text == "")
+                label1.ForeColor = System.Drawing.Color.Red;
+            else
+                label1.ForeColor = System.Drawing.Color.Black;
+
+            // verifies base pay rate
+            bool bpr = double.TryParse(textBox2.Text, out basePayrate);
+            if (!bpr || basePayrate < 0)
+                label3.ForeColor = System.Drawing.Color.Red;
+            else
+                label3.ForeColor = System.Drawing.Color.Black;
+
+            // verifies that none is empty
+            int countNotEmpty = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                if (labels[i].ForeColor == System.Drawing.Color.Black)
+                    countNotEmpty += 1;
+                if (countNotEmpty == 2)
+                {
+                    JobHandler.addJob(0, textBox1.Text, basePayrate);
+                    this.Close();
+                }
+            }
+
             //Debug.WriteLine(basePayrate);
         }
 

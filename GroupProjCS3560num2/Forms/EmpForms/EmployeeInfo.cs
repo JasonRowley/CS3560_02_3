@@ -19,29 +19,29 @@ namespace GroupProjCS3560num2.Forms
             List<Job> j = DatabaseHelper.SelectAllJobs();
             for (int i = 0; i < j.Count; i++)
             {
-                comboBox1.Items.Add(j[i].getJobTitle());
+                jobComboBox.Items.Add(j[i].getJobTitle());
             }
 
             for (int i = 0; i < j.Count; i++)
             {
                 if (emp.getJobID() == j[i].getJobID())
                 {
-                    comboBox1.Text = j[i].getJobTitle();
+                    jobComboBox.Text = j[i].getJobTitle();
                     textBox12.Text = j[i].getBasePayrate().ToString();
                     break;
                 }
             }
 
-            textBox1.Text = emp.getEmpName();
-            textBox4.Text = emp.getEmployeeID().ToString();
-            maskedTextBox2.Text = emp.getPhoneNumber();
-            textBox3.Text = emp.getEmail();
-            textBox2.Text = emp.getPhysicalAddress();
-            textBox5.Text = emp.getAdjustment().ToString();
+            nameTextBox.Text = emp.getEmpName();
+            IDTextBox.Text = emp.getEmployeeID().ToString();
+            phoneMaskedTextBox.Text = emp.getPhoneNumber();
+            emailTextBox.Text = emp.getEmail();
+            addressTextBox.Text = emp.getPhysicalAddress();
+            adjustmentTextBox.Text = emp.getAdjustment().ToString();
             dateTimePicker1.Text = emp.getDateOfBirth().ToString();
-            maskedTextBox1.Text = emp.getSSN();
-            textBox8.Text = emp.getBankAccNum();
-            textBox9.Text = emp.getPw();
+            ssnMaskedTextBox.Text = emp.getSSN();
+            bankTextBox.Text = emp.getBankAccNum();
+            pwTextBox.Text = emp.getPw();
         }
 
         private void EmployeeInfo_Load(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace GroupProjCS3560num2.Forms
             List<Job> j = DatabaseHelper.SelectAllJobs();
             for (int i = 0; i < j.Count; i++)
             {
-                if (j[i].getJobTitle() == comboBox1.SelectedItem.ToString())
+                if (j[i].getJobTitle() == jobComboBox.SelectedItem.ToString())
                 {
                     textBox12.Text = j[i].getBasePayrate().ToString();
                 }
@@ -89,7 +89,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void button3_Click(object sender, EventArgs e) // delete button
         {
-            int empID = Int32.Parse(textBox4.Text);
+            int empID = Int32.Parse(IDTextBox.Text);
             EmployeeHandler.deleteEmployee(empID);
             this.Close();
         }
@@ -141,26 +141,49 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button // to update
         {
-            int employeeID = Int32.Parse(textBox4.Text);
-            int jobID = JobHandler.getJobID(comboBox1.Text);
-            String phoneNumber = maskedTextBox2.Text;
             double adjustment = 0;
-            try
-            {
-                adjustment = double.Parse(textBox5.Text); // verifies that is pasing a number
-                if (adjustment < 0)
-                    adjustment *= -1;
-            } catch { }
-            DateTime dateOfBirth = dateTimePicker1.Value;
-            String empName = textBox1.Text;
-            String physicalAddress = textBox2.Text;
-            String email = textBox3.Text;
-            String bankAccNum = textBox8.Text;
-            String sSN = maskedTextBox1.Text;
-            String password = textBox9.Text;
+            TextBox[] textBoxes = { nameTextBox, emailTextBox, addressTextBox, bankTextBox, pwTextBox };
+            MaskedTextBox[] maskedTextBoxes = { phoneMaskedTextBox, ssnMaskedTextBox };
+            Label[] labels = { nameLabel, emailLabel, addressLabel, bankLabel, pwLabel, phoneLabel, ssnLabel, adjustmentLabel };
 
-            EmployeeHandler.updateEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
-            this.Close();
+            // verifies adjustment
+            bool adj = double.TryParse(adjustmentTextBox.Text, out adjustment);
+            if (!adj || adjustment < 0)
+                adjustmentLabel.ForeColor = System.Drawing.Color.Red;
+            else
+                adjustmentLabel.ForeColor = System.Drawing.Color.Black;
+
+            // verifies name, email, address, bank account number, password
+            for (int i = 0; i < 5; i++)
+            {
+                if (textBoxes[i].Text == "")
+                    labels[i].ForeColor = System.Drawing.Color.Red;
+                else
+                    labels[i].ForeColor = System.Drawing.Color.Black;
+            }
+
+            // verifies phone number and ssn
+            for (int i = 0; i < 2; i++)
+            {
+                if (!maskedTextBoxes[i].MaskCompleted)
+                    labels[5 + i].ForeColor = System.Drawing.Color.Red;
+                else
+                    labels[5 + i].ForeColor = System.Drawing.Color.Black;
+            }
+
+            // verifies that none is empty
+            int countNotEmpty = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                if (labels[i].ForeColor == System.Drawing.Color.Black)
+                    countNotEmpty += 1;
+                if (countNotEmpty == 8)
+                {
+                    EmployeeHandler.updateEmployee(Int32.Parse(IDTextBox.Text), JobHandler.getJobID(jobComboBox.Text), pwTextBox.Text, nameTextBox.Text, 
+                        addressTextBox.Text, emailTextBox.Text, phoneMaskedTextBox.Text, dateTimePicker1.Value, bankTextBox.Text, ssnMaskedTextBox.Text, adjustment);
+                    this.Close();
+                }
+            }
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e) // password

@@ -23,8 +23,10 @@ namespace GroupProjCS3560num2
             Application.SetCompatibleTextRenderingDefault(false);
             //DateTime d = new DateTime(2011, 11, 11);
             //Employee emp = new Employee(0, 1, "132password", "name1", "555 mian street", "email@cpp.edu", "111-555-2715", d, "00000000000", "111-11-1111", 0);
-            Application.Run(new EmployeeInfo(DatabaseHelper.SelectEmployee(2)));
+            //Application.Run(new JobInfo(DatabaseHelper.SelectJob(2)));
             //Application.Run(new AddJob());
+            //Application.Run(new EmployeeInfo(DatabaseHelper.SelectEmployee(2)));
+            Application.Run(new AddEmployee());
         }
     }
 }
