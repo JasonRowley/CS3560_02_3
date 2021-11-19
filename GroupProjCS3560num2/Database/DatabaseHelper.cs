@@ -250,7 +250,7 @@ namespace GroupProjCS3560num2.Database
                     myReader.GetInt32(0),
                     myReader.GetInt32(1),
                     myReader.GetDateTime(2),
-                    myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime)) : null;
+                    myReader.IsDBNull(3) ? default(DateTime) : myReader.GetDateTime(3)) : null;
             });
         }
 
