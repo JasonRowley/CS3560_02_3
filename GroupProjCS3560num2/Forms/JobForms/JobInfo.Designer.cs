@@ -36,8 +36,8 @@ namespace GroupProjCS3560num2.Forms
             this.cancelButton = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.basePayrateBox = new System.Windows.Forms.MaskedTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // basePayrateLabel
@@ -108,15 +108,6 @@ namespace GroupProjCS3560num2.Forms
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // basePayrateBox
-            // 
-            this.basePayrateBox.Location = new System.Drawing.Point(107, 106);
-            this.basePayrateBox.Mask = "###.00";
-            this.basePayrateBox.Name = "basePayrateBox";
-            this.basePayrateBox.Size = new System.Drawing.Size(121, 23);
-            this.basePayrateBox.TabIndex = 1;
-            this.basePayrateBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.basePayrateBox_MaskInputRejected);
-            // 
             // comboBox1
             // 
             this.comboBox1.Location = new System.Drawing.Point(107, 33);
@@ -125,13 +116,22 @@ namespace GroupProjCS3560num2.Forms
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(107, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "0.0";
+            this.textBox1.Size = new System.Drawing.Size(121, 23);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // JobInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 203);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.basePayrateBox);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.cancelButton);
@@ -154,7 +154,7 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.MaskedTextBox basePayrateBox;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

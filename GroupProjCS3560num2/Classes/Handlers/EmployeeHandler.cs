@@ -10,19 +10,19 @@ namespace GroupProjCS3560num2.Classes.Handlers
 {
     class EmployeeHandler
     {
-        public static int addEmployee(int employeeID, string jobTitle, String password, String empName, String physicalAddress, String email, string phoneNumber, DateTime dateOfBirth,  
+        public static int addEmployee(int employeeID, int jobID, String password, String empName, String physicalAddress, String email, string phoneNumber, DateTime dateOfBirth,  
             String bankAccNum, String sSN, double adjustment)
         {
-            Employee emp = new Employee(employeeID, getJobID(jobTitle), password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
+            Employee emp = new Employee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
             DatabaseHelper.InsertEmployee(emp);
 
             return 0;
         }
 
-        public static int updateEmployee(int employeeID, string jobTitle, String password, String empName, String physicalAddress, String email, string phoneNumber, DateTime dateOfBirth,
+        public static int updateEmployee(int employeeID, int jobID, String password, String empName, String physicalAddress, String email, string phoneNumber, DateTime dateOfBirth,
             String bankAccNum, String sSN, double adjustment)
         {
-            Employee emp = new Employee(employeeID, getJobID(jobTitle), password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
+            Employee emp = new Employee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
             DatabaseHelper.UpdateEmployee(emp);
 
             return 0;
@@ -32,19 +32,6 @@ namespace GroupProjCS3560num2.Classes.Handlers
         {
             DatabaseHelper.DeleteEmployee(employeeID);
 
-            return 0;
-        }
-
-        static int getJobID(string jobTitle)
-        {
-            List<Job> j = DatabaseHelper.SelectAllJobs();
-            for (int i = 0; i < j.Count; i++)
-            {
-                if (jobTitle == j[i].getJobTitle())
-                {
-                    return j[i].getJobID();
-                }
-            }
             return 0;
         }
     }

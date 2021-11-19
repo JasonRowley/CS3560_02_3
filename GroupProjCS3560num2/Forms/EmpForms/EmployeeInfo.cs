@@ -69,9 +69,17 @@ namespace GroupProjCS3560num2.Forms
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job comboBox
         {
-
+            // jobID and basePayrate get updated along with the selected job
+            List<Job> j = DatabaseHelper.SelectAllJobs();
+            for (int i = 0; i < j.Count; i++)
+            {
+                if (j[i].getJobTitle() == comboBox1.SelectedItem.ToString())
+                {
+                    textBox12.Text = j[i].getBasePayrate().ToString();
+                }
+            }
         }
 
         private void label9_Click(object sender, EventArgs e) // password label
@@ -133,10 +141,16 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button // to update
         {
-            int employeeID = 0;
-            string jobID = comboBox1.Text;
+            int employeeID = Int32.Parse(textBox4.Text);
+            int jobID = JobHandler.getJobID(comboBox1.Text);
             String phoneNumber = maskedTextBox2.Text;
-            double adjustment = double.Parse(textBox5.Text);
+            double adjustment = 0;
+            try
+            {
+                adjustment = double.Parse(textBox5.Text); // verifies that is pasing a number
+                if (adjustment < 0)
+                    adjustment *= -1;
+            } catch { }
             DateTime dateOfBirth = dateTimePicker1.Value;
             String empName = textBox1.Text;
             String physicalAddress = textBox2.Text;
@@ -146,11 +160,15 @@ namespace GroupProjCS3560num2.Forms
             String password = textBox9.Text;
 
             EmployeeHandler.updateEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
-
             this.Close();
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e) // password
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }

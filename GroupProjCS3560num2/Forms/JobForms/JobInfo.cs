@@ -25,7 +25,7 @@ namespace GroupProjCS3560num2.Forms
             // display texts at the start of the form
             comboBox1.Text = job.getJobTitle();
             jobIDBox.Text = job.getJobID().ToString();
-            basePayrateBox.Text = job.getBasePayrate().ToString();
+            textBox1.Text = job.getBasePayrate().ToString();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -37,22 +37,28 @@ namespace GroupProjCS3560num2.Forms
         {
             int jobID = Int32.Parse(jobIDBox.Text);
             string jobTitle = comboBox1.Text;
-            double basePayrate = double.Parse(basePayrateBox.Text);
+            double basePayrate = 0;
+            try
+            {
+                basePayrate = double.Parse(textBox1.Text);
+                if (basePayrate < 0)
+                    basePayrate *= -1;
+            } catch { }
 
             JobHandler.updateJob(jobID, jobTitle, basePayrate);
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job comboBox
         {
+            // jobID and basePayrate get updated along with the selected job
             List<Job> j = DatabaseHelper.SelectAllJobs();
-
             for (int i = 0; i < j.Count; i++)
             {
                 if (j[i].getJobTitle() == comboBox1.SelectedItem.ToString())
                 {
                     jobIDBox.Text = j[i].getJobID().ToString();
-                    basePayrateBox.Text = j[i].getBasePayrate().ToString();
+                    textBox1.Text = j[i].getBasePayrate().ToString();
                 }
             }
         }
@@ -62,16 +68,16 @@ namespace GroupProjCS3560num2.Forms
             
         }
 
-        private void basePayrateBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             int jobID = Int32.Parse(jobIDBox.Text);
             JobHandler.deleteJob(jobID);
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) // base payrate
+        {
+
         }
     }
 }

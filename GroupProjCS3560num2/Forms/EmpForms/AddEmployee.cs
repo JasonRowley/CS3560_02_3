@@ -31,9 +31,15 @@ namespace GroupProjCS3560num2.Forms
         private void button1_Click(object sender, EventArgs e) // confirm button
         {
             int employeeID = 0;
-            string jobID = comboBox1.Text;
+            int jobID = JobHandler.getJobID(comboBox1.Text);
             String phoneNumber = maskedTextBox2.Text;
-            double adjustment = double.Parse(textBox5.Text);
+            double adjustment = 0;
+            try
+            {
+                adjustment = double.Parse(textBox5.Text);
+                if (adjustment < 0)
+                    adjustment *= -1;
+            } catch { }
             DateTime dateOfBirth = dateTimePicker1.Value;
             String empName = textBox1.Text;
             String physicalAddress = textBox2.Text;
@@ -42,8 +48,7 @@ namespace GroupProjCS3560num2.Forms
             String sSN = maskedTextBox1.Text;
             String password = textBox9.Text;
 
-            EmployeeHandler.updateEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
-
+            EmployeeHandler.addEmployee(employeeID, jobID, password, empName, physicalAddress, email, phoneNumber, dateOfBirth, bankAccNum, sSN, adjustment);
             this.Close();
         }
 

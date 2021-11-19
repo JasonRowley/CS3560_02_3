@@ -36,15 +36,20 @@ namespace GroupProjCS3560num2.Forms
         {
             int jobID = 0;
             String jobTitle = textBox1.Text;
-            double basePayrate = double.Parse(maskedTextBox1.Text);
+            double basePayrate = 0;
+            try
+            {
+                basePayrate = double.Parse(textBox2.Text);
+                if (basePayrate < 0)
+                    basePayrate *= -1;
+            } catch { }
 
             JobHandler.addJob(jobID, jobTitle, basePayrate);
-
             this.Close();
             //Debug.WriteLine(basePayrate);
         }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e) // base payrate
         {
 
         }

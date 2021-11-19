@@ -25,6 +25,17 @@ namespace GroupProjCS3560num2.Classes.Handlers
             DatabaseHelper.UpdateJob(j);
         }
 
-
+        public static int getJobID(string jobTitle)
+        {
+            List<Job> j = DatabaseHelper.SelectAllJobs();
+            for (int i = 0; i < j.Count; i++)
+            {
+                if (jobTitle == j[i].getJobTitle())
+                {
+                    return j[i].getJobID();
+                }
+            }
+            return 0;
+        }
     }
 }

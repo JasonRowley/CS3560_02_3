@@ -33,7 +33,7 @@ namespace GroupProjCS3560num2.Forms
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -75,21 +75,21 @@ namespace GroupProjCS3560num2.Forms
             this.label2.TabIndex = 79;
             this.label2.Text = "Add a Job";
             // 
-            // maskedTextBox1
+            // textBox2
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(26, 96);
-            this.maskedTextBox1.Mask = "###.00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(243, 23);
-            this.maskedTextBox1.TabIndex = 86;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.textBox2.Location = new System.Drawing.Point(26, 96);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PlaceholderText = "0.0";
+            this.textBox2.Size = new System.Drawing.Size(243, 23);
+            this.textBox2.TabIndex = 87;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // AddJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 198);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -107,6 +107,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

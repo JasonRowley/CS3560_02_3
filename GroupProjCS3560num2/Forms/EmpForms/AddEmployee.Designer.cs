@@ -219,6 +219,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.textBox5.Location = new System.Drawing.Point(95, 319);
             this.textBox5.Name = "textBox5";
+            this.textBox5.PlaceholderText = "0.0";
             this.textBox5.Size = new System.Drawing.Size(274, 23);
             this.textBox5.TabIndex = 34;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
