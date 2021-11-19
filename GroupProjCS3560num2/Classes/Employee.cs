@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GroupProjCS3560num2.Classes
 {
-    class Employee
+    public class Employee
     {
 
         int employeeID;
@@ -14,7 +14,7 @@ namespace GroupProjCS3560num2.Classes
         String empName;
         String physicalAddress;
         String email;
-        int phoneNumber;
+        String phoneNumber;
         DateTime dateOfBirth;
         String bankAccNum;
         String sSN;
@@ -33,7 +33,7 @@ namespace GroupProjCS3560num2.Classes
         String empName,
         String physicalAddress,
         String email,
-        int phoneNumber,
+        String phoneNumber,
         DateTime dateOfBirth,
         String bankAccNum,
         String sSN,
@@ -116,12 +116,12 @@ namespace GroupProjCS3560num2.Classes
             this.email = email;
         }
 
-        public int getPhoneNumber()
+        public String getPhoneNumber()
         {
             return phoneNumber;
         }
 
-        public void setPhoneNumber(int phoneNumber)
+        public void setPhoneNumber(String phoneNumber)
         {
             this.phoneNumber = phoneNumber;
         }
@@ -136,12 +136,12 @@ namespace GroupProjCS3560num2.Classes
             this.bankAccNum = bankAccNum;
         }
 
-        public String getsSN()
+        public String getSSN()
         {
             return sSN;
         }
 
-        public void setsSN(String sSN)
+        public void setSSN(String sSN)
         {
             this.sSN = sSN;
         }

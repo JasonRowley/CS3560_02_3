@@ -1,3 +1,5 @@
+using GroupProjCS3560num2.Classes;
+using GroupProjCS3560num2.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,10 @@ namespace GroupProjCS3560num2
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            
+            
+          
+            Application.Run(new AdminIssuePage(12,3) ) ;
         }
     }
 }
