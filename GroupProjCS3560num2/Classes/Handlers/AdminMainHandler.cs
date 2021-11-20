@@ -16,14 +16,19 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
     public class AdminMainHandler
     {
+        // Currently logged in employee
+        Employee emp;
+
         // Managed components in AdminMain form
         ListView lv;
         Button addRowBtn;
+
         // Variable to track which table the database display is on
         Tables currTbl;
 
-        public AdminMainHandler(ListView lv, Button addRowBtn, Tables currTbl = Tables.EMPLOYEE)
+        public AdminMainHandler(Employee emp, ListView lv, Button addRowBtn, Tables currTbl = Tables.EMPLOYEE)
         {
+            this.emp = emp;
             this.lv = lv;
             this.addRowBtn = addRowBtn;
             this.currTbl = currTbl;
@@ -63,7 +68,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[4].Name = "emailAddress";
                     cols[4].Text = "Email";
-                    cols[4].Width = 70;
+                    cols[4].Width = 120;
 
                     cols[5].Name = "phoneNumber";
                     cols[5].Text = "Phone Number";
@@ -115,11 +120,11 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[2].Name = "checkIn";
                     cols[2].Text = "Check-In Time";
-                    cols[2].Width = 150;
+                    cols[2].Width = 180;
 
                     cols[3].Name = "checkOut";
                     cols[3].Text = "Check-Out Time";
-                    cols[3].Width = 150;
+                    cols[3].Width = 180;
                     break;
                 case Tables.JOB:
                     addRowBtn.Text = "Add New Job";
@@ -219,7 +224,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
             // Leave method if no search text is passed
             if (value.Length == 0)
             {
-                throw new NoTextException();
+                return "";
             }
 
             string query = " where ";
@@ -256,5 +261,4 @@ namespace GroupProjCS3560num2.Classes.Handlers
     }
 
     public class NoEmployeesException : Exception { }
-    public class NoTextException : Exception { }
 }

@@ -15,15 +15,15 @@ namespace GroupProjCS3560num2.Forms
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             PinPage f = new PinPage();
             f.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Login f = new Login();
+            Login f = new Login(this);
             f.Show();
         }
     }

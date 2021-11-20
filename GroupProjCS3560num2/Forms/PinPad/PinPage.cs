@@ -12,9 +12,12 @@ namespace GroupProjCS3560num2.Forms
 {
     public partial class PinPage : Form
     {
-        public PinPage()
+        //StartPage sp;
+
+        public PinPage(/*StartPage sp*/)
         {
             InitializeComponent();
+            //this.sp = sp;
         }
 
 
@@ -22,35 +25,35 @@ namespace GroupProjCS3560num2.Forms
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 1;
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 2;
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 3;
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 4;
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 5;
         }
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 6;
         }
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 7;
         }
-        private void button8_Click(object sender, EventArgs e)
+        private void button8_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 8;
         }
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click_1(object sender, EventArgs e)
         {
             maskedTextBox1.Text = maskedTextBox1.Text + 9;
         }
@@ -61,28 +64,50 @@ namespace GroupProjCS3560num2.Forms
 
         private void button12_Click(object sender, EventArgs e)
         {
-            int userPin = Int32.Parse(maskedTextBox1.Text);
-            switch (ClockInClockOutHandler.EnterPin(userPin))
+            int userPin;
+            if (Int32.TryParse(maskedTextBox1.Text, out userPin))
             {
-                case  0:
-                    ClockedOut f0 = new ClockedOut();
-                    f0.Show();
-                    break;
-                case  1:
-                    ClockedIn f1 = new ClockedIn();
-                    f1.Show();
-                    break;
-                default:
-                    PinPadFailed f2 = new PinPadFailed();
-                    f2.Show();
-                    break;
+                switch (ClockInClockOutHandler.EnterPin(userPin))
+                {
+                    case 0:
+                        label2.Text = "Successfully checked out!";
+                        label2.ForeColor = System.Drawing.Color.DodgerBlue;
+                        label2.Show();
+                        break;
+                    case 1:
+                        label2.Text = "Successfully checked in!";
+                        label2.ForeColor = System.Drawing.Color.DodgerBlue;
+                        label2.Show();
+                        break;
+                    default:
+                        label2.Text = "* Incorrect PIN";
+                        label2.ForeColor = System.Drawing.Color.Red;
+                        label2.Show();
+                        break;
+                }
             }
-            
+            else
+            {
+                label2.Text = "* Incorrect PIN";
+                label2.ForeColor = System.Drawing.Color.Red;
+                label2.Show();
+            }
+            maskedTextBox1.Clear();            
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             maskedTextBox1.Clear();
+        }
+
+        private void PinPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PinPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

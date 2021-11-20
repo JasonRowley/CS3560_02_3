@@ -8,9 +8,12 @@ namespace GroupProjCS3560num2.Forms
 {
     public partial class Login : Form
     {
-        public Login()
+        StartPage sp;
+
+        public Login(StartPage sp)
         {
             InitializeComponent();
+            this.sp = sp;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -20,19 +23,26 @@ namespace GroupProjCS3560num2.Forms
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            int empID = Int32.Parse(textBox1.Text);    //TODO: account for if no text is entered
-            String pass = textBox2.Text;
-            Employee tempEmployee = LoginHandler.Login(empID, pass);
-            if (null == tempEmployee)
+            int empID = 0;
+            if (!Int32.TryParse(textBox1.Text, out empID))
             {
-                Forms.Logins.IncorrectCredentials f1 = new Forms.Logins.IncorrectCredentials();
-                f1.Show();
+                label2.Show();
             }
             else
             {
-                AdminMain f0 = new AdminMain();
-                f0.Show();
-            } 
+                String pass = textBox2.Text;
+                Employee tempEmployee = LoginHandler.Login(empID, pass);
+                if (null == tempEmployee)
+                {
+                    label2.Show();
+                }
+                else
+                {
+                    AdminMain f0 = new AdminMain(sp, tempEmployee);
+                    f0.Show();
+                    Close();
+                }
+            }
             
         }
 
@@ -42,6 +52,21 @@ namespace GroupProjCS3560num2.Forms
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }
