@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "55+sVswVmFngsjfOkc0IWlGloBecLetkKEfuLD8WCsEBEiY+gnTNt55zXkR6q5Q1ndtB+lTNzBJ7C1xLzOPMQg==",
+  "dgSpecHash": "TTEQ3cLH1VmXRiE9QwTSTDmg29OO7QdWB32bYVLUhXzvjO9hoPfLZpeM+t1oh3xndMFp+hFqQFXr18Bs2ExRFw==",
   "success": true,
-  "projectFilePath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+  "projectFilePath": "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\KBBQ\\.nuget\\packages\\mysqlconnector\\1.3.14\\mysqlconnector.1.3.14.nupkg.sha512"
+    "C:\\Users\\Leonardo\\.nuget\\packages\\mysqlconnector\\1.3.14\\mysqlconnector.1.3.14.nupkg.sha512"
   ],
   "logs": []
 }

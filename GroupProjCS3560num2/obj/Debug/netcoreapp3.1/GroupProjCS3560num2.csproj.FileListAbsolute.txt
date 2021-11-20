@@ -56,3 +56,32 @@ E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.exe
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.deps.json
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.json
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.dev.json
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddEmployee.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AdminMain.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.EmployeeInfo.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Logins.IncorrectCredentials.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Login.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedIn.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedOut.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPadFailed.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPage.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.StartPage.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CopyComplete
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Timestamp.resources
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddTimestamp.resources

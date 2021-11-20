@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj": {}
+    "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj": {}
   },
   "projects": {
-    "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj": {
+    "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+        "projectUniqueName": "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
         "projectName": "GroupProjCS3560num2",
-        "projectPath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
-        "packagesPath": "C:\\Users\\KBBQ\\.nuget\\packages\\",
-        "outputPath": "E:\\+School\\CPP\\Classes\\2021 Fall\\CS3560 - Object Oriented Design and Programming\\Group Project\\CS3560_02_3\\GroupProjCS3560num2\\obj\\",
+        "projectPath": "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\GroupProjCS3560num2.csproj",
+        "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leonardo\\Documents\\GitHub\\Group3_Timesheets_System_CS3560\\GroupProjCS3560num2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\.Sen\\Apps\\VisualStudio\\Shared\\NuGetPackages"
+          "E:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\KBBQ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
