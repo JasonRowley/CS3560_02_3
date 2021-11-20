@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using GroupProjCS3560num2.Classes;
 using GroupProjCS3560num2.Classes.Handlers;
-using GroupProjCS3560num2.Classes;
+using System;
+using System.Windows.Forms;
 
 namespace GroupProjCS3560num2.Forms
 {
     public partial class AdminMain : Form
     {
         AdminMainHandler amh;
-        StartPage sp;
 
-        public AdminMain(StartPage sp, Employee emp)
+        public AdminMain(Employee emp)
         {
             InitializeComponent();
-            this.sp = sp;
             // Create handler and display employee table
             amh = new AdminMainHandler(emp, listView1, button5);
             amh.changeTbl(Tables.EMPLOYEE);
@@ -63,8 +56,6 @@ namespace GroupProjCS3560num2.Forms
         private void button6_Click(object sender, EventArgs e)
         {
             //logout
-            Login login = new Login(sp);
-            login.Show();
             Close();
         }
 
@@ -91,7 +82,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
-            Login l = new Login(sp);
+            Login l = new Login();
             l.Show();
         }
 
@@ -100,12 +91,11 @@ namespace GroupProjCS3560num2.Forms
 
         }
 
-        private void AdminMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void AdminMain_FomClosing(object sender, FormClosingEventArgs e)
         {
             //logout
-            Login login = new Login(sp);
+            Login login = new Login();
             login.Show();
-            Close();
         }
     }
 }

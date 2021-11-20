@@ -142,6 +142,7 @@ namespace GroupProjCS3560num2.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdminMain";
             this.Text = "AdminMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMain_FomClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

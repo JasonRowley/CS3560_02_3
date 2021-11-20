@@ -12,12 +12,9 @@ namespace GroupProjCS3560num2.Forms
 {
     public partial class PinPage : Form
     {
-        //StartPage sp;
-
-        public PinPage(/*StartPage sp*/)
+        public PinPage()
         {
             InitializeComponent();
-            //this.sp = sp;
         }
 
 

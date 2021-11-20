@@ -8,17 +8,14 @@ namespace GroupProjCS3560num2.Forms
 {
     public partial class Login : Form
     {
-        StartPage sp;
-
-        public Login(StartPage sp)
+        public Login()
         {
             InitializeComponent();
-            this.sp = sp;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -38,7 +35,7 @@ namespace GroupProjCS3560num2.Forms
                 }
                 else
                 {
-                    AdminMain f0 = new AdminMain(sp, tempEmployee);
+                    AdminMain f0 = new AdminMain(tempEmployee);
                     f0.Show();
                     Close();
                 }

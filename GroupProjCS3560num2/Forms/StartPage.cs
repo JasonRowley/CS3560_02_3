@@ -23,7 +23,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Login f = new Login(this);
+            Login f = new Login();
             f.Show();
         }
     }
