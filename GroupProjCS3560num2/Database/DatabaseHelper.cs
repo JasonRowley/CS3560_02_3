@@ -32,8 +32,8 @@ namespace GroupProjCS3560num2.Database
          */
         static string server = "localhost";
         static string userId = "root";
-        static string pw1 = "123456789";
-        static string schema = "employee_schema";
+        static string pw1 = "password1";
+        static string schema = "sys";
 
         static int ConnectMySql(string insert_Sql_cmd)
         {
@@ -83,7 +83,7 @@ namespace GroupProjCS3560num2.Database
 
             tempEmployee = SelectEmployee(employeeID);
 
-            if (password != tempEmployee.getPw())
+            if (tempEmployee == null || password != tempEmployee.getPw())
             {
                 return null;
                 
@@ -97,7 +97,7 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return myReader.IsDBNull(3) ? new TimeLog(
+                return (myReader.HasRows && myReader.IsDBNull(3)) ? new TimeLog(
                                 myReader.GetInt32(0),
                                 myReader.GetInt32(1),
                                 myReader.GetDateTime(2),
@@ -105,9 +105,9 @@ namespace GroupProjCS3560num2.Database
             });
         }
 
-        public static List<Employee> SelectAllEmployees()
+        public static List<Employee> SelectAllEmployees(string where = "")
         {
-            string cmd = string.Format("select * from Employee;");
+            string cmd = string.Format("select * from Employee" + where + ";");
             return ConnectMySql<List<Employee>>(cmd, (myReader) =>
             {
                 List<Employee> employees = new List<Employee>();
@@ -160,23 +160,23 @@ namespace GroupProjCS3560num2.Database
         public static int UpdateEmployee(Employee employee)
         {
             string dob = employee.getDateOfBirth().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string cmd = string.Format("update Employee set jobID = {1}, pw = '{2}', empName = '{3}', physicalAddress = '{4}', " +
+            string cmd = string.Format("update Employee set JobId = {1}, pw = '{2}', empName = '{3}', physicalAddress = '{4}', " +
                 "emailAddress = '{5}', phoneNumber = '{6}', dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
-                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), dob,
-                employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+                employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(),
+                dob, employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
             return ConnectMySql(cmd);
         }
 
         public static int InsertEmployee(Employee employee)
         {
             string dob = employee.getDateOfBirth().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), dob, employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
+            string cmd1 = string.Format("insert Employee(jobID, pw, empName, physicalAddress, emailAddress, phoneNumber, dateOfBirth, bankAccNumber, sSN, adjustment) value({0}, '{1}','{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', {9}) ", employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(), dob, employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
             return ConnectMySql(cmd1);
         }
 
-        public static List<Job> SelectAllJobs()
+        public static List<Job> SelectAllJobs(string where = "")
         {
-            string cmd = string.Format("select * from Job;");
+            string cmd = string.Format("select * from Job" + where + ";");
             return ConnectMySql<List<Job>>(cmd, (myReader) =>
             {
                 List<Job> jobs = new List<Job>();
@@ -222,9 +222,9 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql (cmd);
         }
 
-        public static List<TimeLog> SelectAllTimeLogs()
+        public static List<TimeLog> SelectAllTimeLogs(string where = "")
         {
-            string cmd = string.Format("select * from TimeLog;");
+            string cmd = string.Format("select * from TimeLog" + where + ";");
             return ConnectMySql<List<TimeLog>>(cmd, (myReader) =>
             {
                 List<TimeLog> timeLogs = new List<TimeLog>();
@@ -242,7 +242,7 @@ namespace GroupProjCS3560num2.Database
 
         public static TimeLog SelectTimeLog(int logID)
         {
-            string cmd = string.Format("select * from TimeLog where logId = {0};", logID);
+            string cmd = string.Format("select * from TimeLog where logID = {0};", logID);
             return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
@@ -250,7 +250,7 @@ namespace GroupProjCS3560num2.Database
                     myReader.GetInt32(0),
                     myReader.GetInt32(1),
                     myReader.GetDateTime(2),
-                    myReader.IsDBNull(3) ? myReader.GetDateTime(3) : default(DateTime)) : null;
+                    myReader.IsDBNull(3) ? default(DateTime) : myReader.GetDateTime(3)) : null;
             });
         }
 
@@ -262,19 +262,25 @@ namespace GroupProjCS3560num2.Database
 
         public static int UpdateTimeLog(TimeLog log)
         {
-            string cmd = string.Format("update TimeLog set employeeID = {1}, checkIn = '{2}', checkOut = '{3}' where logID = {0};", log.getLogID(), log.getEmployeeID(), log.getCheckIn(), log.getCheckOut());
+            string checkIn = log.getCheckIn().ToString("yyyy-MM-dd HH:mm:ss.fff");
+            var checkOut = log.getCheckOut();
+            var nullableCheckOut = (checkOut == default(DateTime)) ? "null" : "\'" + checkOut.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\'";
+            string cmd = string.Format("update TimeLog set employeeID = {1}, checkIn = '{2}', checkOut = {3} where logID = {0};", log.getLogID(), log.getEmployeeID(), checkIn, nullableCheckOut);
             return ConnectMySql(cmd);
         }
 
         public static int InsertTimeLog(TimeLog log)
         {
-            string cmd = string.Format("insert into TimeLog(employeeID, checkIn, checkOut) value ({0}, '{1}', '{2}');", log.getEmployeeID(), log.getCheckIn(), log.getCheckOut());
+            string checkIn = log.getCheckIn().ToString("yyyy-MM-dd HH:mm:ss.fff");
+            var checkOut = log.getCheckOut();
+            var nullableCheckOut = (checkOut == default(DateTime)) ? "null" : "\'" + checkOut.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\'";
+            string cmd = string.Format("insert into TimeLog(employeeID, checkIn, checkOut) value ({0}, '{1}', {2});", log.getEmployeeID(), checkIn, nullableCheckOut);
             return ConnectMySql(cmd);
         }
 
-        public static List<Issue> SelectAllIssues()
+        public static List<Issue> SelectAllIssues(string where = "")
         {
-            string cmd = string.Format("select * from Issue;");
+            string cmd = string.Format("select * from Issue" + where + ";");
             return ConnectMySql<List<Issue>>(cmd, (myReader) =>
             {
                 List<Issue> issues = new List<Issue>();

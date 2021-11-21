@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GroupProjCS3560num2.Classes
 {
-    class Issue
+    public class Issue
     {
         int issueID;
         int employeeID;

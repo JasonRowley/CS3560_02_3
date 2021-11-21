@@ -34,13 +34,6 @@ namespace GroupProjCS3560num2.Forms
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.employeeID = new System.Windows.Forms.ColumnHeader();
-            this.employeeName = new System.Windows.Forms.ColumnHeader();
-            this.job = new System.Windows.Forms.ColumnHeader();
-            this.physicalAddress = new System.Windows.Forms.ColumnHeader();
-            this.emailAddress = new System.Windows.Forms.ColumnHeader();
-            this.phoneNumber = new System.Windows.Forms.ColumnHeader();
-            this.solved = new System.Windows.Forms.ColumnHeader();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -82,22 +75,17 @@ namespace GroupProjCS3560num2.Forms
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "TimeLogs";
+            this.button4.Text = "Time Logs";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // listView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.employeeID,
-            this.employeeName,
-            this.job,
-            this.physicalAddress,
-            this.emailAddress,
-            this.phoneNumber,
-            this.solved});
-            this.listView1.GridLines = true;
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
+            this.listView1.HoverSelection = true;
             this.listView1.Location = new System.Drawing.Point(93, 84);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(695, 341);
@@ -106,48 +94,12 @@ namespace GroupProjCS3560num2.Forms
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // employeeID
-            // 
-            this.employeeID.Text = "ID";
-            this.employeeID.Width = 30;
-            // 
-            // employeeName
-            // 
-            this.employeeName.Text = "Name";
-            this.employeeName.Width = 70;
-            // 
-            // job
-            // 
-            this.job.Text = "Job";
-            this.job.Width = 50;
-            // 
-            // physicalAddress
-            // 
-            this.physicalAddress.Text = "Address";
-            this.physicalAddress.Width = 90;
-            // 
-            // emailAddress
-            // 
-            this.emailAddress.Text = "Email";
-            this.emailAddress.Width = 70;
-            // 
-            // phoneNumber
-            // 
-            this.phoneNumber.Text = "Phone Number";
-            this.phoneNumber.Width = 150;
-            // 
-            // solved
-            // 
-            this.solved.Text = "Issue";
-            this.solved.Width = 70;
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(652, 55);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Add New Employee";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -168,6 +120,7 @@ namespace GroupProjCS3560num2.Forms
             this.textBox1.PlaceholderText = "Search";
             this.textBox1.Size = new System.Drawing.Size(553, 23);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // AdminMain
             // 
@@ -184,7 +137,7 @@ namespace GroupProjCS3560num2.Forms
             this.Controls.Add(this.button1);
             this.Name = "AdminMain";
             this.Text = "AdminMain";
-            this.Load += new System.EventHandler(this.AdminMain_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMain_FomClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,12 +153,5 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ColumnHeader employeeID;
-        private System.Windows.Forms.ColumnHeader employeeName;
-        private System.Windows.Forms.ColumnHeader job;
-        private System.Windows.Forms.ColumnHeader physicalAddress;
-        private System.Windows.Forms.ColumnHeader emailAddress;
-        private System.Windows.Forms.ColumnHeader phoneNumber;
-        private System.Windows.Forms.ColumnHeader solved;
     }
 }
