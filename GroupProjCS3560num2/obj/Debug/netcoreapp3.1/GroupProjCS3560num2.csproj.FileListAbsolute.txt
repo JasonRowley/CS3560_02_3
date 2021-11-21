@@ -33,3 +33,34 @@ C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupP
 C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedIn.resources
 C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedOut.resources
 C:\Users\Jason Rowley\Documents\School Work\CS3560_Group_Proj\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPadFailed.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.exe
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.deps.json
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.json
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.runtimeconfig.dev.json
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddEmployee.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AdminMain.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.EmployeeInfo.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Login.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedIn.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPad.ClockedOut.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPadFailed.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PinPage.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.StartPage.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.GenerateResource.cache
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfoInputs.cache
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.AssemblyInfo.cs
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CoreCompileInputs.cache
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.CopyComplete
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.PuppetMaster.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddJob.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.JobInfo.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.AddTimestamp.resources
+C:\Users\ctome\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.Timestamp.resources

@@ -33,7 +33,7 @@ namespace GroupProjCS3560num2.Database
         static string server = "localhost";
         static string userId = "root";
         static string pw1 = "password1";
-        static string schema = "employee_schema";
+        static string schema = "sys";
 
         static int ConnectMySql(string insert_Sql_cmd)
         {

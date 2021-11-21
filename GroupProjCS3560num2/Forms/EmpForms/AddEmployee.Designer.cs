@@ -102,6 +102,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(95, 290);
             this.comboBox1.Name = "comboBox1";
@@ -166,6 +167,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.textBox8.Location = new System.Drawing.Point(149, 232);
             this.textBox8.Name = "textBox8";
+            this.textBox8.PlaceholderText = "FIX THIS";
             this.textBox8.Size = new System.Drawing.Size(220, 23);
             this.textBox8.TabIndex = 40;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
@@ -219,6 +221,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.textBox5.Location = new System.Drawing.Point(95, 319);
             this.textBox5.Name = "textBox5";
+            this.textBox5.PlaceholderText = "0.0";
             this.textBox5.Size = new System.Drawing.Size(274, 23);
             this.textBox5.TabIndex = 34;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);

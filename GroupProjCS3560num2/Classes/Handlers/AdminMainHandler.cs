@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Database;
+using GroupProjCS3560num2.Forms;
 
 namespace GroupProjCS3560num2.Classes.Handlers
 {
@@ -24,7 +25,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
         Button addRowBtn;
 
         // Variable to track which table the database display is on
-        Tables currTbl;
+        public Tables currTbl;
 
         public AdminMainHandler(Employee emp, ListView lv, Button addRowBtn, Tables currTbl = Tables.EMPLOYEE)
         {
@@ -56,7 +57,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[1].Name = "employeeName";
                     cols[1].Text = "Name";
-                    cols[1].Width = 70;
+                    cols[1].Width = 150;
 
                     cols[2].Name = "job";
                     cols[2].Text = "Job";
@@ -94,7 +95,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[2].Name = "employeeName";
                     cols[2].Text = "Employee";
-                    cols[2].Width = 90;
+                    cols[2].Width = 150;
 
                     cols[3].Name = "adminName";
                     cols[3].Text = "Admin";
@@ -116,7 +117,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[1].Name = "employeeName";
                     cols[1].Text = "Employee";
-                    cols[1].Width = 90;
+                    cols[1].Width = 150;
 
                     cols[2].Name = "checkIn";
                     cols[2].Text = "Check-In Time";
@@ -142,11 +143,11 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[1].Name = "jobTitle";
                     cols[1].Text = "Title";
-                    cols[1].Width = 50;
+                    cols[1].Width = 100;
 
                     cols[2].Name = "basePayrate";
                     cols[2].Text = "Base Payrate";
-                    cols[2].Width = 95;
+                    cols[2].Width = 100;
                     break;
             }
             currTbl = tbl;
@@ -236,7 +237,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
                 case Tables.ISSUE:
                 case Tables.TIMELOG:
                     var emps = DatabaseHelper.SelectAllEmployees(" where empName = \"" + value + "\";");
-                    
+
                     // Leave method if no employees with the searched name are found
                     if (emps.Count == 0)
                     {
@@ -258,7 +259,101 @@ namespace GroupProjCS3560num2.Classes.Handlers
             }
             return query;
         }
-    }
+        public void AddNewEntity()
+        {
+            switch (currTbl)
+            {
+                case Tables.EMPLOYEE:
+                    AddEmployee aE = new AddEmployee();
+                    
+                        aE.StartPosition = FormStartPosition.CenterScreen;
+                        aE.ShowDialog();
+                        changeTbl(Tables.EMPLOYEE);
+                    
+                    break;
+                case Tables.ISSUE:
+                    /*
+                    using (AddIssue aI = new AddIssue())
+                    {
+                        aI.StartPosition = FormStartPosition.CenterScreen;
+                        aI.ShowDialog();
+                        changeTbl(Tables.EMPLOYEE);
+                    }
+                    */
+                    break;
+                case Tables.TIMELOG:
+                    
+                    using (AddTimestamp aT = new AddTimestamp())
+                    {
+                        aT.StartPosition = FormStartPosition.CenterScreen;
+                        aT.ShowDialog();
+                        changeTbl(Tables.TIMELOG);
+                    }
+                    
+                    break;
+                case Tables.JOB:
+                    using (AddJob aJ = new AddJob())
+                    {
+                        aJ.StartPosition = FormStartPosition.CenterScreen;
+                        aJ.ShowDialog();
+                        changeTbl(Tables.JOB);
+                    }
+                    break;
 
+                    //add to table
+                    //Login testLogin = new Login();
+                    //testLogin.ShowDialog();
+                    //amh.changeTbl(Tables.ISSUE);
+            }
+        }
+        public void EditNewEntity(int id)
+        {
+            
+            switch (currTbl)
+            {
+                case Tables.EMPLOYEE:
+                    using (EmployeeInfo aE = new EmployeeInfo(DatabaseHelper.SelectEmployee(id)))
+                    {
+                        aE.StartPosition = FormStartPosition.CenterScreen;
+                        aE.ShowDialog();
+                        changeTbl(Tables.EMPLOYEE);
+                    }
+                    break;
+                case Tables.ISSUE:
+                    /*
+                    using (AddIssue aI = new AddIssue())
+                    {
+                        aI.ShowDialog();
+                        changeTbl(Tables.EMPLOYEE);
+                    }
+                    */
+                    break;
+                case Tables.TIMELOG:
+                    
+                    using (Timestamp aT = new Timestamp(DatabaseHelper.SelectTimeLog(id)))
+                    {
+                        aT.StartPosition = FormStartPosition.CenterScreen;
+                        int  i = (int)aT.ShowDialog();
+                        changeTbl(Tables.TIMELOG);
+                    }
+                    
+                    break;
+                case Tables.JOB:
+
+                    using (JobInfo aJ = new JobInfo(DatabaseHelper.SelectJob(id)))
+                    {
+                        aJ.StartPosition = FormStartPosition.CenterScreen;
+                        aJ.ShowDialog();
+                        changeTbl(Tables.JOB);
+                    }
+                    break;
+
+                    //add to table
+                    //Login testLogin = new Login();
+                    //testLogin.ShowDialog();
+                    //amh.changeTbl(Tables.ISSUE);
+            }
+        }
+    }
     public class NoEmployeesException : Exception { }
 }
