@@ -125,7 +125,6 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.bankTextBox.Location = new System.Drawing.Point(154, 280);
             this.bankTextBox.Name = "bankTextBox";
-            this.bankTextBox.PlaceholderText = "FIX THIS";
             this.bankTextBox.Size = new System.Drawing.Size(220, 23);
             this.bankTextBox.TabIndex = 13;
             this.bankTextBox.TextChanged += new System.EventHandler(this.textBox8_TextChanged);

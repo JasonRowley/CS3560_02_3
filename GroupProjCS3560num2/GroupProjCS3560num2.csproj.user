@@ -34,9 +34,6 @@
     <Compile Update="Forms\PinPad\PinPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\PuppetMaster.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\StartPage.cs">
       <SubType>Form</SubType>
     </Compile>

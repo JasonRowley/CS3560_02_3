@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Classes.Handlers;
 using GroupProjCS3560num2.Database;
+using GroupProjCS3560num2.Classes;
 
 namespace GroupProjCS3560num2.Forms
 {
@@ -63,9 +64,6 @@ namespace GroupProjCS3560num2.Forms
                     this.Close();
                 }
             }
-
-            // FIX THE DELETE JOB WHEN IS ASSIGNED TO AN EMPLOYEE ---> USE TRY CATCH AND GIVE THE RED LABEL TAG NOTIFYING THAT THE JOB CANT BE DELETED
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // job comboBox
@@ -89,9 +87,26 @@ namespace GroupProjCS3560num2.Forms
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            // FIX THE DELETE JOB WHEN IS ASSIGNED TO AN EMPLOYEE ---> USE TRY CATCH AND GIVE THE RED LABEL TAG NOTIFYING THAT THE JOB CANT BE DELETED
             int jobID = Int32.Parse(jobIDBox.Text);
-            JobHandler.deleteJob(jobID);
-            this.Close();
+
+            List<Employee> emp = DatabaseHelper.SelectAllEmployees();
+            for (int i = 0; i < emp.Count; i++)
+            {
+                if (jobID == emp[i].getJobID())
+                {
+                    label1.Show();
+                    break;
+                }
+                else
+                {
+                    if (i == emp.Count - 1)
+                    {
+                        JobHandler.deleteJob(jobID);
+                        this.Close();
+                    }
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) // base payrate

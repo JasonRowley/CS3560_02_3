@@ -167,7 +167,6 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.textBox8.Location = new System.Drawing.Point(149, 232);
             this.textBox8.Name = "textBox8";
-            this.textBox8.PlaceholderText = "FIX THIS";
             this.textBox8.Size = new System.Drawing.Size(220, 23);
             this.textBox8.TabIndex = 40;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);

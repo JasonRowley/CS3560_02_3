@@ -30,23 +30,14 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button
         {
-            //int employeeID = 0;
-            /*int jobID = JobHandler.getJobID(comboBox1.Text);
-            String phoneNumber = maskedTextBox2.Text;
-            DateTime dateOfBirth = dateTimePicker1.Value;
-            String empName = textBox1.Text;
-            String physicalAddress = textBox2.Text;
-            String email = textBox3.Text;
-            String bankAccNum = textBox8.Text;
-            String sSN = maskedTextBox1.Text;
-            String password = textBox9.Text;*/
+            long bankAccountNumber;
             double adjustment;
 
-            TextBox[] textBoxes = { textBox1, textBox3, textBox2, textBox8, textBox9};
+            TextBox[] textBoxes = { textBox1, textBox3, textBox2, textBox9, textBox8};
             MaskedTextBox[] maskedTextBoxes = { maskedTextBox2, maskedTextBox1 };
-            Label[] labels = { label1, label3, label2, label8, label9, label11, label5, label4, label7 };
+            Label[] labels = { label1, label3, label2, label9, label8, label11, label5, label4, label7 };
 
-            // verifies name, email, addres, bank account number, password
+            // verifies if name, email, addres, password, bank account number are empty
             for (int i = 0; i < 5; i++)
             {
                 if (textBoxes[i].Text == "")
@@ -54,8 +45,6 @@ namespace GroupProjCS3560num2.Forms
                 else
                     labels[i].ForeColor = System.Drawing.Color.Black;
             }
-
-
 
             // verifies phone, ssn
             for (int i = 0; i < 2; i++)
@@ -78,6 +67,16 @@ namespace GroupProjCS3560num2.Forms
                 label5.ForeColor = System.Drawing.Color.Red;
             else
                 label5.ForeColor = System.Drawing.Color.Black;
+
+            // verifies bank account number as integer
+            bool bankNumber = Int64.TryParse(textBox8.Text, out bankAccountNumber);
+            if (!bankNumber || bankAccountNumber < 1)
+                label8.ForeColor = System.Drawing.Color.Red;
+            else
+            {
+                label8.ForeColor = System.Drawing.Color.Black;
+                textBox8.Text = bankAccountNumber.ToString();
+            }
 
             // verifies that none is empty
             int countNotEmpty = 0;

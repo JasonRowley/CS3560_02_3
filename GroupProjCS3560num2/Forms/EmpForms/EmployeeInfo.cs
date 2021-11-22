@@ -141,7 +141,8 @@ namespace GroupProjCS3560num2.Forms
 
         private void button1_Click(object sender, EventArgs e) // confirm button // to update
         {
-            double adjustment = 0;
+            long bankAccountNumber;
+            double adjustment;
             TextBox[] textBoxes = { nameTextBox, emailTextBox, addressTextBox, bankTextBox, pwTextBox };
             MaskedTextBox[] maskedTextBoxes = { phoneMaskedTextBox, ssnMaskedTextBox };
             Label[] labels = { nameLabel, emailLabel, addressLabel, bankLabel, pwLabel, phoneLabel, ssnLabel, adjustmentLabel };
@@ -153,7 +154,7 @@ namespace GroupProjCS3560num2.Forms
             else
                 adjustmentLabel.ForeColor = System.Drawing.Color.Black;
 
-            // verifies name, email, address, bank account number, password
+            // verifies that name, email, address, bank account number, password are not empty
             for (int i = 0; i < 5; i++)
             {
                 if (textBoxes[i].Text == "")
@@ -169,6 +170,16 @@ namespace GroupProjCS3560num2.Forms
                     labels[5 + i].ForeColor = System.Drawing.Color.Red;
                 else
                     labels[5 + i].ForeColor = System.Drawing.Color.Black;
+            }
+
+            // verifies bank account number as integer
+            bool bankNumber = Int64.TryParse(bankTextBox.Text, out bankAccountNumber);
+            if (!bankNumber || bankAccountNumber < 1)
+                bankLabel.ForeColor = System.Drawing.Color.Red;
+            else
+            {
+                bankLabel.ForeColor = System.Drawing.Color.Black;
+                bankTextBox.Text = bankAccountNumber.ToString();
             }
 
             // verifies that none is empty

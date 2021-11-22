@@ -38,6 +38,7 @@ namespace GroupProjCS3560num2.Forms
             this.deleteButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // basePayrateLabel
@@ -125,11 +126,23 @@ namespace GroupProjCS3560num2.Forms
             this.textBox1.TabIndex = 11;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(14, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(295, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "* Cannot delete job: an existing employee with this job";
+            this.label1.Visible = false;
+            // 
             // JobInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 203);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.deleteButton);
@@ -156,5 +169,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
