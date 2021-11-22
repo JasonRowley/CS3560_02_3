@@ -153,7 +153,7 @@ namespace GroupProjCS3560num2.Database
 
         public static int DeleteEmployee(int employeeID)
         {
-            string cmd = string.Format("delete from Employee where employeeID = {0};", employeeID);
+            string cmd = string.Format("delete from Issue where employeeID = {0}; delete from TimeLog where employeeID = {0}; delete from Employee where employeeID = {0};", employeeID);
             return ConnectMySql(cmd);
         }
 

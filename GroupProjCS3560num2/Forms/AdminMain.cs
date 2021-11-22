@@ -9,6 +9,7 @@ namespace GroupProjCS3560num2.Forms
     {
         AdminMainHandler amh;
 
+
         public AdminMain(Employee emp)
         {
             InitializeComponent();
@@ -47,10 +48,7 @@ namespace GroupProjCS3560num2.Forms
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //add to table
-            //Login testLogin = new Login();
-            //testLogin.ShowDialog();
-            //amh.changeTbl(Tables.ISSUE);
+            amh.AddNewEntity();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -82,8 +80,10 @@ namespace GroupProjCS3560num2.Forms
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
-            Login l = new Login();
-            l.Show();
+           // ListView.SelectedListViewItemCollection entity = this.listView1.SelectedItems;
+            
+            amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].Text));//acces from table row
+
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -94,8 +94,6 @@ namespace GroupProjCS3560num2.Forms
         private void AdminMain_FomClosing(object sender, FormClosingEventArgs e)
         {
             //logout
-            Login login = new Login();
-            login.Show();
         }
     }
 }

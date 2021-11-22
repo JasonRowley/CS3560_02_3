@@ -23,6 +23,7 @@ namespace GroupProjCS3560num2.Forms
             int empID = 0;
             if (!Int32.TryParse(textBox1.Text, out empID))
             {
+                hidelabels();
                 label2.Show();
             }
             else
@@ -31,18 +32,41 @@ namespace GroupProjCS3560num2.Forms
                 Employee tempEmployee = LoginHandler.Login(empID, pass);
                 if (null == tempEmployee)
                 {
+                    hidelabels();
                     label2.Show();
                 }
                 else
                 {
-                    AdminMain f0 = new AdminMain(tempEmployee);
-                    f0.Show();
-                    Close();
+                    if(tempEmployee.getJobID() == 1)//for now just prevent any non Admin from gaining access.
+                    {
+                        using (AdminMain f0 = new AdminMain(tempEmployee))
+                        {
+                            this.WindowState = FormWindowState.Minimized;
+                            this.ShowInTaskbar = false;
+                            f0.StartPosition = FormStartPosition.CenterScreen;
+                            f0.ShowDialog();
+                            this.WindowState = FormWindowState.Normal;
+                            this.ShowInTaskbar = true;
+
+                        }
+                    }
+                    else
+                    {
+                        hidelabels();
+                        label3.Show();
+                    }
+                    
+
                 }
             }
             
         }
-
+        private void hidelabels()
+        {
+            label1.Hide();
+            label2.Hide();
+            label3.Hide();
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 

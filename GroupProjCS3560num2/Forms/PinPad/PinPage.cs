@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GroupProjCS3560num2.Forms
@@ -59,7 +60,7 @@ namespace GroupProjCS3560num2.Forms
             maskedTextBox1.Text = maskedTextBox1.Text + 0;
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private async void button12_Click(object sender, EventArgs e)
         {
             int userPin;
             if (Int32.TryParse(maskedTextBox1.Text, out userPin))
@@ -70,11 +71,15 @@ namespace GroupProjCS3560num2.Forms
                         label2.Text = "Successfully checked out!";
                         label2.ForeColor = System.Drawing.Color.DodgerBlue;
                         label2.Show();
+                        await Task.Delay(1000);
+                        Close();
                         break;
                     case 1:
                         label2.Text = "Successfully checked in!";
                         label2.ForeColor = System.Drawing.Color.DodgerBlue;
                         label2.Show();
+                        await Task.Delay(1000);
+                        Close();
                         break;
                     default:
                         label2.Text = "* Incorrect PIN";
