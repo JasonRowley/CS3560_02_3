@@ -37,9 +37,10 @@ namespace GroupProjCS3560num2.Forms
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(29, 21);
+            this.richTextBox1.Location = new System.Drawing.Point(20, 13);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(924, 455);
+            this.richTextBox1.Size = new System.Drawing.Size(648, 275);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -49,10 +50,9 @@ namespace GroupProjCS3560num2.Forms
             this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(817, 496);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(572, 298);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 52);
+            this.button2.Size = new System.Drawing.Size(95, 31);
             this.button2.TabIndex = 5;
             this.button2.Text = "SOLVED!!!";
             this.button2.UseVisualStyleBackColor = false;
@@ -63,23 +63,23 @@ namespace GroupProjCS3560num2.Forms
             this.button1.BackColor = System.Drawing.Color.DarkRed;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(29, 496);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(20, 298);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 52);
+            this.button1.Size = new System.Drawing.Size(95, 31);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Fuck you";
+            this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AdminIssuePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 581);
+            this.ClientSize = new System.Drawing.Size(689, 349);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.richTextBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminIssuePage";
             this.Text = "AdminIssuePage";
             this.ResumeLayout(false);
