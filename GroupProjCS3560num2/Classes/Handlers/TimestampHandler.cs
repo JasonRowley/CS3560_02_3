@@ -19,11 +19,10 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
         public static string GetEmpJob(TimeLog timelog)
         {
+            var jobID = DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getJobID();
             string ret =
-                DatabaseHelper.SelectJob(DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getJobID())
-            + " (" +
-                DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getJobID()
-                + ")";
+                DatabaseHelper.SelectJob(jobID).getJobTitle()
+            + " (" + jobID + ")";
 
             return ret;
         }
