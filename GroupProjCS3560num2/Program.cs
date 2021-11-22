@@ -29,7 +29,7 @@ namespace GroupProjCS3560num2
             testTS.setCheckOut(DatabaseHelper.SelectTimeLog(2).getCheckOut());
             
 
-            Application.Run(new Timestamp(testTS));
+            Application.Run(new AddTimestamp());
             //Application.Run(new AddTimestamp());
         }
     }

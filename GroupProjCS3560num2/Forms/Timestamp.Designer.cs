@@ -46,6 +46,7 @@ namespace GroupProjCS3560num2.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.timelogID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.warning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -210,11 +211,24 @@ namespace GroupProjCS3560num2.Forms
             this.label3.TabIndex = 21;
             this.label3.Text = "ID: ";
             // 
+            // warning
+            // 
+            this.warning.AutoSize = true;
+            this.warning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.warning.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.warning.Location = new System.Drawing.Point(293, 199);
+            this.warning.Name = "warning";
+            this.warning.Size = new System.Drawing.Size(216, 15);
+            this.warning.TabIndex = 22;
+            this.warning.Text = "(!) Clock out time must be after clock in";
+            this.warning.Click += new System.EventHandler(this.warning_Click);
+            // 
             // Timestamp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.timelogID);
             this.Controls.Add(this.label2);
@@ -258,5 +272,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label timelogID;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label warning;
     }
 }

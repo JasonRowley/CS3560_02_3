@@ -25,6 +25,8 @@ namespace GroupProjCS3560num2.Forms
                     TimestampHandler.GetAllEmp()[i].getEmployeeID()
                     );
             }
+
+            warning.Hide();
         }
         
         private void clockInDate_ValueChanged(object sender, EventArgs e)
@@ -71,20 +73,31 @@ namespace GroupProjCS3560num2.Forms
                     string clockOutTimeStr = clockOutTime.Value.ToString("HH:mm");
                     newClockOut += TimeSpan.Parse(clockOutTimeStr);
 
-                    TimestampHandler.CreateTimestamp(
+                    if (newClockOut <= newClockIn)
+                    {
+                        warning.Show();
+                    }
+                    else
+                    {
+                        TimestampHandler.CreateTimestamp(
                         TimestampHandler.GetAllEmp()[i].getEmployeeID(),
                         newClockIn,
                         newClockOut
                         );
-
+                        this.Close();
+                    }
                 }
             }
-            this.Close();
         }
 
         private void cancelTimestamp_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void warning_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

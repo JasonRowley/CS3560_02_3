@@ -40,6 +40,7 @@ namespace GroupProjCS3560num2.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.warning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -147,11 +148,24 @@ namespace GroupProjCS3560num2.Forms
             this.label5.TabIndex = 19;
             this.label5.Text = "Clock In Time";
             // 
+            // warning
+            // 
+            this.warning.AutoSize = true;
+            this.warning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.warning.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.warning.Location = new System.Drawing.Point(292, 143);
+            this.warning.Name = "warning";
+            this.warning.Size = new System.Drawing.Size(216, 15);
+            this.warning.TabIndex = 29;
+            this.warning.Text = "(!) Clock out time must be after clock in";
+            this.warning.Click += new System.EventHandler(this.warning_Click);
+            // 
             // AddTimestamp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.clockOutTime);
             this.Controls.Add(this.clockOutDate);
             this.Controls.Add(this.clockInTime);
@@ -183,5 +197,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label warning;
     }
 }

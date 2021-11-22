@@ -25,6 +25,8 @@ namespace GroupProjCS3560num2.Forms
             clockInTime.Text = TimestampHandler.GetCheckInTime(timelog).ToShortTimeString();
             clockOutDate.Text = TimestampHandler.GetCheckOutTime(timelog).ToShortDateString();
             clockOutTime.Text = TimestampHandler.GetCheckOutTime(timelog).ToShortTimeString();
+
+            warning.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -82,9 +84,16 @@ namespace GroupProjCS3560num2.Forms
             string clockOutTimeStr = clockOutTime.Value.ToString("HH:mm");
             newClockOut += TimeSpan.Parse(clockOutTimeStr);
 
-            TimestampHandler.UpdateTimestamp(newLogID, newEmpID, newClockIn, newClockOut);
+            if(newClockOut <= newClockIn)
+            {
+                warning.Show();
+            }
+            else
+            {
+                TimestampHandler.UpdateTimestamp(newLogID, newEmpID, newClockIn, newClockOut);
 
-            this.Close();
+                this.Close();
+            }
         }
 
         private void timestampID_Click(object sender, EventArgs e)
@@ -98,6 +107,11 @@ namespace GroupProjCS3560num2.Forms
         }
 
         private void clockInDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void warning_Click(object sender, EventArgs e)
         {
 
         }
