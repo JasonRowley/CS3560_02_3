@@ -67,6 +67,25 @@ namespace GroupProjCS3560num2.Forms
 
         private void confirmTimestamp_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void totalHrs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopDate_ValueChanged(object sender, EventArgs e)
+        {
+            updateCalculation();
+        }
+
+        private void startDate_ValueChanged(object sender, EventArgs e)
+        {
+            updateCalculation();
+        }
+        private void updateCalculation()
+        {
             string name = employeeComboBox.GetItemText(employeeComboBox.SelectedItem);
             for (int i = 0; i < TotalPayHandler.GetAllEmp().Count; i++)
             {
@@ -81,8 +100,10 @@ namespace GroupProjCS3560num2.Forms
                     DateTime confirmStopTime = DateTime.Parse(stopDate.Value.ToShortDateString());
                     confirmStopTime = confirmStopTime.AddHours(23.0);
                     confirmStopTime = confirmStopTime.AddMinutes(59.0);
+                    confirmStopTime = confirmStopTime.AddSeconds(59.0);
+                    confirmStopTime = confirmStopTime.AddMilliseconds(59.0);
 
-                    if (confirmStopTime < confirmStartTime)
+                    if (confirmStopTime <= confirmStartTime)
                     {
                         warning.Show();
                         label2.ForeColor = Color.Gray;
@@ -105,6 +126,8 @@ namespace GroupProjCS3560num2.Forms
                     }
                     else
                     {
+                        warning.Hide();
+
                         label2.ForeColor = Color.Black;
                         label3.ForeColor = Color.Black;
                         label4.ForeColor = Color.Black;
@@ -121,22 +144,17 @@ namespace GroupProjCS3560num2.Forms
                         double dAdj = emp.getAdjustment();
                         double dHourlyRate = dBasePay + dAdj;
                         double dTotalH = TotalPayHandler.GetTotalHours
-                            (confirmStartTime,confirmStopTime, emp);
+                            (confirmStartTime, confirmStopTime, emp);
                         double dtotalP = dHourlyRate * dTotalH;
 
                         basePay.Text = dBasePay.ToString();
                         adj.Text = dAdj.ToString();
                         hourlyRate.Text = dHourlyRate.ToString();
-                        totalH.Text = dTotalH.ToString();
-                        totalP.Text = dtotalP.ToString();
+                        totalH.Text = dTotalH.ToString("0.00");
+                        totalP.Text = dtotalP.ToString("0.00");
                     }
                 }
             }
-        }
-
-        private void totalHrs_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -27,12 +27,18 @@ namespace GroupProjCS3560num2
             sP.BringToFront();
             Application.Run(sP);
             */
-            
-            TotalPay sP = new TotalPay();
+            ///*
+            AddTimestamp sP = new AddTimestamp();
             sP.StartPosition = FormStartPosition.CenterScreen;
             sP.BringToFront();
             Application.Run(sP);
-            
+            //*/
+            /*
+            TotalPayTable sP = new TotalPayTable();
+            sP.StartPosition = FormStartPosition.CenterScreen;
+            sP.BringToFront();
+            Application.Run(sP);
+            */
         }
     }
 }

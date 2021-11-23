@@ -17,7 +17,7 @@ namespace GroupProjCS3560num2.Forms
         public AddTimestamp()
         {
             InitializeComponent();
-            for(int i = 0; i < TimestampHandler.GetAllEmp().Count; i++)
+            for (int i = 0; i < TimestampHandler.GetAllEmp().Count; i++)
             {
                 employeeComboBox.Items.Add(
                     TimestampHandler.GetAllEmp()[i].getEmpName()
@@ -27,7 +27,7 @@ namespace GroupProjCS3560num2.Forms
             }
             warning.Hide();
         }
-        
+
         private void clockInDate_ValueChanged(object sender, EventArgs e)
         {
 
@@ -55,43 +55,50 @@ namespace GroupProjCS3560num2.Forms
 
         private void confirmTimestamp_Click(object sender, EventArgs e)
         {
-            string name = employeeComboBox.GetItemText(employeeComboBox.SelectedItem);
-            for(int i = 0; i < TimestampHandler.GetAllEmp().Count; i++)
+            DateTime newClockIn = DateTime.Parse(clockInDate.Value.ToShortDateString());
+            string clockInTimeStr = clockInTime.Value.ToString("HH:mm");
+            newClockIn += TimeSpan.Parse(clockInTimeStr);
+
+            DateTime newClockOut = DateTime.Parse(clockOutDate.Value.ToShortDateString());
+            string clockOutTimeStr = clockOutTime.Value.ToString("HH:mm");
+            newClockOut += TimeSpan.Parse(clockOutTimeStr);
+
+            if (employeeComboBox.GetItemText(employeeComboBox.SelectedItem) == string.Empty)
             {
-                if(name ==
-                    TimestampHandler.GetAllEmp()[i].getEmpName()
-                    + " - ID: " +
-                    TimestampHandler.GetAllEmp()[i].getEmployeeID()
-                    )
+                warning.Hide();
+                employeeComboBox.ForeColor = Color.Red;
+            }
+
+            else if (newClockOut <= newClockIn)
+            {
+                warning.Show();
+                employeeComboBox.ForeColor = Color.Black;
+            }
+            else
+            {
+                warning.Hide();
+                employeeComboBox.ForeColor = Color.Black;
+
+                string name = employeeComboBox.GetItemText(employeeComboBox.SelectedItem);
+                for (int i = 0; i < TimestampHandler.GetAllEmp().Count; i++)
                 {
-                    DateTime newClockIn = DateTime.Parse(clockInDate.Value.ToShortDateString());
-                    string clockInTimeStr = clockInTime.Value.ToString("HH:mm");
-                    newClockIn += TimeSpan.Parse(clockInTimeStr);
-
-                    DateTime newClockOut = DateTime.Parse(clockOutDate.Value.ToShortDateString());
-                    string clockOutTimeStr = clockOutTime.Value.ToString("HH:mm");
-                    newClockOut += TimeSpan.Parse(clockOutTimeStr);
-
-                    if (newClockOut <= newClockIn)
-                    {
-                        warning.Show();
-                    }
-                    else
+                    if (name ==
+                        TimestampHandler.GetAllEmp()[i].getEmpName()
+                        + " - ID: " +
+                        TimestampHandler.GetAllEmp()[i].getEmployeeID()
+                        )
                     {
                         TimestampHandler.CreateTimestamp(
                             TimestampHandler.GetAllEmp()[i].getEmployeeID(),
                             newClockIn,
                             newClockOut
                             );
+                        break;
                     }
-
-
-
                 }
+                this.Close();
             }
-            this.Close();
         }
-
         private void cancelTimestamp_Click(object sender, EventArgs e)
         {
             this.Close();

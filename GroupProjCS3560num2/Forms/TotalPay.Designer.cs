@@ -36,8 +36,6 @@ namespace GroupProjCS3560num2.Forms
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.warning = new System.Windows.Forms.Label();
-            this.confirmTimestamp = new System.Windows.Forms.Button();
-            this.cancelTimestamp = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +55,7 @@ namespace GroupProjCS3560num2.Forms
             this.stopDate.Size = new System.Drawing.Size(250, 23);
             this.stopDate.TabIndex = 33;
             this.stopDate.Value = new System.DateTime(2021, 11, 22, 0, 0, 0, 0);
+            this.stopDate.ValueChanged += new System.EventHandler(this.stopDate_ValueChanged);
             // 
             // startDate
             // 
@@ -65,6 +64,7 @@ namespace GroupProjCS3560num2.Forms
             this.startDate.Size = new System.Drawing.Size(250, 23);
             this.startDate.TabIndex = 32;
             this.startDate.Value = new System.DateTime(2021, 11, 15, 0, 0, 0, 0);
+            this.startDate.ValueChanged += new System.EventHandler(this.startDate_ValueChanged);
             // 
             // label7
             // 
@@ -115,31 +115,11 @@ namespace GroupProjCS3560num2.Forms
             this.warning.TabIndex = 36;
             this.warning.Text = "* stop time must be later than start time";
             // 
-            // confirmTimestamp
-            // 
-            this.confirmTimestamp.Location = new System.Drawing.Point(292, 150);
-            this.confirmTimestamp.Name = "confirmTimestamp";
-            this.confirmTimestamp.Size = new System.Drawing.Size(75, 23);
-            this.confirmTimestamp.TabIndex = 35;
-            this.confirmTimestamp.Text = "Confirm";
-            this.confirmTimestamp.UseVisualStyleBackColor = true;
-            this.confirmTimestamp.Click += new System.EventHandler(this.confirmTimestamp_Click);
-            // 
-            // cancelTimestamp
-            // 
-            this.cancelTimestamp.Location = new System.Drawing.Point(187, 150);
-            this.cancelTimestamp.Name = "cancelTimestamp";
-            this.cancelTimestamp.Size = new System.Drawing.Size(75, 23);
-            this.cancelTimestamp.TabIndex = 34;
-            this.cancelTimestamp.Text = "Cancel";
-            this.cancelTimestamp.UseVisualStyleBackColor = true;
-            this.cancelTimestamp.Click += new System.EventHandler(this.cancelTimestamp_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(15, 185);
+            this.label2.Location = new System.Drawing.Point(12, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 37;
@@ -149,7 +129,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(115, 185);
+            this.label3.Location = new System.Drawing.Point(112, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 38;
@@ -159,7 +139,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label4.Location = new System.Drawing.Point(215, 185);
+            this.label4.Location = new System.Drawing.Point(212, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 15);
             this.label4.TabIndex = 39;
@@ -169,7 +149,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label6.Location = new System.Drawing.Point(350, 185);
+            this.label6.Location = new System.Drawing.Point(347, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 40;
@@ -180,7 +160,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label8.Location = new System.Drawing.Point(450, 185);
+            this.label8.Location = new System.Drawing.Point(447, 147);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 15);
             this.label8.TabIndex = 41;
@@ -190,7 +170,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.totalP.AutoSize = true;
             this.totalP.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.totalP.Location = new System.Drawing.Point(450, 200);
+            this.totalP.Location = new System.Drawing.Point(447, 162);
             this.totalP.Name = "totalP";
             this.totalP.Size = new System.Drawing.Size(31, 15);
             this.totalP.TabIndex = 46;
@@ -200,7 +180,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.totalH.AutoSize = true;
             this.totalH.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.totalH.Location = new System.Drawing.Point(350, 200);
+            this.totalH.Location = new System.Drawing.Point(347, 162);
             this.totalH.Name = "totalH";
             this.totalH.Size = new System.Drawing.Size(43, 15);
             this.totalH.TabIndex = 45;
@@ -211,7 +191,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.hourlyRate.AutoSize = true;
             this.hourlyRate.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.hourlyRate.Location = new System.Drawing.Point(215, 200);
+            this.hourlyRate.Location = new System.Drawing.Point(212, 162);
             this.hourlyRate.Name = "hourlyRate";
             this.hourlyRate.Size = new System.Drawing.Size(43, 15);
             this.hourlyRate.TabIndex = 44;
@@ -221,7 +201,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.adj.AutoSize = true;
             this.adj.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.adj.Location = new System.Drawing.Point(115, 200);
+            this.adj.Location = new System.Drawing.Point(112, 162);
             this.adj.Name = "adj";
             this.adj.Size = new System.Drawing.Size(31, 15);
             this.adj.TabIndex = 43;
@@ -231,7 +211,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.basePay.AutoSize = true;
             this.basePay.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.basePay.Location = new System.Drawing.Point(15, 200);
+            this.basePay.Location = new System.Drawing.Point(12, 162);
             this.basePay.Name = "basePay";
             this.basePay.Size = new System.Drawing.Size(31, 15);
             this.basePay.TabIndex = 42;
@@ -241,7 +221,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 225);
+            this.ClientSize = new System.Drawing.Size(554, 189);
             this.Controls.Add(this.totalP);
             this.Controls.Add(this.totalH);
             this.Controls.Add(this.hourlyRate);
@@ -253,8 +233,6 @@ namespace GroupProjCS3560num2.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.warning);
-            this.Controls.Add(this.confirmTimestamp);
-            this.Controls.Add(this.cancelTimestamp);
             this.Controls.Add(this.stopDate);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.label7);
@@ -278,8 +256,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.ComboBox employeeComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label warning;
-        private System.Windows.Forms.Button confirmTimestamp;
-        private System.Windows.Forms.Button cancelTimestamp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

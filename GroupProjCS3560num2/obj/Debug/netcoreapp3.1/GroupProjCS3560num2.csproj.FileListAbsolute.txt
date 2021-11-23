@@ -136,3 +136,5 @@ C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS35
 C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
 C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
 C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.csproj.AssemblyReference.cache
+C:\Users\Leonardo\Documents\GitHub\Group3_Timesheets_System_CS3560\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.TotalPayTable.resources

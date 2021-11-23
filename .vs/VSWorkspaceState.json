@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GroupProjCS3560num2"
+    "\\GroupProjCS3560num2",
+    "\\GroupProjCS3560num2\\Classes",
+    "\\GroupProjCS3560num2\\Forms"
   ],
   "SelectedNode": "\\GroupProjCS3560num2\\Program.cs",
   "PreviewInSolutionExplorer": false
