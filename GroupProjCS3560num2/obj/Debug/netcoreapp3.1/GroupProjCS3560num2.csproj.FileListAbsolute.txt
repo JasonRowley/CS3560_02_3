@@ -95,3 +95,4 @@ E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.dll
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.pdb
 E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.genruntimeconfig.cache
+E:\+School\CPP\Classes\2021 Fall\CS3560 - Object Oriented Design and Programming\Group Project\CS3560_02_3\GroupProjCS3560num2\obj\Debug\netcoreapp3.1\GroupProjCS3560num2.Forms.EmpForms.ReducedEmployeeInfo.resources
