@@ -37,7 +37,8 @@ namespace GroupProjCS3560num2.Forms
                 }
                 else
                 {
-                    if(tempEmployee.getJobID() == 1)//for now just prevent any non Admin from gaining access.
+                    Job empJob = DatabaseHelper.SelectJob(tempEmployee.getJobID());
+                    if(empJob.getJobTitle().ToUpper() == "ADMIN")
                     {
                         using (AdminMain f0 = new AdminMain(tempEmployee))
                         {

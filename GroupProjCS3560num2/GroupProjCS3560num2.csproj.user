@@ -25,9 +25,6 @@
     <Compile Update="Forms\JobForms\JobInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Logins\IncorrectCredentials.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Logins\Login.cs">
       <SubType>Form</SubType>
     </Compile>
