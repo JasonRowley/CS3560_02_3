@@ -21,18 +21,18 @@ namespace GroupProjCS3560num2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*
+            ///*
             StartPage sP = new StartPage();
             sP.StartPosition = FormStartPosition.CenterScreen;
             sP.BringToFront();
             Application.Run(sP);
-            */
-            ///*
-            AddTimestamp sP = new AddTimestamp();
+            //*/
+            /*
+            Timestamp sP = new Timestamp();
             sP.StartPosition = FormStartPosition.CenterScreen;
             sP.BringToFront();
-            Application.Run(sP);
-            //*/
+            Application.Run();
+            */
             /*
             TotalPayTable sP = new TotalPayTable();
             sP.StartPosition = FormStartPosition.CenterScreen;
