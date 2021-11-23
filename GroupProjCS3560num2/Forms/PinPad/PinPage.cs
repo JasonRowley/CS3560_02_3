@@ -71,6 +71,8 @@ namespace GroupProjCS3560num2.Forms
                         label2.Text = "Successfully checked out!";
                         label2.ForeColor = System.Drawing.Color.DodgerBlue;
                         label2.Show();
+                        button12.Enabled = false;
+                        button11.Enabled = false;
                         await Task.Delay(1000);
                         Close();
                         break;
@@ -78,8 +80,8 @@ namespace GroupProjCS3560num2.Forms
                         label2.Text = "Successfully checked in!";
                         label2.ForeColor = System.Drawing.Color.DodgerBlue;
                         label2.Show();
-                        //button12.Enabled = false;
-                        //button11.Enabled = false;
+                        button12.Enabled = false;
+                        button11.Enabled = false;
                         await Task.Delay(1000);
                         Close();
                         break;

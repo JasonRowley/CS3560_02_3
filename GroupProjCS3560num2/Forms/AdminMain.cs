@@ -101,5 +101,12 @@ namespace GroupProjCS3560num2.Forms
         {
             //logout
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TotalPayTable tPT = new TotalPayTable();
+            tPT.StartPosition = FormStartPosition.CenterScreen;
+            tPT.ShowDialog();
+        }
     }
 }

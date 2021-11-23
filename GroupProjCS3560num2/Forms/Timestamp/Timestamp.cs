@@ -11,25 +11,25 @@ using System.Globalization;
 
 namespace GroupProjCS3560num2.Forms
 {
-    public partial class TimeLogInfo : Form
+    public partial class Timestamp : Form
     {
-        public TimeLogInfo(TimeLog timelog)
+        public Timestamp(TimeLog timelog)
         {
             InitializeComponent();
             empName.Text = TimestampHandler.GetEmpName(timelog);
-            empID.Text = TimestampHandler.GetEmpID(timelog).ToString();
-            empJob.Text = TimestampHandler.GetEmpJob(timelog);
             timelogID.Text = TimestampHandler.getTimestampID(timelog).ToString();
 
             clockInDate.Text = TimestampHandler.GetCheckInTime(timelog).ToShortDateString();
             clockInTime.Text = TimestampHandler.GetCheckInTime(timelog).ToShortTimeString();
             clockOutDate.Text = TimestampHandler.GetCheckOutTime(timelog).ToShortDateString();
             clockOutTime.Text = TimestampHandler.GetCheckOutTime(timelog).ToShortTimeString();
+
+            warning.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+             
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace GroupProjCS3560num2.Forms
         private void confirmTimestamp_Click(object sender, EventArgs e)
         {
             int newLogID = Int32.Parse(timelogID.Text);
-            int newEmpID = Int32.Parse(empID.Text);
+            int newEmpID = TimestampHandler.GetEmpID(newLogID);
 
             DateTime newClockIn = DateTime.Parse(clockInDate.Value.ToShortDateString());
             string clockInTimeStr = clockInTime.Value.ToString("HH:mm");
@@ -82,9 +82,15 @@ namespace GroupProjCS3560num2.Forms
             string clockOutTimeStr = clockOutTime.Value.ToString("HH:mm");
             newClockOut += TimeSpan.Parse(clockOutTimeStr);
 
-            TimestampHandler.UpdateTimestamp(newLogID, newEmpID, newClockIn, newClockOut);
-
-            this.Close();
+            if(newClockOut <= newClockIn)
+            {
+                warning.Show();
+            }
+            else
+            {
+                TimestampHandler.UpdateTimestamp(newLogID, newEmpID, newClockIn, newClockOut);
+                this.Close();
+            }
         }
 
         private void timestampID_Click(object sender, EventArgs e)
@@ -101,20 +107,10 @@ namespace GroupProjCS3560num2.Forms
         {
 
         }
-        /*
-private void deleteTimestamp(object sender, EventArgs e, TimeLog log) // confirm button
-{
-TimestampHandler.DeleteTimestamp(log.getLogID());
-}
-private void confirmTimestamp(object sender, EventArgs e, TimeLog log) // confirm button
-{
-TimestampHandler.UpdateTimestamp(log);
-}
 
-private void cancelTimestamp(object sender, EventArgs e) // confirm button
-{
-this.Close();
-}
-*/
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

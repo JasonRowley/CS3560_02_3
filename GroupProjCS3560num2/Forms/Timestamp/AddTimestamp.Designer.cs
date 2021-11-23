@@ -40,6 +40,7 @@ namespace GroupProjCS3560num2.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.warning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -102,7 +103,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             // confirmTimestamp
             // 
-            this.confirmTimestamp.Location = new System.Drawing.Point(435, 181);
+            this.confirmTimestamp.Location = new System.Drawing.Point(292, 181);
             this.confirmTimestamp.Name = "confirmTimestamp";
             this.confirmTimestamp.Size = new System.Drawing.Size(75, 23);
             this.confirmTimestamp.TabIndex = 24;
@@ -112,7 +113,7 @@ namespace GroupProjCS3560num2.Forms
             // 
             // cancelTimestamp
             // 
-            this.cancelTimestamp.Location = new System.Drawing.Point(268, 181);
+            this.cancelTimestamp.Location = new System.Drawing.Point(187, 181);
             this.cancelTimestamp.Name = "cancelTimestamp";
             this.cancelTimestamp.Size = new System.Drawing.Size(75, 23);
             this.cancelTimestamp.TabIndex = 23;
@@ -147,11 +148,22 @@ namespace GroupProjCS3560num2.Forms
             this.label5.TabIndex = 19;
             this.label5.Text = "Clock In Time";
             // 
+            // warning
+            // 
+            this.warning.AutoSize = true;
+            this.warning.ForeColor = System.Drawing.Color.Red;
+            this.warning.Location = new System.Drawing.Point(292, 152);
+            this.warning.Name = "warning";
+            this.warning.Size = new System.Drawing.Size(255, 15);
+            this.warning.TabIndex = 29;
+            this.warning.Text = "* clockout time must be later than clockin time";
+            // 
             // AddTimestamp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(553, 217);
+            this.Controls.Add(this.warning);
             this.Controls.Add(this.clockOutTime);
             this.Controls.Add(this.clockOutDate);
             this.Controls.Add(this.clockInTime);
@@ -183,5 +195,6 @@ namespace GroupProjCS3560num2.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label warning;
     }
 }
