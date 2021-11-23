@@ -19,7 +19,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
             }
 
             TimeLog tempTimeLog = DatabaseHelper.VerifyTimeLog(empID);
-            if (tempTimeLog.getCheckOut() == default(DateTime))
+            if (tempTimeLog != null)
             {
                 //set checkout time to current time
                 DateTime localTime = DateTime.Now;
@@ -34,8 +34,8 @@ namespace GroupProjCS3560num2.Classes.Handlers
             else
             {
                 //Insert a new TimeLog into database
-                tempTimeLog = new TimeLog();
-                DatabaseHelper.InsertTimeLog(tempTimeLog);
+                TimeLog newTimeLog = new TimeLog(0, empID, DateTime.Now);               
+                DatabaseHelper.InsertTimeLog(newTimeLog);
 
                 return clockIn;
             }

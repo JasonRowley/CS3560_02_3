@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GroupProjCS3560num2.Classes;
 using GroupProjCS3560num2.Forms;
-using GroupProjCS3560num2.Database;
 
 namespace GroupProjCS3560num2
 {
@@ -17,20 +16,23 @@ namespace GroupProjCS3560num2
         [STAThread]
         static void Main()
         {
+            
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            /*
+            StartPage sP = new StartPage();
+            sP.StartPosition = FormStartPosition.CenterScreen;
+            sP.BringToFront();
+            Application.Run(sP);
+            */
             
-            TimeLog testTS = new TimeLog();
-            testTS.setLogID(DatabaseHelper.SelectTimeLog(2).getLogID());
-            testTS.setEmployeeID(DatabaseHelper.SelectTimeLog(2).getEmployeeID());
-            testTS.setCheckIn(DatabaseHelper.SelectTimeLog(2).getCheckIn());
-            testTS.setCheckOut(DatabaseHelper.SelectTimeLog(2).getCheckOut());
+            TotalPay sP = new TotalPay();
+            sP.StartPosition = FormStartPosition.CenterScreen;
+            sP.BringToFront();
+            Application.Run(sP);
             
-
-            Application.Run(new AddTimestamp());
-            //Application.Run(new AddTimestamp());
         }
     }
 }

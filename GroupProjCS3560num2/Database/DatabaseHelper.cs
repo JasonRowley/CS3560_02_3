@@ -15,10 +15,12 @@ namespace GroupProjCS3560num2.Database
            We need to implement toJSON -> Jobs class
            We need to implement toJSON -> Issues class
            We need to implement toJSON -> TimeLog class
+
            We need to implement fromJSON -> Employee class
            We need to implement fromJSON -> Jobs class
            We need to implement fromJSON -> Issues class
            We need to implement fromJSON -> TimeLog class
+
             general inquary methods:
             ------------------------
             Delete
@@ -58,11 +60,11 @@ namespace GroupProjCS3560num2.Database
                 using (var cmd = new MySqlConnector.MySqlCommand(insert_Sql_cmd, sqlCon))
                 {
                     sqlCon.Open();
-
+                   
                     MySqlConnector.MySqlDataReader myReader = cmd.ExecuteReader();
                     try
                     {
-                        toReturn = setter(myReader);
+                           toReturn = setter(myReader);
                     }
                     finally
                     {
@@ -76,7 +78,7 @@ namespace GroupProjCS3560num2.Database
 
         public static Employee VerifyPassword(int employeeID, string password)
         {
-
+            
             Employee tempEmployee = new Employee();
 
             tempEmployee = SelectEmployee(employeeID);
@@ -84,7 +86,7 @@ namespace GroupProjCS3560num2.Database
             if (tempEmployee == null || password != tempEmployee.getPw())
             {
                 return null;
-
+                
             }
             return tempEmployee;
         }
@@ -95,7 +97,7 @@ namespace GroupProjCS3560num2.Database
             return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
-                return myReader.IsDBNull(3) ? new TimeLog(
+                return (myReader.HasRows && myReader.IsDBNull(3)) ? new TimeLog(
                                 myReader.GetInt32(0),
                                 myReader.GetInt32(1),
                                 myReader.GetDateTime(2),
@@ -151,14 +153,14 @@ namespace GroupProjCS3560num2.Database
 
         public static int DeleteEmployee(int employeeID)
         {
-            string cmd = string.Format("delete from Employee where employeeID = {0};", employeeID);
+            string cmd = string.Format("delete from Issue where employeeID = {0}; delete from TimeLog where employeeID = {0}; delete from Employee where employeeID = {0};", employeeID);
             return ConnectMySql(cmd);
         }
 
         public static int UpdateEmployee(Employee employee)
         {
             string dob = employee.getDateOfBirth().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string cmd = string.Format("update Employee set JobId = {1}, password = '{2}, empName = '{3}', physicalAddress = '{4}', " +
+            string cmd = string.Format("update Employee set JobId = {1}, pw = '{2}', empName = '{3}', physicalAddress = '{4}', " +
                 "emailAddress = '{5}', phoneNumber = '{6}', dateOfBirth = '{7}', bankAccNumber = '{8}', sSN = '{9}', adjustment = {10} where employeeID = {0};", employee.getEmployeeID(),
                 employee.getJobID(), employee.getPw(), employee.getEmpName(), employee.getPhysicalAddress(), employee.getEmail(), employee.getPhoneNumber(),
                 dob, employee.getBankAccNum(), employee.getSSN(), employee.getAdjustment());
@@ -217,7 +219,7 @@ namespace GroupProjCS3560num2.Database
         public static int InsertJob(Job job)
         {
             string cmd = string.Format("insert into Job(jobTitle, basePayrate) value ('{0}', {1});", job.getJobTitle(), job.getBasePayrate());
-            return ConnectMySql(cmd);
+            return ConnectMySql (cmd);
         }
 
         public static List<TimeLog> SelectAllTimeLogs(string where = "")
@@ -240,7 +242,7 @@ namespace GroupProjCS3560num2.Database
 
         public static TimeLog SelectTimeLog(int logID)
         {
-            string cmd = string.Format("select * from TimeLog where logId = {0};", logID);
+            string cmd = string.Format("select * from TimeLog where logID = {0};", logID);
             return ConnectMySql<TimeLog>(cmd, (myReader) =>
             {
                 myReader.Read();
@@ -261,16 +263,18 @@ namespace GroupProjCS3560num2.Database
         public static int UpdateTimeLog(TimeLog log)
         {
             string checkIn = log.getCheckIn().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string checkOut = log.getCheckOut().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string cmd = string.Format("update TimeLog set employeeID = {1}, checkIn = '{2}', checkOut = '{3}' where logID = {0};", log.getLogID(), log.getEmployeeID(), checkIn, checkOut);
+            var checkOut = log.getCheckOut();
+            var nullableCheckOut = (checkOut == default(DateTime)) ? "null" : "\'" + checkOut.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\'";
+            string cmd = string.Format("update TimeLog set employeeID = {1}, checkIn = '{2}', checkOut = {3} where logID = {0};", log.getLogID(), log.getEmployeeID(), checkIn, nullableCheckOut);
             return ConnectMySql(cmd);
         }
 
         public static int InsertTimeLog(TimeLog log)
         {
             string checkIn = log.getCheckIn().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string checkOut = log.getCheckOut().ToString("yyyy-MM-dd HH:mm:ss.fff");
-            string cmd = string.Format("insert into TimeLog(employeeID, checkIn, checkOut) value ({0}, '{1}', '{2}');", log.getEmployeeID(), checkIn, checkOut);
+            var checkOut = log.getCheckOut();
+            var nullableCheckOut = (checkOut == default(DateTime)) ? "null" : "\'" + checkOut.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\'";
+            string cmd = string.Format("insert into TimeLog(employeeID, checkIn, checkOut) value ({0}, '{1}', {2});", log.getEmployeeID(), checkIn, nullableCheckOut);
             return ConnectMySql(cmd);
         }
 
@@ -290,7 +294,7 @@ namespace GroupProjCS3560num2.Database
                         myReader.GetBoolean(4)));
                 }
                 return issues;
-
+                
             });
         }
 
@@ -324,7 +328,7 @@ namespace GroupProjCS3560num2.Database
         public static int InsertIssue(Issue issue)
         {
             string cmd = string.Format("insert into Issue(employeeID, adminID, issueStr, solved) value ({0}, {1}, '{2}', {3});", issue.getEmployeeID(), issue.getAdminID(), issue.getIssueStr(), issue.isSolved());
-            return ConnectMySql(cmd);
+            return ConnectMySql (cmd);
         }
     }
 }

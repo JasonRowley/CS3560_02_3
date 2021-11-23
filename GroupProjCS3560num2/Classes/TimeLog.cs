@@ -11,7 +11,7 @@ namespace GroupProjCS3560num2.Classes
         DateTime checkIn;
         DateTime checkOut;
 
-        public TimeLog(int logID, int employeeID, DateTime checkIn, DateTime checkOut)
+        public TimeLog(int logID, int employeeID, DateTime checkIn, DateTime checkOut = default(DateTime))
         {
             this.logID = logID;
             this.employeeID = employeeID;

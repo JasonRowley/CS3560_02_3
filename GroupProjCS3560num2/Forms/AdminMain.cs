@@ -1,64 +1,105 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using GroupProjCS3560num2.Forms;
+﻿using GroupProjCS3560num2.Classes;
 using GroupProjCS3560num2.Classes.Handlers;
+using System;
+using System.Windows.Forms;
 
 namespace GroupProjCS3560num2.Forms
 {
     public partial class AdminMain : Form
     {
-        public AdminMain()
+        AdminMainHandler amh;
+
+
+        public AdminMain(Employee emp)
         {
             InitializeComponent();
+            // Create handler and display employee table
+            amh = new AdminMainHandler(emp, listView1, button5);
+            amh.changeTbl(Tables.EMPLOYEE);
+
+            // Make displayed rows clickable
+            listView1.Activation = ItemActivation.OneClick;
+            listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
+            listView1.FullRowSelect = true;
+
+            // Search and display specific rows on Enter key press
+            textBox1.KeyUp += textBox1_KeyUp;
         }
 
-        private void button1_Click(object sender, EventArgs e) // do nothing
+        private void button1_Click(object sender, EventArgs e)
         {
-            
+            amh.changeTbl(Tables.EMPLOYEE);
+        }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            amh.changeTbl(Tables.JOB);
         }
 
-        private void button3_Click(object sender, EventArgs e) // issues
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            amh.changeTbl(Tables.ISSUE);
         }
 
-        private void button4_Click(object sender, EventArgs e) // timelogs
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            amh.changeTbl(Tables.TIMELOG);
         }
 
-        private void button5_Click(object sender, EventArgs e) // add employee
+        private void button5_Click(object sender, EventArgs e)
         {
-            AddEmployee f = new AddEmployee();
-            f.Show();
+            amh.AddNewEntity();
         }
 
-        private void button6_Click(object sender, EventArgs e) // logout
+        private void button6_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            StartPage f = new StartPage();
-            f.Show();
+            //logout
+            Close();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e) // employee table
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
-/*            var emp = DisplayEmployeeHandler.DispEmp();
-            foreach (var Employee in emp)
+            if (e.KeyCode == Keys.Enter)
             {
-                var row = new string[]
+                try
                 {
-                    //(string)Employee.getEmployeeID(), Employee.getEmpName(), Employee.getJobID(), 
+                    amh.populateColumns(amh.getSearchQuery(textBox1.Text));
                 }
-            }*/
-
-            // get the list of employees and their information from the data base
-            // display the list of employees and their information
+                catch (NoEmployeesException) { /* do nothing */ }
+                finally
+                {
+                    e.Handled = true;
+                }
+            }
         }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_ItemActivate(object sender, EventArgs e)
+        {
+            // ListView.SelectedListViewItemCollection entity = this.listView1.SelectedItems;
+            // access table from row
+            if (amh.getCurrTbl() == Tables.ISSUE)
+            {
+                amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].SubItems[1].Text));
+            }
+            else
+            { 
+                amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].Text));
+            }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminMain_FomClosing(object sender, FormClosingEventArgs e)
+        {
+            //logout
+        }
     }
 }
