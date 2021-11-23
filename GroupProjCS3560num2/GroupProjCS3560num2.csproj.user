@@ -13,10 +13,16 @@
     <Compile Update="Forms\EmpForms\EmployeeInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\IssueForms\AdminIssuePage.cs">
+    <Compile Update="Forms\EmpForms\ReducedEmployeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EmployeeMain\EmployeeMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\IssueForms\AddIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\IssueForms\AdminIssuePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\JobForms\AddJob.cs">
@@ -26,12 +32,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Logins\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PinPad\ClockedIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PinPad\ClockedOut.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PinPad\PinPage.cs">

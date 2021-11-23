@@ -53,8 +53,15 @@ namespace GroupProjCS3560num2.Forms
                     }
                     else
                     {
-                        hidelabels();
-                        label3.Show();
+                        using (EmployeeMain f1 = new EmployeeMain(tempEmployee))
+                        {
+                            this.WindowState = FormWindowState.Minimized;
+                            this.ShowInTaskbar = false;
+                            f1.StartPosition = FormStartPosition.CenterScreen;
+                            f1.ShowDialog();
+                            this.WindowState = FormWindowState.Normal;
+                            this.ShowInTaskbar = true;
+                        }
                     }
                     
 

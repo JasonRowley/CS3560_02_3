@@ -1,5 +1,5 @@
 ﻿using GroupProjCS3560num2.Classes.Handlers;
-using GroupProjCS3560num2.Forms.PinPad;
+using GroupProjCS3560num2.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +78,8 @@ namespace GroupProjCS3560num2.Forms
                         label2.Text = "Successfully checked in!";
                         label2.ForeColor = System.Drawing.Color.DodgerBlue;
                         label2.Show();
+                        //button12.Enabled = false;
+                        //button11.Enabled = false;
                         await Task.Delay(1000);
                         Close();
                         break;
