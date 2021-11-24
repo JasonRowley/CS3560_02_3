@@ -16,16 +16,14 @@ namespace GroupProjCS3560num2.Classes.Handlers
         {
             return DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getEmployeeID();
         }
+        public static int GetEmpID(int timelog)
+        {
+            return DatabaseHelper.SelectTimeLog(timelog).getEmployeeID();
+        }
 
         public static string GetEmpJob(TimeLog timelog)
         {
-            string ret =
-                DatabaseHelper.SelectJob(DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getJobID())
-            + " (" +
-                DatabaseHelper.SelectEmployee(timelog.getEmployeeID()).getJobID()
-                + ")";
-
-            return ret;
+            return DatabaseHelper.SelectJob(timelog.getEmployeeID()).getJobTitle();
         }
         public static int getTimestampID(TimeLog timelog)
         {

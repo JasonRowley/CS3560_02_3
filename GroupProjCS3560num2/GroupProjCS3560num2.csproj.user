@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Forms\AddTimestamp.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\AdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -16,6 +13,15 @@
     <Compile Update="Forms\EmpForms\ReducedEmployeeInfo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\EmployeeMain\EmployeeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\IssueForms\AddIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\IssueForms\AdminIssuePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\JobForms\AddJob.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -25,22 +31,19 @@
     <Compile Update="Forms\Logins\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\PinPad\ClockedIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PinPad\ClockedOut.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\PinPad\PinPadFailed.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\PinPad\PinPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\StartPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Timestamp.cs">
+    <Compile Update="Forms\Timestamp\AddTimestamp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Timestamp\Timestamp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TotalPay\TotalPayTable.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

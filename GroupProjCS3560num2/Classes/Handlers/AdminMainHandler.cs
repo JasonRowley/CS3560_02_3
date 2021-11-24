@@ -35,6 +35,11 @@ namespace GroupProjCS3560num2.Classes.Handlers
             this.currTbl = currTbl;
         }
 
+        public Tables getCurrTbl()
+        {
+            return currTbl;
+        }
+
         public void changeTbl(Tables tbl)
         {
             var cols = lv.Columns;
@@ -65,11 +70,11 @@ namespace GroupProjCS3560num2.Classes.Handlers
 
                     cols[3].Name = "physicalAddress";
                     cols[3].Text = "Address";
-                    cols[3].Width = 90;
+                    cols[3].Width = 250;
 
                     cols[4].Name = "emailAddress";
                     cols[4].Text = "Email";
-                    cols[4].Width = 120;
+                    cols[4].Width = 150;
 
                     cols[5].Name = "phoneNumber";
                     cols[5].Text = "Phone Number";
@@ -259,6 +264,7 @@ namespace GroupProjCS3560num2.Classes.Handlers
             }
             return query;
         }
+
         public void AddNewEntity()
         {
             switch (currTbl)
@@ -272,14 +278,12 @@ namespace GroupProjCS3560num2.Classes.Handlers
                     
                     break;
                 case Tables.ISSUE:
-                    /*
-                    using (AddIssue aI = new AddIssue())
+                    using (AddIssue aI = new AddIssue(emp.getEmployeeID()))
                     {
                         aI.StartPosition = FormStartPosition.CenterScreen;
                         aI.ShowDialog();
-                        changeTbl(Tables.EMPLOYEE);
+                        changeTbl(Tables.ISSUE);
                     }
-                    */
                     break;
                 case Tables.TIMELOG:
                     
@@ -320,20 +324,18 @@ namespace GroupProjCS3560num2.Classes.Handlers
                     }
                     break;
                 case Tables.ISSUE:
-                    /*
-                    using (AddIssue aI = new AddIssue())
+                    using (AdminIssuePage aIP = new AdminIssuePage(DatabaseHelper.SelectIssue(id)))
                     {
-                        aI.ShowDialog();
-                        changeTbl(Tables.EMPLOYEE);
+                        aIP.ShowDialog();
+                        changeTbl(Tables.ISSUE);
                     }
-                    */
                     break;
                 case Tables.TIMELOG:
                     
                     using (Timestamp aT = new Timestamp(DatabaseHelper.SelectTimeLog(id)))
                     {
                         aT.StartPosition = FormStartPosition.CenterScreen;
-                        int  i = (int)aT.ShowDialog();
+                        int i = (int)aT.ShowDialog();
                         changeTbl(Tables.TIMELOG);
                     }
                     

@@ -44,44 +44,46 @@ namespace GroupProjCS3560num2.Forms
             // basePayrateLabel
             // 
             this.basePayrateLabel.AutoSize = true;
-            this.basePayrateLabel.Location = new System.Drawing.Point(24, 109);
+            this.basePayrateLabel.Location = new System.Drawing.Point(27, 145);
             this.basePayrateLabel.Name = "basePayrateLabel";
-            this.basePayrateLabel.Size = new System.Drawing.Size(73, 15);
+            this.basePayrateLabel.Size = new System.Drawing.Size(92, 20);
             this.basePayrateLabel.TabIndex = 2;
             this.basePayrateLabel.Text = "Base Payrate";
             // 
             // jobIDLabel
             // 
             this.jobIDLabel.AutoSize = true;
-            this.jobIDLabel.Location = new System.Drawing.Point(24, 74);
+            this.jobIDLabel.Location = new System.Drawing.Point(27, 99);
             this.jobIDLabel.Name = "jobIDLabel";
-            this.jobIDLabel.Size = new System.Drawing.Size(39, 15);
+            this.jobIDLabel.Size = new System.Drawing.Size(51, 20);
             this.jobIDLabel.TabIndex = 3;
             this.jobIDLabel.Text = "Job ID";
             // 
             // jobTitleLabel
             // 
             this.jobTitleLabel.AutoSize = true;
-            this.jobTitleLabel.Location = new System.Drawing.Point(24, 36);
+            this.jobTitleLabel.Location = new System.Drawing.Point(27, 48);
             this.jobTitleLabel.Name = "jobTitleLabel";
-            this.jobTitleLabel.Size = new System.Drawing.Size(50, 15);
+            this.jobTitleLabel.Size = new System.Drawing.Size(65, 20);
             this.jobTitleLabel.TabIndex = 4;
             this.jobTitleLabel.Text = "Job Title";
             // 
             // jobIDBox
             // 
-            this.jobIDBox.Location = new System.Drawing.Point(107, 71);
+            this.jobIDBox.Location = new System.Drawing.Point(122, 95);
+            this.jobIDBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.jobIDBox.Name = "jobIDBox";
             this.jobIDBox.ReadOnly = true;
-            this.jobIDBox.Size = new System.Drawing.Size(121, 23);
+            this.jobIDBox.Size = new System.Drawing.Size(267, 27);
             this.jobIDBox.TabIndex = 10;
             this.jobIDBox.TextChanged += new System.EventHandler(this.jobIDBox_TextChanged);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(29, 158);
+            this.cancelButton.Location = new System.Drawing.Point(82, 215);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(86, 31);
             this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -89,9 +91,10 @@ namespace GroupProjCS3560num2.Forms
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(119, 158);
+            this.confirmButton.Location = new System.Drawing.Point(174, 215);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.Size = new System.Drawing.Size(86, 31);
             this.confirmButton.TabIndex = 9;
             this.confirmButton.Text = "Confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -101,9 +104,10 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.deleteButton.BackColor = System.Drawing.Color.Red;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deleteButton.Location = new System.Drawing.Point(212, 158);
+            this.deleteButton.Location = new System.Drawing.Point(266, 215);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.Size = new System.Drawing.Size(86, 31);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -111,18 +115,20 @@ namespace GroupProjCS3560num2.Forms
             // 
             // comboBox1
             // 
-            this.comboBox1.Location = new System.Drawing.Point(107, 33);
+            this.comboBox1.Location = new System.Drawing.Point(122, 44);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.Size = new System.Drawing.Size(267, 28);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 106);
+            this.textBox1.Location = new System.Drawing.Point(122, 141);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "0.0";
-            this.textBox1.Size = new System.Drawing.Size(121, 23);
+            this.textBox1.Size = new System.Drawing.Size(267, 27);
             this.textBox1.TabIndex = 11;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -130,18 +136,19 @@ namespace GroupProjCS3560num2.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(14, 136);
+            this.label1.Location = new System.Drawing.Point(16, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 15);
+            this.label1.Size = new System.Drawing.Size(394, 20);
             this.label1.TabIndex = 12;
-            this.label1.Text = "* Cannot delete job: an existing employee with this job";
+            this.label1.Text = "* Cannot delete job: there exists an employee with this job";
             this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // JobInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 203);
+            this.ClientSize = new System.Drawing.Size(433, 277);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
@@ -152,6 +159,7 @@ namespace GroupProjCS3560num2.Forms
             this.Controls.Add(this.jobTitleLabel);
             this.Controls.Add(this.jobIDLabel);
             this.Controls.Add(this.basePayrateLabel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "JobInfo";
             this.Text = "JobInfo";
             this.ResumeLayout(false);

@@ -45,7 +45,30 @@ namespace GroupProjCS3560num2.Classes
         {
             return solved;
         }
+
+        public void setIssueID(int issueID)
+        {
+            this.issueID = issueID;
+        }
+
+        public void setEmployeeID(int empID)
+        {
+            employeeID = empID;
+        }
     
+        public void setAdminID(int adminID)
+        {
+            this.adminID = adminID;
+        }
+
+        public void setIssueStr(string str)
+        {
+            issueStr = str;
+        }
     
+        public void setSolved(bool solved)
+        {
+            this.solved = solved;
+        }
     }
 }

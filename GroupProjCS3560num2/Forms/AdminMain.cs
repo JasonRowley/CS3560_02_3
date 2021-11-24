@@ -80,10 +80,16 @@ namespace GroupProjCS3560num2.Forms
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
-           // ListView.SelectedListViewItemCollection entity = this.listView1.SelectedItems;
-            
-            amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].Text));//acces from table row
-
+            // ListView.SelectedListViewItemCollection entity = this.listView1.SelectedItems;
+            // access table from row
+            if (amh.getCurrTbl() == Tables.ISSUE)
+            {
+                amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].SubItems[1].Text));
+            }
+            else
+            { 
+                amh.EditNewEntity(Int32.Parse(this.listView1.SelectedItems[0].Text));
+            }
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -94,6 +100,13 @@ namespace GroupProjCS3560num2.Forms
         private void AdminMain_FomClosing(object sender, FormClosingEventArgs e)
         {
             //logout
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TotalPayTable tPT = new TotalPayTable();
+            tPT.StartPosition = FormStartPosition.CenterScreen;
+            tPT.ShowDialog();
         }
     }
 }

@@ -31,9 +31,6 @@ namespace GroupProjCS3560num2.Forms
                
                 this.WindowState = FormWindowState.Normal;
                 this.ShowInTaskbar = true;
-
-                
-
             }
                 
         }
