@@ -3,9 +3,9 @@
 # This is our group's final submission for CS3560_02_3 Object Oriented Programming. 2021 Fall
 
 This project is windows forms application responsible for interacting with a MySQL Database. 
- The application's responsibilities include: maintaining a database of Employee/Job information, while also providing a service for maintaining records for timesheets.
+The application's responsibilities include: maintaining a database of Employee/Job information, while also providing a service for maintaining records for timesheets.
 
-#Configuration
+# Configuration
 inside DatabaseHelper lies the configuration information necessary to communicate with MySQL
 To set up your own database, here are the following commands:
 create table Job(jobID int auto_increment, jobTitle varchar(50), basePayrate double, primary key(jobID));
